@@ -873,7 +873,7 @@ body {
 }
 .footer .left {
   display: inline-block;
-  width: 55%;
+  width: 45%;
 }
 .footer .left p {
   display: flex;
@@ -932,7 +932,7 @@ body {
 }
 .footer .right {
   display: flex;
-  width: 45%;
+  width: 55%;
 }
 .footer .right ul {
   flex-grow: 1;
