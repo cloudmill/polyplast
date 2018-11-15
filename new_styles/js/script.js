@@ -1,12 +1,14 @@
 $(document).ready(function(){
+    var height;
     var mian_slider=$('#main_slider').slick({
         slidesToShow: 1,
+        vertical:true,
         slidesToScroll: 1,
         verticalSwiping : true,
-        fade: true,
         speed: 1000,
         arrows: false,
         dots : true,
+        infinite: false
     })
     $('#main_slider .slider_one').slick({
         slidesToShow: 1,
@@ -48,6 +50,7 @@ $(document).ready(function(){
             if($('#main_slider').slick('slickCurrentSlide')+1 != $('#main_slider').slick("getSlick").slideCount){
                 $(".footer").css('display','none');
             }
+           
         }
         else{
             if($('#main_slider').slick('slickCurrentSlide')+1 != $('#main_slider').slick("getSlick").slideCount){
@@ -121,10 +124,21 @@ $(document).ready(function(){
     $('#main_slider .six .slider').on('beforeChange', function(event, slick, currentIndex, index){
         event.stopPropagation()
     })
-  
     var size_section = function(){
         m_left = Number($('#main_slider .slider_one .content').css('margin-right').replace("px",''));
         width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
+        height = $(window).height();
+
+        $('#main_slider').css('height',height);
+        $('#main_slider .slick-list').css('height',height);
+        $('#main_slider .slick-list .section').css('height',height);
+            
+        $('.over_line').css('height',height+"px");
+        $('.over_line.two').css('left',m_left+"px");
+        $('.over_line.three').css('left',m_left+197.6+"px");
+        $('.over_line.four').css('left',m_left+197.3*2+"px");
+        $('.over_line.five').css('right',m_left+"px");
+
         $('#main_slider .two .content').css('width',m_left+width+'px');
 
         $('#main_slider .three .content').css('width',width+'px');
@@ -142,7 +156,7 @@ $(document).ready(function(){
         
     }
     size_section();
-    addEvent(window, "resize", function(event) {
+    $(window).on('resize',function(){
         size_section();
-    });
+    })
 })
