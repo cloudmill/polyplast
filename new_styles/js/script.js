@@ -125,11 +125,13 @@ $(document).ready(function(){
         event.stopPropagation()
     })
     var size_section = function(){
-        m_left = Number($('#main_slider .slider_one .content').css('margin-right').replace("px",''));
+        m_left = $('#main_slider .slider_one .content').offset().left;
         width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
+        console.log(m_left);
         height = $(window).height();
 
         $('#main_slider').css('height',height);
+        $('.main_slider').css('height',height);
         $('#main_slider .slick-list').css('height',height);
         $('#main_slider .slick-list .section').css('height',height);
             
