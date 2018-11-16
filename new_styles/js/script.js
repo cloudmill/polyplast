@@ -42,7 +42,8 @@ $(document).ready(function(){
         fade: true,
         arrows: false,
         swipe: false,
-        dots : false
+        dots : false,
+        infinite: false
     })
     $('#main_slider').bind('mousewheel', function(e){
         if(e.originalEvent.wheelDelta /120 > 0) {
@@ -71,19 +72,19 @@ $(document).ready(function(){
 
 
 
-    $('#main_slider .four .left_f').on('click', function() {
+    $('#main_slider .four .right_f').on('click', function() {
         $('#main_slider .four .slider').slick('slickNext');
     });
-    $('#main_slider .four .right_f').on('click', function() {
+    $('#main_slider .four .left_f').on('click', function() {
         $('#main_slider .four .slider').slick('slickPrev');
     });
 
 
 
-    $('#main_slider .six .controls .left').on('click', function() {
+    $('#main_slider .six .controls .right').on('click', function() {
         $('#main_slider .six .slider').slick('slickNext');
     });
-    $('#main_slider .six .controls .right').on('click', function() {
+    $('#main_slider .six .controls .left').on('click', function() {
         $('#main_slider .six .slider').slick('slickPrev');
     });
 
