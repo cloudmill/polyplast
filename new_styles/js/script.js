@@ -45,6 +45,16 @@ $(document).ready(function(){
         dots : false,
         infinite: false
     })
+    $('.product_catalog .slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 600,
+        arrows: false,
+        vertical : true,
+        swipe: false,
+        dots : false,
+        infinite: false
+    })
     $('#main_slider').bind('mousewheel', function(e){
         if(e.originalEvent.wheelDelta /120 > 0) {
             $('#main_slider').slick('slickPrev')
@@ -68,6 +78,11 @@ $(document).ready(function(){
         $('#main_slider .two .list_two li').removeClass('active');
         $(this).addClass('active');
         $('#main_slider .two .otrsl_slider').slick('slickGoTo', $(this).index());
+    })
+    $('.product_catalog ul.sidebar li').click(function(){
+        $('.product_catalog ul.sidebar li').removeClass('active');
+        $(this).addClass('active');
+        $('.product_catalog .slider').slick('slickGoTo', $(this).index());
     })
 
 

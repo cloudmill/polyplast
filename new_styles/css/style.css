@@ -165,6 +165,10 @@ body {
 .header.black .right .sity {
   color: black;
 }
+.header.shadow {
+  background-color: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+}
 .main_slider {
   width: 100%;
 }
@@ -874,8 +878,180 @@ body {
 .main_slider .block > .slick-dots.black li:after {
   color: black;
 }
-.footer {
+.main_slider + .footer {
   display: none;
+}
+.breadcrumbs {
+  width: 100%;
+  margin-top: 90px;
+  height: 70px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.breadcrumbs .content {
+  width: 1330px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs .content a {
+  font: 10px 'Roboto';
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #00b8db;
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs .content a:after {
+  content: '';
+  display: block;
+  height: 0px;
+  width: 0px;
+  margin: 0 10px;
+  margin-right: 5px;
+  border: 5px solid transparent;
+  border-left: 25px solid #e8e8e8;
+  cursor: default;
+}
+.breadcrumbs .content p {
+  font: 10px 'Roboto';
+  color: #727272;
+  text-transform: uppercase;
+}
+.product_catalog {
+  padding: 30px 0;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 80px;
+  position: relative;
+}
+.product_catalog .content {
+  width: 1330px;
+  margin: auto;
+}
+.product_catalog .content h1 {
+  margin-top: 0;
+  font: bold 58px 'Roboto';
+}
+.product_catalog .content .slider .item {
+  height: 584px;
+}
+.product_catalog .content .slider .item .row {
+  display: flex;
+  height: 133px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.product_catalog .content .slider .item .row .col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 10px;
+  background-color: #ededed;
+}
+.product_catalog .content .slider .item .row .col p {
+  font: 500 24px 'Roboto';
+  margin: 0;
+  padding: 0 10px 20px 20px;
+}
+.product_catalog .content .slider .item .row .col p.num {
+  padding: 20px 0 0 20px;
+  font: 25px 'Roboto';
+  color: #adc9bf;
+}
+.product_catalog .content .slider .item .row .col img {
+  position: relative;
+  top: -166;
+  width: 100%;
+}
+.product_catalog .content .slider .item .row .col.white {
+  background-color: #fff;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.product_catalog .content .slider .item .row .col.white .img {
+  height: 100%;
+  min-width: 87px;
+  border: 1px solid #adc9bf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+.product_catalog .content .slider .item .row .col.white .img svg {
+  max-width: 30px;
+  max-height: 30px;
+}
+.product_catalog .content .slider .item .row .col.white h3 {
+  font: bold 32px 'Roboto';
+  margin: 0;
+  padding: 0;
+  flex-basis: 27%;
+}
+.product_catalog .content .slider .item .row .col.white p.small {
+  flex-basis: 63%;
+  font: 14px/23px 'Roboto';
+  color: #727272;
+  margin: 0;
+  padding: 0 30px;
+}
+.product_catalog .content .slider .item .row .col:last-child {
+  margin-right: 0;
+}
+.product_catalog .content .slider .item .row .col.col-20 {
+  flex-basis: 20%;
+}
+.product_catalog .content .slider .item .row .col.col-80 {
+  flex-basis: 80%;
+}
+.product_catalog .content .slider .item .row .col.col-50 {
+  flex-basis: 50%;
+}
+.product_catalog .content .slider .item .row .col.col-30 {
+  flex-basis: 30%;
+}
+.product_catalog .content .slider .item .row .col.empty {
+  background-color: #fff;
+}
+.product_catalog ul.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  border: 1px solid #e8e8e8;
+  border-right: 0;
+}
+.product_catalog ul.sidebar li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  border-bottom: 1px solid #e8e8e8;
+  cursor: pointer;
+}
+.product_catalog ul.sidebar li svg {
+  max-width: 30px;
+  max-height: 30px;
+  fill: black;
+}
+.product_catalog ul.sidebar li:last-child {
+  border: 0;
+}
+.product_catalog ul.sidebar li.active {
+  cursor: default;
+}
+.product_catalog ul.sidebar li.active svg {
+  fill: #00a0e3;
+}
+.footer {
+  display: flex;
   background-color: #2a2a2a;
   position: relative;
   padding: 90px 40px 100px 40px;
