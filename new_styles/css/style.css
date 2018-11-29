@@ -970,7 +970,7 @@ body {
   align-items: center;
 }
 .product_catalog .content .slider .item .row .col.white .img {
-  height: 100%;
+  height: calc(100% - 2px);
   min-width: 87px;
   border: 1px solid #adc9bf;
   display: flex;
@@ -978,7 +978,7 @@ body {
   align-items: center;
   margin-right: 15px;
 }
-.product_catalog .content .slider .item .row .col.white .img svg {
+.product_catalog .content .slider .item .row .col.white .img img {
   max-width: 30px;
   max-height: 30px;
 }
