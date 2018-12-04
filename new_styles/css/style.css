@@ -19,11 +19,15 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Roboto Bk';
+  src: url('../fonts/Roboto-Black.eot');
+  src: url('../fonts/Roboto-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Black.woff2') format('woff2'), url('../fonts/Roboto-Black.woff') format('woff'), url('../fonts/Roboto-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
 * {
   outline: none;
-}
-::-webkit-scrollbar {
-  display: none;
 }
 body {
   margin: 0;
@@ -35,7 +39,7 @@ body {
   height: 90px;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 6;
   left: 0;
 }
 .header p,
@@ -885,7 +889,9 @@ body {
   width: 100%;
   margin-top: 90px;
   height: 70px;
-  border-bottom: 1px solid #e8e8e8;
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid #e8e8e83f;
 }
 .breadcrumbs .content {
   width: 1330px;
@@ -917,6 +923,12 @@ body {
   font: 10px 'Roboto';
   color: #727272;
   text-transform: uppercase;
+}
+.breadcrumbs.white .content a {
+  color: white;
+}
+.breadcrumbs.white .content p {
+  color: white;
 }
 .product_catalog {
   padding: 30px 0;
@@ -1049,6 +1061,452 @@ body {
 }
 .product_catalog ul.sidebar li.active svg {
   fill: #00a0e3;
+}
+.reach_header {
+  background-image: url(../img/reach_header_bg.png);
+  background-size: cover;
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 383px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 4;
+}
+.reach_header .content {
+  width: 1330px;
+  margin: 0;
+}
+.reach_header .content h1 {
+  font: bold 58px 'Roboto';
+  color: white;
+  margin: 0;
+}
+.reach_header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1330px;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  margin-top: 60px;
+}
+.reach_header ul li a {
+  border-bottom: 5px solid transparent;
+  transition: border 0.3s;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 18px 'Roboto';
+  color: white;
+  text-decoration: none;
+}
+.reach_header ul li a:hover {
+  border-bottom-color: #00a0e3;
+}
+.reach_header ul li:first-child {
+  padding-left: 65px;
+}
+.reach_header ul li:last-child {
+  padding-right: 65px;
+}
+.reach_header ul li.active a {
+  border-color: #00a0e3;
+}
+.reach {
+  padding-top: 222px;
+  overflow: hidden;
+}
+.reach .content {
+  width: 1150px;
+  margin: auto;
+}
+.reach .content h1 {
+  user-select: none;
+  position: absolute;
+  font: 900 368px 'Roboto';
+  line-height: 256px;
+  top: 50px;
+  left: -15px;
+  color: #2c353808;
+  text-transform: uppercase;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+.reach .content .section {
+  position: relative;
+  padding: 50px 0;
+  width: 100%;
+}
+.reach .content .section h3 {
+  font: 900 22px 'Roboto';
+  color: black;
+  width: 80%;
+  margin: auto;
+  padding-left: 20px;
+  border-left: 5px solid #00a0e3;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.reach .content .section .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 50px;
+}
+.reach .content .section .row a.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 275px;
+  text-decoration: none;
+  margin-right: 20px;
+  height: 169px;
+  padding: 10px;
+  border: 2px solid #f0f0f0;
+}
+.reach .content .section .row a.col:last-child {
+  margin-right: 0;
+}
+.reach .content .section .row a.col p {
+  font: 500 16px 'Roboto';
+  margin: 0;
+  color: black;
+}
+.reach .content .section .row a.col p.left {
+  text-transform: uppercase;
+  color: #f8174c;
+}
+.reach .content .section h2 {
+  font: 900 38px 'Roboto';
+  color: white;
+}
+.reach .content .section h4 {
+  font: bold 22px 'Roboto';
+  color: white;
+}
+.reach .content .section P {
+  font: 16px/30px 'Roboto';
+  color: white;
+}
+.reach .content .section P.bold {
+  font: 500 18px/30px 'Roboto';
+}
+.reach .content .section P.link {
+  font: 18px/30px 'Roboto';
+}
+.reach .content .section P.link a {
+  color: #00a0e3;
+  text-decoration: none;
+}
+.reach .content .section div.left {
+  flex-basis: 35%;
+}
+.reach .content .section div.right {
+  flex-basis: 65%;
+}
+.reach .content .section ul {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  margin: 35px 0;
+}
+.reach .content .section ul li {
+  font: 500 18px 'Roboto';
+  cursor: default;
+  color: #2c3538;
+  position: relative;
+  margin-bottom: 70px;
+}
+.reach .content .section ul li:last-child {
+  margin-bottom: 0px;
+}
+.reach .content .section ul li:before {
+  transition: all 0.3s;
+  content: '';
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  left: -50px;
+  top: 16px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #e5e5e5;
+  background-color: #fff;
+  z-index: 1;
+}
+.reach .content .section ul li:after {
+  transition: all 0.3s;
+  content: '';
+  z-index: 2;
+  display: block;
+  position: absolute;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  border: 4px solid #53b1d9;
+  background-color: #96e0ff;
+  transform: translate(-50%, -50%);
+  left: -50px;
+  top: 16px;
+}
+.reach .content .section ul li:hover:after {
+  width: 40px;
+  height: 40px;
+  border-width: 1px;
+  z-index: 1;
+}
+.reach .content .section ul li:hover:before {
+  z-index: 2;
+  width: 7px;
+  height: 7px;
+  border-width: 4px;
+}
+.reach .content .section ul:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: 100%;
+  left: -50px;
+  top: 0;
+  background-color: #e5e5e5;
+}
+.reach .content .section:before,
+.reach .content .section:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  background-color: inherit;
+}
+.reach .content .section:before {
+  right: 100%;
+}
+.reach .content .section:after {
+  left: 100%;
+}
+.reach .content .section.white {
+  background-color: #fff;
+  display: flex;
+}
+.reach .content .section.white h2 {
+  color: #2c3538;
+}
+.reach .content .section.white h4 {
+  color: #2c3538;
+}
+.reach .content .section.white p {
+  color: #2c3538;
+}
+.reach .content .section.black {
+  background-color: #2c3538;
+  display: flex;
+}
+.reach .content .section.black h1 {
+  color: #f7f7f708;
+}
+.reach .content .section.gray {
+  background-color: #fafafa;
+}
+.reach .content .section.gray h2 {
+  color: #2c3538;
+}
+.reach .content .section.gray h4 {
+  color: #2c3538;
+}
+.reach .content .section.gray p {
+  color: #2c3538;
+}
+.reach .content .section.blue {
+  background-color: #00a0e3;
+}
+.reach .content .section.blue h1 {
+  color: #ffffff18;
+}
+.reach .content .section.norow {
+  display: block;
+}
+.reach .content .section + .section {
+  display: flex;
+}
+.reach .content .section + .section h1 {
+  width: auto;
+  top: auto;
+  font-size: 427px;
+  bottom: -100px;
+}
+.reach.history .content .section img {
+  max-width: 100%;
+}
+.reach.history .content .section h2 {
+  color: #00a0e3;
+  font: bold 72px 'Roboto';
+  margin-top: 25px;
+}
+.reach.history .content .section ul:before {
+  content: none;
+}
+.reach.history .content .section ul li p:before {
+  content: '';
+  display: block;
+  border-radius: 0;
+  left: -50px;
+  width: 1px;
+  border: 0;
+  height: 100%;
+  position: absolute;
+  background-color: #d3d3d3;
+  top: 10px;
+  transform: translate(-50%, 0);
+}
+.reach.history .content .section ul li + li:before {
+  content: '';
+  position: absolute;
+  display: block;
+  border-radius: 0;
+  width: 1px;
+  border: 0;
+  height: 100%;
+  background-color: #d3d3d3;
+  top: 10px;
+  transform: translate(-50%, -100%);
+  z-index: 1;
+}
+.reach.history .content .section ul li + li:hover:after {
+  height: 20px;
+  width: 20px;
+  border-width: 2px;
+}
+.reach.history .content .section ul li:last-child p:before {
+  content: none;
+}
+.reach.vacancy {
+  margin-bottom: 80px;
+}
+.reach.vacancy .section {
+  display: flex;
+  background-color: #00a0e3;
+  justify-content: space-between;
+  align-items: center;
+}
+.reach.vacancy .section p {
+  flex-basis: 65%;
+  font: bold 22px/30px 'Roboto';
+  color: white;
+}
+.reach.vacancy .section a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 230px;
+  background-color: white;
+  font: 500 16px 'Roboto';
+  color: #2c3538;
+  margin: 30px 0;
+  text-decoration: none;
+}
+.reach.vacancy h2 {
+  font: bold 38px 'Roboto';
+  color: #2c3538;
+  margin-top: 80px;
+}
+.reach.vacancy .row {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 80px;
+  height: 80px;
+  align-items: center;
+  background-color: #fafafa;
+  position: relative;
+  cursor: pointer;
+}
+.reach.vacancy .row h4 {
+  font: 500 20px 'Roboto';
+  color: #2c3538;
+  position: relative;
+}
+.reach.vacancy .row h4:before,
+.reach.vacancy .row h4:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #00a0e3;
+  top: 50%;
+  left: -36px;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+}
+.reach.vacancy .row h4:before {
+  width: 40px;
+  height: 1px;
+}
+.reach.vacancy .row h4:after {
+  height: 40px;
+  width: 1px;
+}
+.reach.vacancy .row p {
+  font: 500 12px 'Roboto';
+  color: #2c3538;
+}
+.reach.vacancy .row:before,
+.reach.vacancy .row:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  background-color: inherit;
+}
+.reach.vacancy .row:before {
+  right: 100%;
+}
+.reach.vacancy .row:after {
+  left: 100%;
+}
+.reach.vacancy .row.active h4:after {
+  height: 0;
+}
+.reach.vacancy .hide_vacancy {
+  padding-left: 80px;
+}
+.reach.vacancy .hide_vacancy a.mess {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 230px;
+  background-color: #00a0e3;
+  font: 500 16px 'Roboto';
+  color: white;
+  margin: 30px 0;
+  text-decoration: none;
+}
+.reach.vacancy .hide_vacancy h5 {
+  font: bold 18px 'Roboto';
+  margin-top: 45px;
+  margin-bottom: 20px;
+  color: #2c3538;
+}
+.reach.vacancy .hide_vacancy ul {
+  padding-left: 20px;
+}
+.reach.vacancy .hide_vacancy ul li {
+  font: 16px/30px 'Roboto';
+  color: #2c3538;
 }
 .footer {
   display: flex;
