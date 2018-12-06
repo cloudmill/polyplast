@@ -156,6 +156,29 @@ body {
   background-color: #00a0e3;
   font: 16px/16px 'Roboto';
   color: white;
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.header .right .link-to:before {
+  content: '';
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.header .right .link-to:hover {
+  border-color: #00a0e3;
+  color: #00a0e3;
+}
+.header .right .link-to:hover:before {
+  width: 100%;
 }
 .header.black .center .lang {
   color: black;
@@ -280,6 +303,24 @@ body {
   text-decoration: none;
   color: white;
   border: 1px solid white;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.main_slider .block .item .section.slider_one .slide a:before {
+  content: '';
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: #00a0e3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.main_slider .block .item .section.slider_one .slide a:hover:before {
+  width: 100%;
 }
 .main_slider .block .item .section.slider_one .left_ar {
   position: absolute;
@@ -397,6 +438,7 @@ body {
   width: 295px;
   border-bottom: 1px solid #d3d3d3;
   background-color: #fff;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .main_slider .block .item .section.two .content ul li a {
   cursor: pointer;
@@ -425,11 +467,8 @@ body {
 .main_slider .block .item .section.two .content ul li.active a svg {
   fill: white;
 }
-.main_slider .block .item .section.two .content ul li:hover a img {
-  margin-right: 20px;
-}
-.main_slider .block .item .section.two .content ul li:hover.active img {
-  margin-right: 15px;
+.main_slider .block .item .section.two .content ul li:hover {
+  background-color: #ffffffed;
 }
 .main_slider .block .item .section.three .content {
   position: absolute;
@@ -959,6 +998,7 @@ body {
   justify-content: space-between;
   margin-right: 10px;
   background-color: #ededed;
+  overflow: hidden;
 }
 .product_catalog .content .slider .item .row .col p {
   font: 500 24px 'Roboto';
@@ -972,8 +1012,8 @@ body {
 }
 .product_catalog .content .slider .item .row .col img {
   position: relative;
-  top: -166;
   width: 100%;
+  min-height: auto;
 }
 .product_catalog .content .slider .item .row .col.white {
   background-color: #fff;
@@ -984,6 +1024,7 @@ body {
 .product_catalog .content .slider .item .row .col.white .img {
   height: calc(100% - 2px);
   min-width: 87px;
+  min-height: auto;
   border: 1px solid #adc9bf;
   display: flex;
   justify-content: center;
@@ -993,6 +1034,9 @@ body {
 .product_catalog .content .slider .item .row .col.white .img img {
   max-width: 30px;
   max-height: 30px;
+}
+.product_catalog .content .slider .item .row .col.white.col-80 img {
+  min-height: auto;
 }
 .product_catalog .content .slider .item .row .col.white h3 {
   font: bold 32px 'Roboto';
@@ -1015,6 +1059,9 @@ body {
 }
 .product_catalog .content .slider .item .row .col.col-80 {
   flex-basis: 80%;
+}
+.product_catalog .content .slider .item .row .col.col-80 img {
+  min-height: 100%;
 }
 .product_catalog .content .slider .item .row .col.col-50 {
   flex-basis: 50%;
@@ -1417,6 +1464,29 @@ body {
   color: #2c3538;
   margin: 30px 0;
   text-decoration: none;
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.reach.vacancy .section a:before {
+  content: '';
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: #00a0e3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.reach.vacancy .section a:hover {
+  border-color: white;
+  color: white;
+}
+.reach.vacancy .section a:hover:before {
+  width: 100%;
 }
 .reach.vacancy h2 {
   font: bold 38px 'Roboto';
@@ -1494,6 +1564,29 @@ body {
   color: white;
   margin: 30px 0;
   text-decoration: none;
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.reach.vacancy .hide_vacancy a.mess:before {
+  content: '';
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.reach.vacancy .hide_vacancy a.mess:hover {
+  border-color: #00a0e3;
+  color: #00a0e3;
+}
+.reach.vacancy .hide_vacancy a.mess:hover:before {
+  width: 100%;
 }
 .reach.vacancy .hide_vacancy h5 {
   font: bold 18px 'Roboto';

@@ -41,14 +41,13 @@
     font-style: normal;
 }
 @font: 'Roboto';
+@c_black: #2c3538;
 @time_a: 0.3s;
 @width_content: 762px;
 @width_big_content: 1330px;
 @width_midle_content: 1150px;
-@c_black: #2c3538;
 *{
     outline: none;
-    
 }
 body{
     margin: 0;
@@ -175,6 +174,29 @@ body{
             background-color: #00a0e3;
             font: 16px/16px @font;
             color: white;
+            border: 1px solid transparent;
+            position: relative;
+            z-index: 1;
+            transition: all @time_a;
+            &:before{
+                content: '';
+                transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                display: block;
+                height: 100%;
+                width: 0px;
+                background-color: white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+            &:hover{
+                &:before{
+                    width: 100%;
+                }
+                border-color: #00a0e3;
+                color: #00a0e3;
+            }
         }
     }
     &.black{
@@ -312,6 +334,26 @@ body{
                             text-decoration: none;
                             color: white;
                             border: 1px solid white;
+                            position: relative;
+                            z-index: 1;
+                            transition: all @time_a;
+                            &:before{
+                                content: '';
+                                transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                                display: block;
+                                height: 100%;
+                                width: 0px;
+                                background-color: #00a0e3;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                z-index: -1;
+                            }
+                            &:hover{
+                                &:before{
+                                    width: 100%;
+                                }
+                            }
                         }
                     }
                     .left_ar{
@@ -431,6 +473,7 @@ body{
                                 width: 295px;
                                 border-bottom: 1px solid #d3d3d3;
                                 background-color: #fff;
+                                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
                                 a{
                                     cursor: pointer;
                                     display: flex;
@@ -459,16 +502,7 @@ body{
                                     }
                                 }
                                 &:hover{
-                                    a{
-                                        img{
-                                            margin-right: 20px;
-                                        }
-                                    }
-                                    &.active{
-                                        img{
-                                            margin-right: 15px;
-                                        }
-                                    }
+                                    background-color: #ffffffed;
                                 }
                             }
                         }
@@ -1028,6 +1062,7 @@ body{
                         justify-content: space-between;
                         margin-right: 10px;
                         background-color: #ededed;
+                        overflow: hidden;
                         p{
                             font: 500 24px @font;
                             margin: 0;
@@ -1040,8 +1075,8 @@ body{
                         }
                         img{
                             position: relative;
-                            top: -166;
                             width: 100%;
+                            min-height: auto;
                         }
                         &.white{
                             background-color: #fff;
@@ -1051,6 +1086,7 @@ body{
                             .img{
                                 height: ~"calc(100% - 2px)";
                                 min-width: 87px;
+                                min-height: auto;
                                 border: 1px solid #adc9bf;
                                 display: flex;
                                 justify-content: center;
@@ -1059,6 +1095,11 @@ body{
                                 img{
                                     max-width: 30px;
                                     max-height: 30px;
+                                }
+                            }
+                            &.col-80{
+                                img{
+                                    min-height: auto;
                                 }
                             }
                             h3{
@@ -1083,6 +1124,9 @@ body{
                         }
                         &.col-80{
                             flex-basis: 80%;
+                            img{
+                                min-height: 100%;
+                            }
                         }
                         &.col-50{
                             flex-basis: 50%;
@@ -1514,7 +1558,30 @@ body{
                 font: 500 16px @font;
                 color: @c_black;
                 margin: 30px 0;
-                text-decoration: none; 
+                text-decoration: none;
+                border: 1px solid transparent;
+                position: relative;
+                z-index: 1;
+                transition: all @time_a;
+                &:before{
+                    content: '';
+                    transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                    display: block;
+                    height: 100%;
+                    width: 0px;
+                    background-color: #00a0e3;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+                &:hover{
+                    &:before{
+                        width: 100%;
+                    }
+                    border-color: white;
+                    color: white;
+                }
             }
         }
         h2{
@@ -1596,6 +1663,30 @@ body{
                 color: white;
                 margin: 30px 0;
                 text-decoration: none;
+                border: 1px solid transparent;
+                position: relative;
+                z-index: 1;
+                transition: all @time_a;
+                &:before{
+                    content: '';
+                    transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                    display: block;
+                    height: 100%;
+                    width: 0px;
+                    background-color: white;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+                &:hover{
+                    &:before{
+                        width: 100%;
+
+                    }
+                    border-color: #00a0e3;
+                    color: #00a0e3;
+                }
             }
             h5{
                 font: bold 18px @font;
