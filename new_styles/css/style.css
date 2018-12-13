@@ -1123,6 +1123,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   z-index: 4;
+  overflow: hidden;
 }
 .reach_header.about img.about {
   opacity: 1;
@@ -1149,6 +1150,9 @@ body {
   left: 0;
 }
 .reach_header img.training {
+  opacity: 1;
+}
+.reach_header img.reach {
   opacity: 1;
 }
 .reach_header .content {
