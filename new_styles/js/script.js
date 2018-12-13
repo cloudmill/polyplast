@@ -1,3 +1,6 @@
+$('.training .content').fadeOut(0)
+$('.training .about .methods .block_r .right img').fadeOut(0)
+$('.training .about .methods ul').fadeOut(0)
 $(document).ready(function(){
     var height;
     var mian_slider=$('#main_slider').slick({
@@ -53,6 +56,16 @@ $(document).ready(function(){
         vertical : true,
         swipe: false,
         dots : false,
+        infinite: false
+    })
+    $('.training .about .gray .items').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 600,
+        arrows: false,
+        vertical : true,
+        swipe: false,
+        dots : true,
         infinite: false
     })
     $('#main_slider').bind('mousewheel', function(e){
@@ -159,24 +172,61 @@ $(document).ready(function(){
             $('.reach.vacancy .hide_vacancy').eq(index).show(500);
         }
         $(this).toggleClass('active')
-        
-        
     })
 
 
 
-
-
     $(window).scroll(function(){
-        if($(this).scrollTop()>=216){
+        top_scroll = 223;
+        if($('.reach_header ul').length == 0){
+            top_scroll += 70;
+        }
+        if($(this).scrollTop()<=top_scroll){
+            $('.reach_header').css('background-color',("rgba(0,0,0,"+($(this).scrollTop()/top_scroll/2)+")"))
+        }
+        $('.reach_header h1').css('opacity',1-$(this).scrollTop()/top_scroll)
+        if($(this).scrollTop()>=top_scroll){
             $('.reach_header').css('position','fixed');
-            $('.reach_header').css('top','-216px');
+            $('.reach_header').css('top',((-top_scroll)+"px"));
             $('.reach_header h1').css('color','transparent');
         }
         else{
             $('.reach_header').css('position','absolute');
             $('.reach_header').css('top','0');
             $('.reach_header h1').css('color','white');
+        }
+    })
+
+    
+    $('.training .content').eq(0).fadeIn(500)
+
+    $('.training .navigation li').click(function(){
+        if(!$(this).hasClass('active')){
+            $('.training .navigation li').removeClass('active');
+            $(this).addClass('active');
+            index = $('.training .navigation li').index(this)
+            $('.training .content').fadeOut(500)
+            $('.training .content').eq(index).delay(500).fadeIn(500)
+            $('.reach_header .content h1').text($(this).text())
+            el_class = $('.training .content').eq(index).attr('class').replace('content ','')
+            $('.reach_header').removeClass('materials courses about active record')
+            $('.reach_header').addClass(el_class)
+            $('.header .center p').text($(this).text())
+        }
+        
+        
+    })
+    $('.training .about .methods .block_r .right img').eq(0).fadeIn(500)
+    $('.training .about .methods ul').eq(0).fadeIn(500)
+    $('.training .about .methods .block_r .col').click(function(){
+        if(!$(this).hasClass('active')){
+            $('.training .about .methods .block_r .col').removeClass('active');
+            $(this).addClass('active');
+            index = $('.training .about .methods .block_r .col').index(this)
+            $('.training .about .methods .block_r .right img').fadeOut(500)
+            $('.training .about .methods .block_r .right img').eq(index).delay(500).fadeIn(500)
+            $('.training .about .methods ul').hide(500)
+            $('.training .about .methods ul').eq(index).delay(500).show(500)
         }
     })
 

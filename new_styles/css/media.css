@@ -31,6 +31,12 @@
   .breadcrumbs .content {
     width: 85%;
   }
+  .news_page .content {
+    width: 85%;
+  }
+  .news_detail .content {
+    width: 85%;
+  }
   .reach .content {
     width: 80%;
   }
