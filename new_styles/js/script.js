@@ -229,7 +229,23 @@ $(document).ready(function(){
             $('.training .about .methods ul').eq(index).delay(500).show(500)
         }
     })
-
+    $('.news_page ul.categories li').click(function(){
+        if($(this).attr('class') != 'active'){
+            $('.news_page ul.categories li').removeClass('active');
+            $(this).addClass('active');
+            index = $('.news_page ul.categories li').index(this)
+            console.log(1)
+        }
+        else{
+            event.preventDefault();
+            console.log(0)
+        }
+    })
+    $('.news_page ul.categories li a .close').click(function(){
+        event.preventDefault();
+        index = $(this).parent().parent().removeClass('active');
+        return false
+    })
 
 
 
