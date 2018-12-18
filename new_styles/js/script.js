@@ -153,7 +153,11 @@ $(document).ready(function(){
     
 
 
-
+    $('#menu_opened').click(function(){
+        event.preventDefault()
+        $(this).toggleClass('opened');
+        $(".menu-hidden").toggleClass('hide');
+    })
 
 
 

@@ -84,14 +84,15 @@ body{
             justify-content: flex-end;
             flex-direction: column;
             align-items: center;
+            width: 39px;
             transition: all @time_a;
             border: 1px solid #f0f0f0;
             background: white;
             &:before, &:after{
                 content: '';
-                transition: all @time_a;
             }
             span, &:before, &:after{
+                transition: all @time_a;
                 display: block;
                 position: relative;
                 top: 0px;
@@ -102,14 +103,92 @@ body{
             }
             &:hover{
                 &:before{
-                    
-                    top: -1px;
+                    animation: rotate_menu @time_a;
                 }
                 &:after{
-                    top: 1px;
+                    animation: rotate_menu @time_a;
+                    animation-delay: 0.2s;
+                }
+                span{
+                    animation: rotate_menu @time_a;
+                    animation-delay: 0.1s;
+                }
+            }
+            &.opened{
+                span{
+                    opacity: 0;
+                }
+                &:before{
+                    transform: rotate(135deg);
+                    top: 8px;
+                }
+                &:after{
+                    transform: rotate(-135deg);
+                    top: -5px;
                 }
             }
         }
+        ul.menu-hidden{
+            display: flex;
+            position: absolute;
+            border: 1px solid #f0f0f0;
+            border-top: 0;
+            border-left: 0;
+            top: 100%;
+            right: 100%;
+            flex-direction: column;
+            width: 100%;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            animation-duration: @time_a;
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+            animation-fill-mode: forwards;
+            animation-name: menu_fade_in;
+            li{
+                padding: 20px 20px;
+                align-items: center;
+                justify-content: flex-start;
+                display: flex;
+                position: relative;
+                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                cursor: pointer;
+                &:after{
+                    content: '';
+                    transition: all @time_a*2 cubic-bezier(0.215, 0.610, 0.355, 1);
+                    display: block;
+                    left: -100%;
+                    bottom: -1px;
+                    position: absolute;
+                    width: 100%;
+                    background-color: #00a0e3;
+                    height: 5px;
+                    opacity: 0;
+                }
+                a{
+                    text-decoration: none;
+                    text-transform: lowercase;
+                    margin: 0;
+                    padding: 0;
+                    color: black;
+                    font:500 16px @font; 
+                    &:first-letter{
+                        text-transform: uppercase;
+                    }
+                }
+                &:hover{
+                    &:after{
+                        opacity: 1;
+                        left: 1px;
+                    }
+                }
+            }
+            &.hide{
+                animation-name: menu_fade_out;
+            }
+        }
+        
     }
     .center{
         width: @width_content;
@@ -3729,5 +3808,37 @@ body{
     }
     &.six{
         right:40px;
+    }
+}
+
+@keyframes menu_fade_in{
+    0%{
+        right: 100%;
+        opacity: 0;
+    }
+    100%{
+        right: 0;
+        opacity: 1;
+    }
+}
+@keyframes menu_fade_out{
+    0%{
+        right: 0;
+        opacity: 1;
+    }
+    100%{
+        right: 100%;
+        opacity: 0;
+    }
+}
+@keyframes rotate_menu {
+    0%{
+        width: 39px;
+    }
+    50%{
+        width: 30px;
+    }
+    100%{
+        width: 39px;
     }
 }
