@@ -47,9 +47,11 @@
 @width_s_content: 950px;
 @width_midle_content: 1150px;
 @width_big_content: 1330px;
+@cb: cubic-bezier(0.215, 0.610, 0.355, 1);
 *{
     outline: none;
 }
+::-webkit-scrollbar { width: 0; }
 body{
     margin: 0;
     padding: 0;
@@ -138,49 +140,59 @@ body{
             right: 100%;
             flex-direction: column;
             width: 100%;
+            visibility: hidden;
             background-color: #fff;
             margin: 0;
             padding: 0;
             list-style: none;
             animation-duration: @time_a;
-            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+            animation-timing-function: @cb;
             animation-fill-mode: forwards;
             animation-name: menu_fade_in;
             li{
-                padding: 20px 20px;
                 align-items: center;
                 justify-content: flex-start;
                 display: flex;
                 position: relative;
-                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: all @time_a @cb;
                 cursor: pointer;
                 &:after{
                     content: '';
-                    transition: all @time_a*2 cubic-bezier(0.215, 0.610, 0.355, 1);
+                    transition: all @time_a*3 @cb;
                     display: block;
-                    left: -100%;
+                    left: 1px;
                     bottom: -1px;
                     position: absolute;
-                    width: 100%;
+                    width: 0;
                     background-color: #00a0e3;
-                    height: 5px;
+                    height: 100%;
                     opacity: 0;
+                    z-index: 0;
                 }
                 a{
+                    position: relative;
+                    transition: all @time_a @cb;
+                    z-index: 1;
+                    padding: 20px 20px;
+                    display: flex;
+                    width: 100%;
                     text-decoration: none;
                     text-transform: lowercase;
                     margin: 0;
-                    padding: 0;
                     color: black;
                     font:500 16px @font; 
                     &:first-letter{
+                        color: white;
                         text-transform: uppercase;
                     }
                 }
                 &:hover{
                     &:after{
                         opacity: 1;
-                        left: 1px;
+                        width: 100%;
+                    }
+                    a{
+                        color: white
                     }
                 }
             }
@@ -195,8 +207,10 @@ body{
         height: 100%;
         display: flex;
         margin:0 auto;
-        p{
+        a:first-child{
             font: 500 16px/16px @font;
+            text-decoration: none;
+            color: black;
             padding-left: 25px;
             padding-right: 25px;
             transition: all @time_a;
@@ -261,7 +275,7 @@ body{
             transition: all @time_a;
             &:before{
                 content: '';
-                transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: width @time_a @cb;
                 display: block;
                 height: 100%;
                 width: 0px;
@@ -417,7 +431,7 @@ body{
                             transition: all @time_a;
                             &:before{
                                 content: '';
-                                transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                                transition: width @time_a @cb;
                                 display: block;
                                 height: 100%;
                                 width: 0px;
@@ -551,7 +565,7 @@ body{
                                 width: 295px;
                                 border-bottom: 1px solid #d3d3d3;
                                 background-color: #fff;
-                                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                                transition: all @time_a @cb;
                                 a{
                                     cursor: pointer;
                                     display: flex;
@@ -1143,7 +1157,29 @@ body{
                         flex-direction: column;
                         justify-content: space-between;
                         margin-right: 10px;
-                        background-color: #ededed;
+                        position: relative;
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            z-index: -1;
+                            display: block;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: #ededed;
+                            transition: all @time_a*2 @cb;
+                            border-radius: 0;
+                        }
+                        &:hover{
+                            &:before{
+                                width: 40px;
+                                height: 40px;
+                                left: 15px;
+                                top: 15px;
+                                border-radius: 50%;
+                            }
+                        }
                         overflow: hidden;
                         p{
                             font: 500 24px @font;
@@ -1161,6 +1197,9 @@ body{
                             min-height: auto;
                         }
                         &.white{
+                            &:before{
+                                display: none;
+                            }
                             background-color: #fff;
                             flex-direction: row;
                             justify-content: flex-start;
@@ -1299,7 +1338,7 @@ body{
     img{
         margin: 0;
         padding: 0;
-        transition: opacity 2s cubic-bezier(0.215, 0.610, 0.355, 1);
+        transition: opacity 2s @cb;
         position: absolute;
         z-index: -1;
         width: 100%;
@@ -1334,7 +1373,6 @@ body{
         padding: 0;
         li{
             a{
-                border-bottom: 5px solid transparent;
                 transition: border @time_a;
                 height: 65px;
                 width: 100%;
@@ -1343,9 +1381,25 @@ body{
                 align-items: center;
                 font: 18px @font;
                 color: white;
+                position: relative;
                 text-decoration: none;
+                &:before{
+                    content: '';
+                    transition: all @time_a*2 @cb;
+                    display: block;
+                    width: 0;
+                    position: absolute;
+                    opacity: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 5px;
+                    background-color: #00a0e3;
+                }
                 &:hover{
-                    border-bottom-color: #00a0e3;
+                    &:before{
+                        opacity: 1;
+                        width: 100%;
+                    }
                 }
             }
             &:first-child{
@@ -1463,12 +1517,12 @@ body{
                     cursor: default;
                     color: @c_black;
                     position: relative;
-                    margin-bottom: 70px;
+                    padding-bottom: 70px;
                     &:last-child{
-                        margin-bottom: 0px;
+                        padding-bottom: 0px;
                     }
                     &:before{
-                        transition: all @time_a;
+                        transition: all @time_a*2 @cb;
                         content: '';
                         display: block;
                         height: 40px;
@@ -1483,7 +1537,7 @@ body{
                         z-index: 1;
                     }
                     &:after{
-                        transition: all @time_a;
+                        transition: all @time_a*2 @cb;
                         content: '';
                         z-index: 2;
                         display: block;
@@ -1685,7 +1739,7 @@ body{
                 transition: all @time_a;
                 &:before{
                     content: '';
-                    transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                    transition: width @time_a @cb;
                     display: block;
                     height: 100%;
                     width: 0px;
@@ -1789,7 +1843,7 @@ body{
                 transition: all @time_a;
                 &:before{
                     content: '';
-                    transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                    transition: width @time_a @cb;
                     display: block;
                     height: 100%;
                     width: 0px;
@@ -2032,7 +2086,7 @@ body{
                             transition: all @time_a;
                             &:before{
                                 content: '';
-                                transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                                transition: width @time_a @cb;
                                 display: block;
                                 height: 100%;
                                 width: 0px;
@@ -2128,7 +2182,7 @@ body{
             cursor: pointer;
             font: 16px @font;
             &:before{
-                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: all @time_a @cb;
                 margin-right: 8px;
                 content: '';
                 display: flex;
@@ -2142,7 +2196,7 @@ body{
                 color: white;
             }
             &:after{
-                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: all @time_a @cb;
                 content: '';
                 display: block;
                 width: 2px;
@@ -2181,7 +2235,7 @@ body{
                 height: 312px;
                 margin-right: 50px;
                 margin-bottom: 70px;
-                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: all @time_a @cb;
                 &:hover{
                     box-shadow: 0px -20px 50px -20px rgba(0, 0, 0, 0.08);
                 }
@@ -2223,7 +2277,7 @@ body{
                             border: 15px solid transparent;
                             border-left: 25px solid #00a0e3;
                             margin-left: 10px;
-                            transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                            transition: all @time_a @cb;
                         }
                         &:hover{
                             &:after{
@@ -2415,7 +2469,7 @@ body{
                     transition: all @time_a;
                     &:before{
                         content: '';
-                        transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                        transition: width @time_a @cb;
                         display: block;
                         height: 100%;
                         width: 0px;
@@ -2517,7 +2571,7 @@ body{
                         transition: all @time_a;
                         &:before{
                             content: '';
-                            transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                            transition: width @time_a @cb;
                             display: block;
                             height: 100%;
                             width: 0px;
@@ -2697,7 +2751,7 @@ body{
                             transition: all @time_a;
                             &:before{
                                 content: '';
-                                transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                                transition: width @time_a @cb;
                                 display: block;
                                 height: 100%;
                                 width: 0px;
@@ -2859,12 +2913,12 @@ body{
                         justify-content: center;
                         border: 1px solid #f0f0f0;
                         margin-left: 15px;
-                        transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                        transition: all @time_a @cb;
                         &:first-child{
                             margin-left: 0;
                         }
                         button{
-                            transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                            transition: all @time_a @cb;
                             color: black;
                             padding: 0;
                             width: 100%;
@@ -2950,7 +3004,7 @@ body{
                             align-items: center;
                             justify-content: center;
                             border: 1px solid rgba(255,255,255,0.4);
-                            transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                            transition: all @time_a @cb;
                             &:hover{
                                 background-color: #f0f0f036;
                             }
@@ -3161,7 +3215,7 @@ body{
                             transition: all @time_a;
                             &:before{
                                 content: '';
-                                transition: width @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                                transition: width @time_a @cb;
                                 display: block;
                                 height: 100%;
                                 width: 0px;
@@ -3257,7 +3311,7 @@ body{
                 justify-content: center;
                 align-items: center;
                 border: 1px solid #00a0e3;
-                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: all @time_a @cb;
                 cursor: pointer;
                 a{
                     font: 16px @font;
@@ -3265,7 +3319,7 @@ body{
                     color: black;
                     margin: 0;
                     padding: 0;
-                    transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                    transition: all @time_a @cb;
                     .close{
                         width: 20px;
                         height: 20px;
@@ -3285,7 +3339,7 @@ body{
                             width: 1px;
                             height: 12px;
                             transform: rotate(45deg);
-                            transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                            transition: all @time_a @cb;
                         }
                         &:before{
                             position: absolute;
@@ -3298,7 +3352,7 @@ body{
                             width: 1px;
                             height: 12px;
                             transform: rotate(-45deg);
-                            transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                            transition: all @time_a @cb;
                         }
                     }
                     
@@ -3381,7 +3435,7 @@ body{
                 color: black;
                 position: relative;
                 overflow: hidden;
-                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: all @time_a @cb;
                 &:active{
                     color: black;
                     p{
@@ -3400,15 +3454,20 @@ body{
                     height: 230px;
                     position: relative;
                     overflow: hidden;
+                    
                     .color-gradient{
                         background-color: #3f3f3f;
                         opacity: 0.6;
                         width: 100%;
                         top: 0;
+                        display: none;
                         left: 0;
                         position: absolute;
                         z-index: 1;
                         height: 230px;
+                    }
+                    &+.news_img + .zagl + .color-gradient{
+                        display: block;
                     }
                     span{
                         position: absolute;
@@ -3595,7 +3654,7 @@ body{
                 color: black;
                 position: relative;
                 overflow: hidden;
-                transition: all @time_a cubic-bezier(0.215, 0.610, 0.355, 1);
+                transition: all @time_a @cb;
                 &:active{
                     color: black;
                     p{
@@ -3620,10 +3679,14 @@ body{
                         opacity: 0.6;
                         width: 100%;
                         top: 0;
+                        display: none;
                         left: 0;
                         position: absolute;
                         z-index: 1;
                         height: 230px;
+                    }
+                    &+.news_img + .zagl + .color-gradient{
+                        display: block;
                     }
                     span{
                         position: absolute;

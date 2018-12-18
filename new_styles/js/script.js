@@ -68,23 +68,37 @@ $(document).ready(function(){
         dots : true,
         infinite: false
     })
-    $('#main_slider').bind('mousewheel', function(e){
+    
+    scroll_to_foter = function(item,e){
         if(e.originalEvent.wheelDelta /120 > 0 && $(window).scrollTop()==0) {
-            $('#main_slider').slick('slickPrev')
-            if($('#main_slider').slick('slickCurrentSlide')+1 != $('#main_slider').slick("getSlick").slideCount){
+            item.slick('slickPrev')
+            if(item.slick('slickCurrentSlide')+1 != item.slick("getSlick").slideCount){
                 $(".footer").css('display','none');
+                $('body').css('overflow','hidden')
             }
         }
         else{
-            if($('#main_slider').slick('slickCurrentSlide')+1 != $('#main_slider').slick("getSlick").slideCount){
-                $('#main_slider').slick('slickNext')
+            if(item.slick('slickCurrentSlide')+1 != item.slick("getSlick").slideCount){
+                item.slick('slickNext')
                 $(".footer").css('display','none');
+                $('body').css('overflow','hidden')
             }
             else{
                 $(".footer").css('display','flex');
+                $('body').css('overflow','visible')
             }
         }
+    }
+    $('#main_slider').bind('mousewheel', function(e){
+        scroll_to_foter($(this),e)
     });
+    $('.product_catalog').bind('mousewheel', function(e){
+        scroll_to_foter($('.product_catalog .slider'),e)
+        $('.product_catalog ul.sidebar li').removeClass('active');
+        $('.product_catalog ul.sidebar li').eq($('.product_catalog .slider').slick('slickCurrentSlide')).addClass('active');
+    });
+
+
     $('#main_slider .two .list_two li').click(function(){
         $('#main_slider .two .list_two li').removeClass('active');
         $(this).addClass('active');
@@ -157,6 +171,7 @@ $(document).ready(function(){
         event.preventDefault()
         $(this).toggleClass('opened');
         $(".menu-hidden").toggleClass('hide');
+        $(".menu-hidden").css('visibility','visible')
     })
 
 
@@ -215,7 +230,6 @@ $(document).ready(function(){
             el_class = $('.training .content').eq(index).attr('class').replace('content ','')
             $('.reach_header').removeClass('materials courses about active record')
             $('.reach_header').addClass(el_class)
-            $('.header .center p').text($(this).text())
         }
         
         

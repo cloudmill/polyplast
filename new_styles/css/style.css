@@ -29,6 +29,9 @@
 * {
   outline: none;
 }
+::-webkit-scrollbar {
+  width: 0;
+}
 body {
   margin: 0;
   padding: 0;
@@ -119,6 +122,7 @@ body {
   right: 100%;
   flex-direction: column;
   width: 100%;
+  visibility: hidden;
   background-color: #fff;
   margin: 0;
   padding: 0;
@@ -129,7 +133,6 @@ body {
   animation-name: menu_fade_in;
 }
 .header .left ul.menu-hidden li {
-  padding: 20px 20px;
   align-items: center;
   justify-content: flex-start;
   display: flex;
@@ -139,30 +142,40 @@ body {
 }
 .header .left ul.menu-hidden li:after {
   content: '';
-  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   display: block;
-  left: -100%;
+  left: 1px;
   bottom: -1px;
   position: absolute;
-  width: 100%;
+  width: 0;
   background-color: #00a0e3;
-  height: 5px;
+  height: 100%;
   opacity: 0;
+  z-index: 0;
 }
 .header .left ul.menu-hidden li a {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: 1;
+  padding: 20px 20px;
+  display: flex;
+  width: 100%;
   text-decoration: none;
   text-transform: lowercase;
   margin: 0;
-  padding: 0;
   color: black;
   font: 500 16px 'Roboto';
 }
 .header .left ul.menu-hidden li a:first-letter {
+  color: white;
   text-transform: uppercase;
 }
 .header .left ul.menu-hidden li:hover:after {
   opacity: 1;
-  left: 1px;
+  width: 100%;
+}
+.header .left ul.menu-hidden li:hover a {
+  color: white;
 }
 .header .left ul.menu-hidden.hide {
   animation-name: menu_fade_out;
@@ -173,8 +186,10 @@ body {
   display: flex;
   margin: 0 auto;
 }
-.header .center p {
+.header .center a:first-child {
   font: 500 16px/16px 'Roboto';
+  text-decoration: none;
+  color: black;
   padding-left: 25px;
   padding-right: 25px;
   transition: all 0.3s;
@@ -1077,8 +1092,28 @@ body {
   flex-direction: column;
   justify-content: space-between;
   margin-right: 10px;
-  background-color: #ededed;
+  position: relative;
   overflow: hidden;
+}
+.product_catalog .content .slider .item .row .col:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ededed;
+  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-radius: 0;
+}
+.product_catalog .content .slider .item .row .col:hover:before {
+  width: 40px;
+  height: 40px;
+  left: 15px;
+  top: 15px;
+  border-radius: 50%;
 }
 .product_catalog .content .slider .item .row .col p {
   font: 500 24px 'Roboto';
@@ -1100,6 +1135,9 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+.product_catalog .content .slider .item .row .col.white:before {
+  display: none;
 }
 .product_catalog .content .slider .item .row .col.white .img {
   height: calc(100% - 2px);
@@ -1253,7 +1291,6 @@ body {
   padding: 0;
 }
 .reach_header ul li a {
-  border-bottom: 5px solid transparent;
   transition: border 0.3s;
   height: 65px;
   width: 100%;
@@ -1262,10 +1299,24 @@ body {
   align-items: center;
   font: 18px 'Roboto';
   color: white;
+  position: relative;
   text-decoration: none;
 }
-.reach_header ul li a:hover {
-  border-bottom-color: #00a0e3;
+.reach_header ul li a:before {
+  content: '';
+  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: block;
+  width: 0;
+  position: absolute;
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  background-color: #00a0e3;
+}
+.reach_header ul li a:hover:before {
+  opacity: 1;
+  width: 100%;
 }
 .reach_header ul li:first-child {
   padding-left: 65px;
@@ -1381,13 +1432,13 @@ body {
   cursor: default;
   color: #2c3538;
   position: relative;
-  margin-bottom: 70px;
+  padding-bottom: 70px;
 }
 .reach .content .section ul li:last-child {
-  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 .reach .content .section ul li:before {
-  transition: all 0.3s;
+  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   content: '';
   display: block;
   height: 40px;
@@ -1402,7 +1453,7 @@ body {
   z-index: 1;
 }
 .reach .content .section ul li:after {
-  transition: all 0.3s;
+  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   content: '';
   z-index: 2;
   display: block;
@@ -3257,10 +3308,14 @@ body {
   opacity: 0.6;
   width: 100%;
   top: 0;
+  display: none;
   left: 0;
   position: absolute;
   z-index: 1;
   height: 230px;
+}
+.news_page .content .list a.item .img + .news_img + .zagl + .color-gradient {
+  display: block;
 }
 .news_page .content .list a.item .img span {
   top: 20px;
@@ -3462,10 +3517,14 @@ body {
   opacity: 0.6;
   width: 100%;
   top: 0;
+  display: none;
   left: 0;
   position: absolute;
   z-index: 1;
   height: 230px;
+}
+.news_detail .content .list a.item .img + .news_img + .zagl + .color-gradient {
+  display: block;
 }
 .news_detail .content .list a.item .img span {
   top: 20px;
