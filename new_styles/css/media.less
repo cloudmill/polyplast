@@ -5,8 +5,10 @@
   .product_catalog{
     .content{
       width: @width_big_content;
-      .slider{
-        .item{
+    }
+    .slider{
+      .item{
+        .content{
           .row{
             .col{
               p{
@@ -18,19 +20,22 @@
       }
     }
   }
-}
-@media(max-width: 1400px){
   .header{
     .center{
-      width: @width_content;
+      width: 768px;
       .lang{
         margin-left: 80px;
       }
       .search{
         margin-left: 50px;
+        width: 200px;
       }
+      
     }
   } 
+}
+@media(max-width: 1400px){
+  
   .reach_header{
     .content{
       width: @width_big_content;

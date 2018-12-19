@@ -2,20 +2,21 @@
   .product_catalog .content {
     width: 85%;
   }
-  .product_catalog .content .slider .item .row .col p {
+  .product_catalog .slider .item .content .row .col p {
     font-size: 20px;
   }
-}
-@media (max-width: 1400px) {
   .header .center {
-    width: 600px;
+    width: 768px;
   }
   .header .center .lang {
     margin-left: 80px;
   }
   .header .center .search {
     margin-left: 50px;
+    width: 200px;
   }
+}
+@media (max-width: 1400px) {
   .reach_header .content {
     width: 85%;
   }

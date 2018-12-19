@@ -69,23 +69,24 @@ body{
         display: block;
         margin: 0;
         padding: 0;
-        padding-top: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .left{
         display: flex;
         position: fixed;
+        height: 90px;   
         left: 0;
         top: 0;
         .logo{
-            padding: 43px 34px 15px 25px;
+            padding: 20px;
             background: #f7f7f7;
         }
         .menu{
-            padding: 0 10px 20px 10px;
-            display: flex;
-            justify-content: flex-end;
+            padding: 10px;
+            justify-content: center;
             flex-direction: column;
-            align-items: center;
             width: 39px;
             transition: all @time_a;
             border: 1px solid #f0f0f0;
@@ -203,11 +204,13 @@ body{
         
     }
     .center{
-        width: @width_content;
+        width: @width_s_content;
         height: 100%;
         display: flex;
         margin:0 auto;
-        a:first-child{
+        align-items: center;
+        a.catalog{
+            height: 100%;
             font: 500 16px/16px @font;
             text-decoration: none;
             color: black;
@@ -219,28 +222,41 @@ body{
             border-top: 0;
         }
         .lang{
-            width: 20px;
+
             text-align: center;
-            margin-left: 155px;
-            border: 1px solid #cccccc;
-            border-top: 0;
-            padding-left: 10px;
-            padding-right: 10px;
-            font:500 13.1px/13.1px @font;
-            color: white;
-            &.black{
-                color: black;
-            }
+            font:bold 13.1px/13.1px @font;
+            color: black;
+            width: 50px;
+            padding: 0;
+            margin: 0 30px;
+            margin-left: 14px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fafafa;
         }
         .search{
-            margin-left: 98px;
-            width: 20px;
+            margin-left: 45px;
+            width: 402px;
             padding: 0;
-            margin-top: 55px;
+            position: relative;
             svg{
-                fill: white
+                fill:#00a0e3;
+                max-width: 22px;
+                max-height: 22px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(-50%,-50%);
             }
-            
+            input{
+                font: 16px @font;
+                color: #797979;
+                width: 100%;
+                height: 40px;
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid #00a0e3;
+            }
         }
     }
     .right{
@@ -249,6 +265,7 @@ body{
         height: 90px;
         right: 0;
         top: 0;
+        align-items: center;
         .phone{
             font: 500 16px/16px @font;
             color: white;
@@ -263,9 +280,13 @@ body{
             font: 500 15.7px/15.7px @font;
             color: white;
             margin-right: 20px;
+            span{
+                color: #00a0e3;
+            }
         }
         .link-to{
-            padding: 56px 36px 10px 13px;
+            padding:0 20px ;
+            height: 100%;
             background-color: #00a0e3;
             font: 16px/16px @font;
             color: white;
@@ -299,9 +320,9 @@ body{
             .lang{
                 color: black;
             }
+            
             .search{
                 svg{
-                    fill: black;
                 }
             }
         }
@@ -316,6 +337,11 @@ body{
         
     }
     &.shadow{
+        .center{
+            .catalog{
+                border-bottom: 0;
+            }
+        }
         background-color: #fff;
         box-shadow: 0 0 20px 0  rgba(0, 0, 0, 0.08);
     }
@@ -1132,8 +1158,6 @@ body{
     }
 }
 .product_catalog{
-    padding: 30px 0;
-    border-bottom: 1px solid #e8e8e8;
     margin-bottom: 80px;
     position: relative;
     .content{
@@ -1144,9 +1168,13 @@ body{
             margin-top: 0;
             font: bold 58px @font;
         }
-        .slider{
-            .item{
-                height: 584px;
+    }
+    .slider{
+        .item{
+            padding: 30px 0;
+            border-bottom: 2px solid #e8e8e8;
+            height: 584px;
+            .content{
                 .row{
                     display: flex;
                     height: 133px;
@@ -1182,7 +1210,7 @@ body{
                         }
                         overflow: hidden;
                         p{
-                            font: 500 24px @font;
+                            font: 500 23px @font;
                             margin: 0;
                             padding: 0 10px 20px 20px;
                             &.num{
@@ -1241,7 +1269,7 @@ body{
                             margin-right: 0;
                         }
                         &.col-20{
-                            flex-basis: 20%;
+                            flex-basis: 21%;
                         }
                         &.col-80{
                             flex-basis: 80%;
@@ -1262,6 +1290,7 @@ body{
                     
                 }
             }
+            
         }
     }
     ul.sidebar{
@@ -1277,6 +1306,7 @@ body{
         transform: translate(0, -50%);
         border: 1px solid #e8e8e8;
         border-right: 0;
+        background: #fff;
         li{
             display: flex;
             justify-content: center;
@@ -3784,6 +3814,9 @@ body{
                 }
                 &.sity{
                     margin-left: 15px;
+                    span{
+                        color: #00a0e3;
+                    }
                 }
             }
             &.links{

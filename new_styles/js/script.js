@@ -51,7 +51,7 @@ $(document).ready(function(){
     $('.product_catalog .slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        speed: 600,
+        speed: 800,
         arrows: false,
         vertical : true,
         swipe: false,
@@ -92,12 +92,13 @@ $(document).ready(function(){
     $('#main_slider').bind('mousewheel', function(e){
         scroll_to_foter($(this),e)
     });
+    
     $('.product_catalog').bind('mousewheel', function(e){
         scroll_to_foter($('.product_catalog .slider'),e)
         $('.product_catalog ul.sidebar li').removeClass('active');
         $('.product_catalog ul.sidebar li').eq($('.product_catalog .slider').slick('slickCurrentSlide')).addClass('active');
     });
-
+    
 
     $('#main_slider .two .list_two li').click(function(){
         $('#main_slider .two .list_two li').removeClass('active');
@@ -214,6 +215,8 @@ $(document).ready(function(){
             $('.reach_header').css('top','0');
             $('.reach_header h1').css('color','white');
         }
+
+        
     })
 
     
@@ -252,11 +255,9 @@ $(document).ready(function(){
             $('.news_page ul.categories li').removeClass('active');
             $(this).addClass('active');
             index = $('.news_page ul.categories li').index(this)
-            console.log(1)
         }
         else{
             event.preventDefault();
-            console.log(0)
         }
     })
     $('.news_page ul.categories li a .close').click(function(){
