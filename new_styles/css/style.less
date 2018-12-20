@@ -222,7 +222,9 @@ body{
             border-top: 0;
         }
         .lang{
-
+            animation-timing-function: @cb;
+            animation-duration: @time_a*2;
+            animation-fill-mode: both;
             text-align: center;
             font:bold 13.1px/13.1px @font;
             color: black;
@@ -233,7 +235,11 @@ body{
             height: 50px;
             border-radius: 50%;
             background-color: #fafafa;
+            &:hover{
+                animation-name: radial_pulse;
+            }
         }
+        
         .search{
             margin-left: 45px;
             width: 402px;
@@ -256,6 +262,32 @@ body{
                 background-color: transparent;
                 border: 0;
                 border-bottom: 1px solid #00a0e3;
+            }
+            &:visited {
+                &:before{
+                    width: 100%;
+                }
+            }
+            &:before{
+                content: '';
+                position: absolute;
+                display: block;
+                height: 1px;
+                width: 0px;
+                background-color: #00a0e3;
+                top: 0;
+                left: 0;
+                transition: width @time_a @cb;
+            }
+            &:hover{
+                &:before{
+                    width: 100%;
+                }
+            }
+            &.active{
+                &:before{
+                    width: 100%;
+                }
             }
         }
     }
@@ -365,6 +397,10 @@ body{
                         position: absolute;
                         top: 43%;
                         left: -15%;
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        transform: translate(0,-50%);
                         text-transform: uppercase;
                         padding-left: 70px;
                         &:before{
@@ -377,10 +413,12 @@ body{
                             margin-top: -1px;
                             position: absolute;
                             background: #00a0e3;
+                            transition: all @time_a*3 @cb;
                         }
                         &:after{
                             content: '';
                             display: block;
+                            transition: all @time_a*3 @cb;
                             width: 1px;
                             height: 50px;
                             top: 50%;
@@ -388,6 +426,14 @@ body{
                             position: absolute;
                             left: 25px;
                             background: #00a0e3;
+                        }
+                        &:hover{
+                            &:before{
+                                transform: rotate(180deg)
+                            }
+                            &:after{
+                                transform: rotate(-180deg)
+                            }
                         }
                     }
                 }
@@ -611,7 +657,7 @@ body{
                                 }
                                 &.active{
                                     background-color: rgba(0,0,0,0.55);
-                                    border: 0;
+                                    border-color: rgba(0,0,0,0.55);
                                     a{
                                         color: white;
                                         svg{
@@ -642,8 +688,11 @@ body{
                             margin: 0;
                         }
                         a.plus{
-                            top: 33px;
+                            top: 10px;
                             left: auto;
+                            display: flex;
+                            align-items: center;
+                            height: 50px;
                             right: 27px;
                             transform: translate(100%,0);
                             white-space: nowrap;
@@ -755,6 +804,7 @@ body{
                         position: absolute;
                         bottom: 0;
                         display: flex;
+                        z-index: 2;
                         right: 0;
                         height: 115px;
                         width: 450px;
@@ -770,11 +820,15 @@ body{
                                 text-transform: uppercase;
                                 font: 14px @font;
                                 left: 75px;
+                                height: 50px;
+                                display: flex;
+                                align-items: center;
                                 position: relative;
                                 color: white;
                                 &:before{
                                     content: '';
                                     display: block;
+                                    transition: all @time_a*3 @cb;
                                     width: 50px;
                                     left: -75px;
                                     height: 1px;
@@ -787,12 +841,21 @@ body{
                                     content: '';
                                     display: block;
                                     width: 1px;
+                                    transition: all @time_a*3 @cb;
                                     height: 50px;
                                     top: 50%;
                                     margin-top: -25px;
                                     position: absolute;
                                     left: -50px;
                                     background: white;
+                                }
+                                &:hover{
+                                    &:before{
+                                        transform: rotate(180deg)
+                                    }
+                                    &:after{
+                                        transform: rotate(-180deg)
+                                    }
                                 }
                             }
                         }
@@ -989,6 +1052,7 @@ body{
                         bottom: 0;
                         right: 0;
                         height: 110px;
+                        z-index: 2;
                         width: 220px;
                         display: flex;
                         align-items: center;
@@ -1029,8 +1093,8 @@ body{
                 margin: 0 24px;
                 transform: rotate(-90deg);
                 position: relative;
+                transition: all @time_a @cb;
                 button{
-                    
                     border: 0;
                     border-radius: 50%;
                     background-color: transparent;
@@ -1056,6 +1120,7 @@ body{
                 }
                 &:after{
                     content: '';
+                    transition: all @time_a @cb;
                     color: white;
                     font: bold 13px/ 13px @font;
                     position: absolute;
@@ -1174,6 +1239,7 @@ body{
             padding: 30px 0;
             border-bottom: 2px solid #e8e8e8;
             height: 584px;
+            transition: all 800ms @cb;
             .content{
                 .row{
                     display: flex;
@@ -1287,10 +1353,13 @@ body{
                             background-color: #fff;
                         }
                     }
-                    
+                    &:first-child{
+                        margin-top: 0;
+                    }
                 }
             }
-            
+            &.slick-active{
+            }
         }
     }
     ul.sidebar{
@@ -1985,10 +2054,12 @@ body{
                     margin: auto;
                     margin-bottom: 15px;
                     background-color: #00a0e3;
+                    transition: all @time_a*3 @cb;
                 }
                 &:after{
                     content: '';
                     display: block;
+                    transition: all @time_a*3 @cb;
                     width: 90px;
                     height: 1px;
                     position: absolute;
@@ -1996,6 +2067,14 @@ body{
                     left: 50%;
                     transform: translate(-50%,-50%);
                     background-color: #00a0e3;
+                }
+                &:hover{
+                    &:before{
+                        transform: rotate(180deg)
+                    }
+                    &:after{
+                        transform: rotate(-180deg) translate(50%,0)
+                    }
                 }
             }
             &.courses{
@@ -2007,14 +2086,18 @@ body{
                     flex-direction: column;
                     padding: 60px;
                     flex-basis: 33%;
+                    
                     &:nth-child(1){
                         background-color: #00a0e3;
+                        z-index: 1;
                     }
                     &:nth-child(2){
                         background-color: #008fcc;
+                        z-index: 2;
                     }
                     &:nth-child(3){
                         background-color: #007fb5;
+                        z-index: 3;
                     }
                     h3{
                         font: bold 28px @font;
@@ -2023,12 +2106,18 @@ body{
                     }
                     img{
                         filter: invert(100%);
+                        top: 0;
+                        left: 0;
+                        position: relative;
+                        transition: all @time_a*2 @cb;
                     }
                     .str{
                         width: 100%;
                         height: 3px;
                         position: relative;
                         background-color: #fff;
+                        transition: all @time_a*2 @cb;
+                        transform-origin: center center;
                         &:after{
                             content: '';
                             position: absolute;
@@ -2040,6 +2129,15 @@ body{
                             border-left: 25px solid white;
                         }
                     }
+                    &:hover{
+                       img{
+                           transform: translate(100px,0) scale(1.1);
+                       }
+                       .str{
+                           transform: translate(10px,0)
+                       }
+                    }
+                    
                 }
             }
         }
@@ -3936,5 +4034,14 @@ body{
     }
     100%{
         width: 39px;
+    }
+}
+@keyframes radial_pulse {
+    0%{
+        box-shadow: 0 0 0 0px #fafafa42;
+    }
+
+    100%{
+        box-shadow: 0 0 10px 20px #fafafa00;
     }
 }

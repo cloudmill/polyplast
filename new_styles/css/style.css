@@ -201,6 +201,9 @@ body {
   border-top: 0;
 }
 .header .center .lang {
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
   text-align: center;
   font: bold 13.1px/13.1px 'Roboto';
   color: black;
@@ -211,6 +214,9 @@ body {
   height: 50px;
   border-radius: 50%;
   background-color: #fafafa;
+}
+.header .center .lang:hover {
+  animation-name: radial_pulse;
 }
 .header .center .search {
   margin-left: 45px;
@@ -235,6 +241,26 @@ body {
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid #00a0e3;
+}
+.header .center .search:visited:before {
+  width: 100%;
+}
+.header .center .search:before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 0px;
+  background-color: #00a0e3;
+  top: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.header .center .search:hover:before {
+  width: 100%;
+}
+.header .center .search.active:before {
+  width: 100%;
 }
 .header .right {
   display: flex;
@@ -330,6 +356,10 @@ body {
   position: absolute;
   top: 43%;
   left: -15%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  transform: translate(0, -50%);
   text-transform: uppercase;
   padding-left: 70px;
 }
@@ -343,10 +373,12 @@ body {
   margin-top: -1px;
   position: absolute;
   background: #00a0e3;
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .main_slider .block .item .section .content a.plus:after {
   content: '';
   display: block;
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 1px;
   height: 50px;
   top: 50%;
@@ -354,6 +386,12 @@ body {
   position: absolute;
   left: 25px;
   background: #00a0e3;
+}
+.main_slider .block .item .section .content a.plus:hover:before {
+  transform: rotate(180deg);
+}
+.main_slider .block .item .section .content a.plus:hover:after {
+  transform: rotate(-180deg);
 }
 .main_slider .block .item .section .sidebar {
   display: flex;
@@ -571,7 +609,7 @@ body {
 }
 .main_slider .block .item .section.two .content ul li.active {
   background-color: rgba(0, 0, 0, 0.55);
-  border: 0;
+  border-color: rgba(0, 0, 0, 0.55);
 }
 .main_slider .block .item .section.two .content ul li.active a {
   color: white;
@@ -597,8 +635,11 @@ body {
   margin: 0;
 }
 .main_slider .block .item .section.three .content a.plus {
-  top: 33px;
+  top: 10px;
   left: auto;
+  display: flex;
+  align-items: center;
+  height: 50px;
   right: 27px;
   transform: translate(100%, 0);
   white-space: nowrap;
@@ -707,6 +748,7 @@ body {
   position: absolute;
   bottom: 0;
   display: flex;
+  z-index: 2;
   right: 0;
   height: 115px;
   width: 450px;
@@ -724,12 +766,16 @@ body {
   text-transform: uppercase;
   font: 14px 'Roboto';
   left: 75px;
+  height: 50px;
+  display: flex;
+  align-items: center;
   position: relative;
   color: white;
 }
 .main_slider .block .item .section.four .controls .all a:before {
   content: '';
   display: block;
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 50px;
   left: -75px;
   height: 1px;
@@ -742,12 +788,19 @@ body {
   content: '';
   display: block;
   width: 1px;
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   height: 50px;
   top: 50%;
   margin-top: -25px;
   position: absolute;
   left: -50px;
   background: white;
+}
+.main_slider .block .item .section.four .controls .all a:hover:before {
+  transform: rotate(180deg);
+}
+.main_slider .block .item .section.four .controls .all a:hover:after {
+  transform: rotate(-180deg);
 }
 .main_slider .block .item .section.four .controls .arrows {
   width: 145px;
@@ -934,6 +987,7 @@ body {
   bottom: 0;
   right: 0;
   height: 110px;
+  z-index: 2;
   width: 220px;
   display: flex;
   align-items: center;
@@ -971,6 +1025,7 @@ body {
   margin: 0 24px;
   transform: rotate(-90deg);
   position: relative;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .main_slider .block > .slick-dots li button {
   border: 0;
@@ -997,6 +1052,7 @@ body {
 }
 .main_slider .block > .slick-dots li:after {
   content: '';
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   color: white;
   font: bold 13px/13px 'Roboto';
   position: absolute;
@@ -1101,6 +1157,7 @@ body {
   padding: 30px 0;
   border-bottom: 2px solid #e8e8e8;
   height: 584px;
+  transition: all 800ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .product_catalog .slider .item .content .row {
   display: flex;
@@ -1210,6 +1267,9 @@ body {
 }
 .product_catalog .slider .item .content .row .col.empty {
   background-color: #fff;
+}
+.product_catalog .slider .item .content .row:first-child {
+  margin-top: 0;
 }
 .product_catalog ul.sidebar {
   display: flex;
@@ -1864,10 +1924,12 @@ body {
   margin: auto;
   margin-bottom: 15px;
   background-color: #00a0e3;
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .training_center .content .row a.plus:after {
   content: '';
   display: block;
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 90px;
   height: 1px;
   position: absolute;
@@ -1875,6 +1937,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #00a0e3;
+}
+.training_center .content .row a.plus:hover:before {
+  transform: rotate(180deg);
+}
+.training_center .content .row a.plus:hover:after {
+  transform: rotate(-180deg) translate(50%, 0);
 }
 .training_center .content .row.courses .col {
   height: 180px;
@@ -1887,12 +1955,15 @@ body {
 }
 .training_center .content .row.courses .col:nth-child(1) {
   background-color: #00a0e3;
+  z-index: 1;
 }
 .training_center .content .row.courses .col:nth-child(2) {
   background-color: #008fcc;
+  z-index: 2;
 }
 .training_center .content .row.courses .col:nth-child(3) {
   background-color: #007fb5;
+  z-index: 3;
 }
 .training_center .content .row.courses .col h3 {
   font: bold 28px 'Roboto';
@@ -1901,12 +1972,18 @@ body {
 }
 .training_center .content .row.courses .col img {
   filter: invert(100%);
+  top: 0;
+  left: 0;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .training_center .content .row.courses .col .str {
   width: 100%;
   height: 3px;
   position: relative;
   background-color: #fff;
+  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform-origin: center center;
 }
 .training_center .content .row.courses .col .str:after {
   content: '';
@@ -1917,6 +1994,12 @@ body {
   transform: translate(0, -50%);
   border: 5px solid transparent;
   border-left: 25px solid white;
+}
+.training_center .content .row.courses .col:hover img {
+  transform: translate(100px, 0) scale(1.1);
+}
+.training_center .content .row.courses .col:hover .str {
+  transform: translate(10px, 0);
 }
 .training_center .content .form {
   padding: 20px 180px;
@@ -3757,5 +3840,13 @@ body {
   }
   100% {
     width: 39px;
+  }
+}
+@keyframes radial_pulse {
+  0% {
+    box-shadow: 0 0 0 0px #fafafa42;
+  }
+  100% {
+    box-shadow: 0 0 10px 20px #fafafa00;
   }
 }
