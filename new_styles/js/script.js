@@ -187,6 +187,8 @@ $(document).ready(function(){
     if($('#main_slider').length>0){
         $('::-webkit-scrollbar').css('dispaly','none')
     }
+
+    //аккардион в вакансиях
     $('.reach.vacancy .row:odd').css('background','white');
     $('.reach.vacancy .hide_vacancy').hide();
     $('.reach.vacancy .hide_vacancy').eq(1).show();
@@ -200,17 +202,23 @@ $(document).ready(function(){
         }
         $(this).toggleClass('active')
     })
+    //аккардион в вакансиях
+    
+    
 
-
+    //поле поиска в хедере
     $('.header .center .search input').focus(function(){
         $('.header .center .search').addClass('active');
     })
     $('.header .center .search input').focusout(function(){
         $('.header .center .search').removeClass('active');
     })
+    //поле поиска в хедере
+
 
 
     $(window).scroll(function(){
+        //фиксация хедера
         top_scroll = 223;
         if($('.reach_header ul').length == 0){
             top_scroll += 70;
@@ -229,8 +237,17 @@ $(document).ready(function(){
             $('.reach_header').css('top','0');
             $('.reach_header h1').css('color','white');
         }
-
-        
+        //фиксация хедера
+        //---------------
+        //фиксация года в истории
+        var year = $('.reach.history .section .left h2')
+        var section = $('.reach.history .section')
+        for(i = 0;i< year.length;i++){
+            if(100 + $(this).scrollTop() >= section.eq(i).offset().top && $(this).scrollTop() + 250 < section.eq(i).offset().top + section.eq(i).height()){
+                year.eq(i).css('top',100+$(this).scrollTop()-section.eq(i).offset().top)
+            }
+        }
+        //фиксация года в истории
     })
 
     
@@ -265,6 +282,7 @@ $(document).ready(function(){
         }
     })
 
+    //Фильтр новостей
     var filter_news = function(){
         var categories = $('.news_page ul.categories li');
         var items = $('.news_page .list .item');
@@ -322,7 +340,7 @@ $(document).ready(function(){
         filter_news();
         return false;
     })
-
+    //Фильтр новостей
 
 
 
