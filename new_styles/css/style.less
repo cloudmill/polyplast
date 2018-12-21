@@ -819,7 +819,7 @@ body{
                                 text-decoration: none;
                                 text-transform: uppercase;
                                 font: 14px @font;
-                                left: 75px;
+                                padding-left: 75px;
                                 height: 50px;
                                 display: flex;
                                 align-items: center;
@@ -830,7 +830,7 @@ body{
                                     display: block;
                                     transition: all @time_a*3 @cb;
                                     width: 50px;
-                                    left: -75px;
+                                    left: -0px;
                                     height: 1px;
                                     top: 50%;
                                     margin-top: -1px;
@@ -846,7 +846,7 @@ body{
                                     top: 50%;
                                     margin-top: -25px;
                                     position: absolute;
-                                    left: -50px;
+                                    left: 25px;
                                     background: white;
                                 }
                                 &:hover{
@@ -999,8 +999,9 @@ body{
                                     position: relative;
                                     overflow: hidden;
                                     .img{
-                                        span{
+                                        p{
                                             position: absolute;
+                                            margin: 0;
                                             top: 20px;
                                             right: 20px;
                                             font: bold 14px @font;
@@ -3564,6 +3565,12 @@ body{
                 position: relative;
                 overflow: hidden;
                 transition: all @time_a @cb;
+                transform: scale(0) translate(0,50%);
+                opacity: 0;
+                &.show{
+                    opacity: 1;
+                    transform: scale(1) translate(0,0)
+                }
                 &:active{
                     color: black;
                     p{
@@ -3597,7 +3604,8 @@ body{
                     &+.news_img + .zagl + .color-gradient{
                         display: block;
                     }
-                    span{
+                    p{
+                        margin: 0;
                         position: absolute;
                         top: 20px;
                         right: 20px;
@@ -3612,6 +3620,13 @@ body{
                         }
                         &.news{
                             background-color: #009846;
+                        }
+                        &.learning{
+                            background-color: #e31e24;
+                        }
+                        &.life{
+                            background-color: #ffed00;
+                            color: black;
                         }
                     }
                     .zagl{

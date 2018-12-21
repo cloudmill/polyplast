@@ -264,21 +264,68 @@ $(document).ready(function(){
             $('.training .about .methods ul').eq(index).delay(500).show(500)
         }
     })
+
+    var filter_news = function(){
+        var categories = $('.news_page ul.categories li');
+        var items = $('.news_page .list .item');
+        count = 0;
+        if($('.news_page ul.categories li.active').index()==0){
+            items.show()
+            items.delay(100).addClass('show')
+        }
+        else{
+            count = 0;
+            for(i = 0;i< categories.length;i++){
+                if(categories.eq(i).hasClass('active')){
+                    for(j=0;j<items.length;j++){
+                        if(categories.eq(i).children('a').text() == items.eq(j).children('.img').children('p').text()){
+                            items.eq(j).delay((count)*100).show()
+                            items.eq(j).delay((1+count)*100).addClass('show')
+                            count ++;
+                        }
+                    }
+                }
+                else{
+                    for(j=0;j<items.length;j++){
+                        if(categories.eq(i).children('a').text() == items.eq(j).children('.img').children('p').text()){
+                            items.eq(j).removeClass('show')
+                            items.eq(j).delay(100).hide()
+                        }
+                    }
+                }
+            }
+        }
+    }
     $('.news_page ul.categories li').click(function(){
         if($(this).attr('class') != 'active'){
-            $('.news_page ul.categories li').removeClass('active');
+            $('.news_page ul.categories li:first-child').removeClass('active');
             $(this).addClass('active');
             index = $('.news_page ul.categories li').index(this)
+
+            if(($('.news_page ul.categories li.active').length == ($('.news_page ul.categories li').length - 1))||$(this).index()==0){
+                $('.news_page ul.categories li').removeClass('active');
+                $('.news_page ul.categories li:first-child').addClass('active');
+            }
+            filter_news();
         }
         else{
             event.preventDefault();
         }
+        
     })
     $('.news_page ul.categories li a .close').click(function(){
         event.preventDefault();
         index = $(this).parent().parent().removeClass('active');
-        return false
+        if(($('.news_page ul.categories li.active').length == 0)){
+            $('.news_page ul.categories li:first-child').addClass('active'); 
+        }
+        filter_news();
+        return false;
     })
+
+
+
+
 
 
 

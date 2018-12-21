@@ -765,7 +765,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   font: 14px 'Roboto';
-  left: 75px;
+  padding-left: 75px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -777,7 +777,7 @@ body {
   display: block;
   transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 50px;
-  left: -75px;
+  left: 0px;
   height: 1px;
   top: 50%;
   margin-top: -1px;
@@ -793,7 +793,7 @@ body {
   top: 50%;
   margin-top: -25px;
   position: absolute;
-  left: -50px;
+  left: 25px;
   background: white;
 }
 .main_slider .block .item .section.four .controls .all a:hover:before {
@@ -940,7 +940,8 @@ body {
   position: relative;
   overflow: hidden;
 }
-.main_slider .block .item .section.six .content .container .slider .item .img span {
+.main_slider .block .item .section.six .content .container .slider .item .img p {
+  margin: 0;
   top: 20px;
   right: 20px;
   font: bold 14px 'Roboto';
@@ -949,10 +950,10 @@ body {
   position: absolute;
   padding: 5px 10px 5px 10px;
 }
-.main_slider .block .item .section.six .content .container .slider .item .img span.state {
+.main_slider .block .item .section.six .content .container .slider .item .img p.state {
   background-color: #009846;
 }
-.main_slider .block .item .section.six .content .container .slider .item .img span.news {
+.main_slider .block .item .section.six .content .container .slider .item .img p.news {
   background-color: #00a0e3;
 }
 .main_slider .block .item .section.six .content .container .slider .item .img .zagl {
@@ -3390,6 +3391,12 @@ body {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: scale(0) translate(0, 50%);
+  opacity: 0;
+}
+.news_page .content .list a.item.show {
+  opacity: 1;
+  transform: scale(1) translate(0, 0);
 }
 .news_page .content .list a.item:active {
   color: black;
@@ -3422,7 +3429,8 @@ body {
 .news_page .content .list a.item .img + .news_img + .zagl + .color-gradient {
   display: block;
 }
-.news_page .content .list a.item .img span {
+.news_page .content .list a.item .img p {
+  margin: 0;
   top: 20px;
   right: 20px;
   font: bold 14px 'Roboto';
@@ -3432,11 +3440,18 @@ body {
   z-index: 2;
   padding: 5px 10px 5px 10px;
 }
-.news_page .content .list a.item .img span.state {
+.news_page .content .list a.item .img p.state {
   background-color: #009846;
 }
-.news_page .content .list a.item .img span.news {
+.news_page .content .list a.item .img p.news {
   background-color: #009846;
+}
+.news_page .content .list a.item .img p.learning {
+  background-color: #e31e24;
+}
+.news_page .content .list a.item .img p.life {
+  background-color: #ffed00;
+  color: black;
 }
 .news_page .content .list a.item .img .zagl {
   z-index: 2;
