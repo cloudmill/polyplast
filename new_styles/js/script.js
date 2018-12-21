@@ -70,6 +70,8 @@ $(document).ready(function(){
         infinite: false
     })
     
+
+    //появление и скрытие футера при скроле
     scroll_to_foter = function(item,e){
         if(e.originalEvent.wheelDelta /120 > 0 && $(window).scrollTop()==0) {
             item.slick('slickPrev')
@@ -90,10 +92,11 @@ $(document).ready(function(){
             }
         }
     }
+    //появление и скрытие футера при скроле
+
     $('#main_slider').bind('mousewheel', function(e){
         scroll_to_foter($(this),e)
     });
-    
     $('.product_catalog').bind('mousewheel', function(e){
         scroll_to_foter($('.product_catalog .slider'),e)
         $('.product_catalog ul.sidebar li').removeClass('active');
@@ -102,7 +105,8 @@ $(document).ready(function(){
         $('.product_catalog .slider .item').height(height)
         $('.product_catalog .slider .item.slick-active').height($('.product_catalog .slider .item.slick-active .content').height())
     });
-    
+
+
 
     $('#main_slider .two .list_two li').click(function(){
         $('#main_slider .two .list_two li').removeClass('active');
@@ -182,12 +186,6 @@ $(document).ready(function(){
         $(".menu-hidden").css('visibility','visible')
     })
 
-
-
-    if($('#main_slider').length>0){
-        $('::-webkit-scrollbar').css('dispaly','none')
-    }
-
     //аккардион в вакансиях
     $('.reach.vacancy .row:odd').css('background','white');
     $('.reach.vacancy .hide_vacancy').hide();
@@ -250,9 +248,8 @@ $(document).ready(function(){
         //фиксация года в истории
     })
 
-    
+    //переключение страниц на детальной странице в Уч. центре
     $('.training .content').eq(0).fadeIn(500)
-
     $('.training .navigation li').click(function(){
         if(!$(this).hasClass('active')){
             $('.training .navigation li').removeClass('active');
@@ -281,6 +278,9 @@ $(document).ready(function(){
             $('.training .about .methods ul').eq(index).delay(500).show(500)
         }
     })
+    //переключение страниц на детальной странице в Уч. центре
+
+
 
     //Фильтр новостей
     var filter_news = function(){
@@ -343,10 +343,27 @@ $(document).ready(function(){
     //Фильтр новостей
 
 
+    //движение изоражений при движении мыши
+    $('body').on("mousemove",function(e){
+        x = e.screenX
+        y = e.screenY
+        k = 0.8;
+        items = [$('.reach_header img'),
+                $('.product_catalog .slider .item.slick-active .row + .row .col img'),
+                $('.main_slider .block .item .section.slider_one .slide img'),
+                $('.main_slider .block .item .section.four .slider .item img')];
+        for(i = 0;i< items.length;i++){
+            items[i].css('transform','scale(1.1)')
+            items[i].css('transform-origin','left top')
+            x_cor = items[i].width()/20*x/$(this).width();
+            y_cor = items[i].height()/20*y/$(this).height();
+            items[i].css('top',-y_cor*k)
+            items[i].css('left',-x_cor*k)
+        }
+    })
+    //движение изоражений при движении мыши
 
-
-
-
+    //корректировка размеров 
     var size_section = function(){
         m_left = $('#main_slider .slider_one .content').offset().left;
         width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
@@ -377,8 +394,8 @@ $(document).ready(function(){
         $('#main_slider .six .content .container').css('width',width+m_left+'px');
         $('#main_slider .six .content .container').css('left',m_left/2+'px');
         $('#main_slider .six .content .container .slider').css('width',width+'px');
-        
     }
+    //корректировка размеров
     size_section();
     $(window).on('resize',function(){
         size_section();
