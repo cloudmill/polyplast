@@ -219,6 +219,8 @@ body{
             transition: all @time_a;
             background: white;
             border: 1px solid #cccccc;
+            position: relative;
+            top: -1px;
             border-top: 0;
         }
         .lang{
@@ -246,23 +248,39 @@ body{
             padding: 0;
             position: relative;
             svg{
-                fill:#00a0e3;
+                fill:white;
                 max-width: 22px;
                 max-height: 22px;
                 position: absolute;
                 right: 0;
                 top: 50%;
                 transform: translate(-50%,-50%);
+                cursor: pointer;    
             }
             input{
                 font: 16px @font;
-                color: #797979;
+                color: white;
                 width: 100%;
                 height: 40px;
                 background-color: transparent;
                 border: 0;
-                border-bottom: 1px solid #00a0e3;
+                border-bottom: 1px solid white;
+                &::-webkit-input-placeholder { /* Chrome */
+                    color: white;
+                }
+                &:-ms-input-placeholder { /* IE 10+ */
+                    color: white;
+                }
+                &::-moz-placeholder { /* Firefox 19+ */
+                    color: white;
+                    opacity: 1;
+                }
+                &:-moz-placeholder { /* Firefox 4 - 18 */
+                    color: white;
+                    opacity: 1;
+                }
             }
+            
             &:visited {
                 &:before{
                     width: 100%;
@@ -274,7 +292,7 @@ body{
                 display: block;
                 height: 1px;
                 width: 0px;
-                background-color: #00a0e3;
+                background-color: white;
                 top: 0;
                 left: 0;
                 transition: width @time_a @cb;
@@ -322,6 +340,7 @@ body{
             background-color: #00a0e3;
             font: 16px/16px @font;
             color: white;
+            top:  -1px;
             border: 1px solid transparent;
             position: relative;
             z-index: 1;
@@ -348,13 +367,34 @@ body{
         }
     }
     &.black{
-        .center {
+        .center{
             .lang{
                 color: black;
             }
-            
             .search{
+                input{
+                    color: #797979;
+                    &::-webkit-input-placeholder { /* Chrome */
+                        color: #797979;
+                    }
+                    &:-ms-input-placeholder { /* IE 10+ */
+                        color: #797979;
+                    }
+                    &::-moz-placeholder { /* Firefox 19+ */
+                        color: #797979;
+                        opacity: 1;
+                    }
+                    &:-moz-placeholder { /* Firefox 4 - 18 */
+                        color: #797979;
+                        opacity: 1;
+                    }
+                    border-bottom-color: #00a0e3;
+                }
                 svg{
+                    fill: #00a0e3;
+                }
+                &:before{
+                    background-color: #00a0e3;
                 }
             }
         }
@@ -467,6 +507,10 @@ body{
                         &:last-child{
                             border: 0;
                         }
+                        transition: all @time_a @cb;
+                        &:hover{
+                            transform: translate(10px,0);
+                        }
                     }
                     
                 }
@@ -529,7 +573,46 @@ body{
                         margin-left: -275px;
                         z-index: 1;
                         cursor: pointer;
-                        
+                        border-right: 1px solid white;
+                        height: 13.5px;
+                        width: 36px;
+                        overflow: hidden;
+                        transition: all @time_a @cb;
+                        &:before{
+                            display: block;
+                            content: '';
+                            position: absolute;
+                            height: 1px;
+                            top: 0;
+                            right: 0;
+                            width: 40px;
+                            transform-origin: right top;
+                            transform: rotate(-9.9deg);
+                            background-color: #fff;
+                            transition: all @time_a @cb;
+                        }
+                        &:after{
+                            display: block;
+                            content: '';
+                            position: absolute;
+                            height: 1px;
+                            width: 40px;
+                            bottom: 0;
+                            right: 0;
+                            transform-origin: right top;
+                            transform: rotate(9.9deg);
+                            background-color: #fff;
+                            transition: all @time_a @cb;
+                        }
+                        &:hover{
+                            border-color: #00a0e3;
+                            &:before{
+                                background-color: #00a0e3;
+                            }
+                            &:after{
+                                background-color: #00a0e3;
+                            }
+                        }
                     }
                     p.num_o{
                         position: absolute;
@@ -549,8 +632,14 @@ body{
                         top: 25.3%;
                         left: 50%;
                         margin-left: -225px;
+                        border: 7px solid transparent;
+                        border-left: 35px solid white;
                         z-index: 1;
                         cursor: pointer;
+                        transition: all @time_a @cb;
+                        &:hover{
+                           border-left-color: #00a0e3;
+                        }
                     }
                     .slick-dots{
                         height: 5px;
@@ -574,6 +663,7 @@ body{
                                     display: none;
                                 } 
                             }
+                            
                         }
                         .slick-active button{
                             height: 1px;
@@ -992,11 +1082,14 @@ body{
                                 .slick-list{
                                     overflow: visible;
                                 }
-                                .item{
+                                a.item{
+                                    color: white;
                                     margin: 5px;
                                     width: 470px;
                                     height: 200px;
                                     border: 1px solid #878787;
+                                    display: block;
+                                    text-decoration: none;
                                     padding-top: 230px;
                                     position: relative;
                                     overflow: hidden;
@@ -1046,11 +1139,29 @@ body{
                                         margin-top: 10px;
                                         padding: 0 30px 0px 30px;
                                         font: bold 22px/23px @font;
+                                        color: black;
                                         &.date{
                                             margin-top:25px;
                                             font-size: 14px;
                                             line-height: 14px;
                                             color: #00a0e3;
+                                        }
+                                    }
+                                    &:focus{
+                                        .img{
+                                            p{
+                                                color: white;
+                                                &.life{
+                                                    color: black;
+                                                }
+                                            }
+                                            
+                                        }
+                                        p{
+                                            color: black;
+                                            &.date{
+                                                color: #00a0e3;
+                                            }
                                         }
                                     }
                                 }
@@ -1128,14 +1239,20 @@ body{
                     } 
                     
                 }
+                &:hover{
+                    &:after{
+                        padding-left: 5px;
+                    }
+                }
                 &:after{
+                    transition: all @time_a @cb;
                     content: '';
                     transition: all @time_a @cb;
                     color: white;
                     font: bold 13px/ 13px @font;
                     position: absolute;
                     top: 0;
-                    left: 23px;
+                    left: 20px;
                     white-space: nowrap;
                 }
                 &:nth-child(1)::after{
@@ -2574,7 +2691,6 @@ body{
                 }
             }
             label{
-                margin-bottom: 0;
             }
         }
         a.add_member{
@@ -2655,7 +2771,7 @@ body{
                     }
                 }
             }
-            input{
+            input[type="checkbox"]{
                 display: none;
                 &+label{
                     cursor: pointer;

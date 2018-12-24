@@ -56,10 +56,10 @@
   .main_slider .block .item .section.slider_one .slick-dots {
     margin-left: -300px;
   }
-  .main_slider .block .item .section.slider_one img.right_ar {
+  .main_slider .block .item .section.slider_one .right_ar {
     margin-left: -139px;
   }
-  .main_slider .block .item .section.slider_one img.left_ar {
+  .main_slider .block .item .section.slider_one .left_ar {
     margin-left: -189px;
   }
   .main_slider .block .item .section.slider_one p.num_o {

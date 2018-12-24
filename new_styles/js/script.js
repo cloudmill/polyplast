@@ -23,8 +23,8 @@ $(document).ready(function(){
         slidesToScroll: 1,
         fade: true,
         speed: 600,
-        prevArrow: '<img class="left_ar" src="new_styles/img/left_arrow.png" alt=""><p class="num_o">1<span>-4</span></p>',
-        nextArrow: '<img class="right_ar" src="new_styles/img/right_arrow.png" alt="">',
+        prevArrow: '<div class="left_ar" ></div><p class="num_o">1<span>-4</span></p>',
+        nextArrow: '<div class="right_ar" ></div>',
         arrows: true,
         dots : true
     })
@@ -318,9 +318,6 @@ $(document).ready(function(){
     })
     //слайдер на детальной странице в Уч. центре вкладка об уч. центре
     
-
-
-
     //Фильтр новостей
     var filter_news = function(){
         var categories = $('.news_page ul.categories li');
