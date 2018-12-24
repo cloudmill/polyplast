@@ -2026,6 +2026,7 @@ body{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                cursor: default;
                 p{
                     display: block;
                     font: 18px @font;
@@ -2038,6 +2039,7 @@ body{
                     position: relative;
                     background-color: #00a0e3;
                     margin: 0 30px;
+                    transition: all @time_a @cb;
                     &:before, &:after{
                         content: '';
                         display: block;
@@ -2057,6 +2059,14 @@ body{
                             left: auto;
                             right: 0;
                         }
+                    }
+                }
+                &:hover{
+                    .bracket{
+                        &:first-child{
+                            transform: translate(-5px,0)
+                        }
+                        transform: translate(5px,0)
                     }
                 }
             }
@@ -2106,13 +2116,14 @@ body{
                 }
             }
             &.courses{
-                .col{
+                a.col{
                     height: 180px;
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
                     flex-direction: column;
                     padding: 60px;
+                    text-decoration: none;
                     flex-basis: 33%;
                     
                     &:nth-child(1){

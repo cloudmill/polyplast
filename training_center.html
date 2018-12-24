@@ -19,7 +19,7 @@
             <li><a href="">О КОМПАНИИ</a></li>
             <li><a href="Product_catalog.html">ПРОДУКЦИЯ</a></li>
             <li><a href="training_center.html">НАУЧНАЯ ДЕЯТЕЛЬНОСТЬ</a></li>
-            <li><a href="training_materials.html">УЧЕБНЫЙ ЦЕНТР</a></li>
+            <li><a href="training_center.html">УЧЕБНЫЙ ЦЕНТР</a></li>
             <li><a href="reach.html">REACH</a></li>
             <li><a href="">КОНТАКТЫ</a></li>
         </ul>
@@ -61,34 +61,30 @@
         <li><a href="reach_vacancy.html">Вакансии</a></li>
       </ul>
     </div>
-    <div class="training_center">
+    <div class="training_center" onload="training_center_load()">
       <div class="content">
         <div class="row">
-          <h2>Об учебном
-            центре</h2>
+          <h2>Об учебном центре</h2>
           <div class="brackets"><div class="bracket"></div> <p>Сегодня компания с успехом проводит интенсивную подготовку и переподготовку специалистов различного уровня, занятых в различных сферах деятельности нашего педприятия.
           </p><div class="bracket"></div></div>
           <a href="training_materials.html" class="plus"><p>Больше информации</p></a>
         </div>
-        <div class="row courses">
-          <div class="col">
+        <div class="row courses" onclick="console.log(location.href)">
+          <a href="training_materials.html" class="col">
             <img src="new_styles/img/courses_1.png" alt="">
-            <h3>Курсы
-              обучения</h3>
+            <h3>Курсы обучения</h3>
             <div class="str"></div>
-          </div>
-          <div class="col">
+          </a>
+          <a href="training_materials.html" class="col">
             <img src="new_styles/img/courses_2.png" alt="">
-            <h3>Обучающие
-              материалы</h3>
+            <h3>Учебные материалы</h3>
             <div class="str"></div>
-          </div>
-          <div class="col">
+          </a>
+          <a href="training_materials.html" class="col">
             <img src="new_styles/img/courses_3.png" alt="">
-            <h3>Запись
-              на обучение</h3>
+            <h3>Запись на обучение</h3>
             <div class="str"></div>
-          </div>
+          </a>
         </div>
         <div class="form">
           <div class="bg-gray"></div>

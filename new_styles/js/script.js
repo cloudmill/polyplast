@@ -1,6 +1,11 @@
-$('.training .content').fadeOut(0)
+//обнуление классов
 $('.training .about .methods .block_r .right img').fadeOut(0)
 $('.training .about .methods ul').fadeOut(0)
+$('.training .content').fadeOut(0)
+$('.training .navigation li').removeClass('active');
+$('.reach_header').removeClass('materials courses about active record')
+//обнуление классов
+
 $(document).ready(function(){
     var height;
     var mian_slider=$('#main_slider').slick({
@@ -248,8 +253,40 @@ $(document).ready(function(){
         //фиксация года в истории
     })
 
+
+    //обработка перехода на детальную страницу уч. центра
+    var training_page = 0
+    var training_center_load = function(){
+        for(i = 0; i< location.href.length;i++){
+            if(location.href[i] == "="){
+                training_page = location.href[i+1]
+                break;
+            }
+            else{ training_page = 0;}
+        }
+        $('.training .content').eq(training_page).fadeIn(500)
+        $('.training .navigation li').eq(training_page).addClass('active');
+        $('.reach_header .content h1').text($('.training .navigation li').eq(training_page).text())
+        $('.breadcrumbs p').text($('.training .navigation li').eq(training_page).text())
+        $('.reach_header').addClass($('.training .content').eq(training_page).attr('class').replace('content ',''))
+    }
+    if($('.training .content').length>0){
+        training_center_load();
+    }
+    //обработка перехода на детальную страницу уч. центра
+
+
+    //переход ан детальную страницу в Уч. центре
+    $('.training_center .courses a.col').click(function(e){
+        e.preventDefault();
+        link = $(this).attr('href');
+        training_page = $(this).index()+1
+        document.location.replace((link+'?training_page='+ training_page));
+    })
+    //переход ан детальную страницу в Уч. центре
+
+
     //переключение страниц на детальной странице в Уч. центре
-    $('.training .content').eq(0).fadeIn(500)
     $('.training .navigation li').click(function(){
         if(!$(this).hasClass('active')){
             $('.training .navigation li').removeClass('active');
@@ -258,13 +295,14 @@ $(document).ready(function(){
             $('.training .content').fadeOut(500)
             $('.training .content').eq(index).delay(500).fadeIn(500)
             $('.reach_header .content h1').text($(this).text())
-            el_class = $('.training .content').eq(index).attr('class').replace('content ','')
+            $('.breadcrumbs p').text($(this).text())
             $('.reach_header').removeClass('materials courses about active record')
-            $('.reach_header').addClass(el_class)
+            $('.reach_header').addClass($('.training .content').eq(index).attr('class').replace('content ',''))
         }
-        
-        
     })
+    //переключение страниц на детальной странице в Уч. центре
+
+    //слайдер на детальной странице в Уч. центре вкладка об уч. центре
     $('.training .about .methods .block_r .right img').eq(0).fadeIn(500)
     $('.training .about .methods ul').eq(0).fadeIn(500)
     $('.training .about .methods .block_r .col').click(function(){
@@ -278,7 +316,8 @@ $(document).ready(function(){
             $('.training .about .methods ul').eq(index).delay(500).show(500)
         }
     })
-    //переключение страниц на детальной странице в Уч. центре
+    //слайдер на детальной странице в Уч. центре вкладка об уч. центре
+    
 
 
 
@@ -365,10 +404,13 @@ $(document).ready(function(){
 
     //корректировка размеров 
     var size_section = function(){
-        m_left = $('#main_slider .slider_one .content').offset().left;
-        width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
-        height = $(window).height();
-
+        var m_left,width
+        
+        if($('#main_slider .slider_one .content').length>0){
+            m_left = $('#main_slider .slider_one .content').offset().left;
+            width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
+        }
+        var height = $(window).height();
         $('#main_slider').css('height',height);
         $('.main_slider').css('height',height);
         $('#main_slider .slick-list').css('height',height);
