@@ -1,9 +1,12 @@
 //обнуление классов
-$('.training .about .methods .block_r .right img').fadeOut(0)
-$('.training .about .methods ul').fadeOut(0)
-$('.training .content').fadeOut(0)
-$('.training .navigation li').removeClass('active');
-$('.reach_header').removeClass('materials courses about active record')
+var clear_class = function(){
+    $('.training .about .methods .block_r .right img').fadeOut(0)
+    $('.training .about .methods ul').fadeOut(0)
+    $('.training .content').fadeOut(0)
+    $('.training .navigation li').removeClass('active');
+    $('.reach_header').removeClass('materials courses about active record')
+}
+clear_class();
 //обнуление классов
 
 $(document).ready(function(){
@@ -257,6 +260,7 @@ $(document).ready(function(){
     //обработка перехода на детальную страницу уч. центра
     var training_page = 0
     var training_center_load = function(){
+        clear_class();
         for(i = 0; i< location.href.length;i++){
             if(location.href[i] == "="){
                 training_page = location.href[i+1]
@@ -276,20 +280,21 @@ $(document).ready(function(){
     //обработка перехода на детальную страницу уч. центра
 
 
-    //переход ан детальную страницу в Уч. центре
+    //переход на детальную страницу в Уч. центре
     $('.training_center .courses a.col').click(function(e){
         e.preventDefault();
         link = $(this).attr('href');
         training_page = $(this).index()+1
+        window.history.pushState('forward', null, location.href);
         document.location.replace((link+'?training_page='+ training_page));
     })
-    //переход ан детальную страницу в Уч. центре
+    //переход на детальную страницу в Уч. центре
 
 
     //переключение страниц на детальной странице в Уч. центре
     $('.training .navigation li').click(function(){
         if(!$(this).hasClass('active')){
-            $('.training .navigation li').removeClass('active');
+            /*$('.training .navigation li').removeClass('active');
             $(this).addClass('active');
             index = $('.training .navigation li').index(this)
             $('.training .content').fadeOut(500)
@@ -297,9 +302,19 @@ $(document).ready(function(){
             $('.reach_header .content h1').text($(this).text())
             $('.breadcrumbs p').text($(this).text())
             $('.reach_header').removeClass('materials courses about active record')
-            $('.reach_header').addClass($('.training .content').eq(index).attr('class').replace('content ',''))
+            $('.reach_header').addClass($('.training .content').eq(index).attr('class').replace('content ',''))*/
+            window.history.pushState('forward', null, location.href);
+            link = location.href.replace('#?training_page=0','').replace('#?training_page=1','').replace('#?training_page=2','').replace('#?training_page=3','')
+            
+            window.location.href = (link+'#?training_page='+  $('.training .navigation li').index(this))
+            //document.location.replace((link+'?training_page='+  $('.training .navigation li').index(this)));
         }
     })
+    $(window).bind('hashchange', function() {//привязка к истории
+        if($('.training').length>0){
+            training_center_load();
+        }
+    });
     //переключение страниц на детальной странице в Уч. центре
 
     //слайдер на детальной странице в Уч. центре вкладка об уч. центре
@@ -378,6 +393,7 @@ $(document).ready(function(){
     })
     //Фильтр новостей
 
+    
 
     //движение изоражений при движении мыши
     $('body').on("mousemove",function(e){
