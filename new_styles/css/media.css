@@ -17,6 +17,13 @@
   }
 }
 @media (max-width: 1400px) {
+  .header .right div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header .right div a:after {
+    display: none;
+  }
   .reach_header .content {
     width: 85%;
   }

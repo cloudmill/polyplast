@@ -10,8 +10,8 @@ clear_class();
 //обнуление классов
 
 $(document).ready(function(){
-    var height;
-    var mian_slider=$('#main_slider').slick({
+    
+    $('#main_slider').slick({
         slidesToShow: 1,
         vertical:true,
         slidesToScroll: 1,
@@ -46,7 +46,7 @@ $(document).ready(function(){
         arrows: false,
         dots : false
     })
-    $('#main_slider .two .otrsl_slider').slick({
+    $('#main_slider .two .industry_slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         speed: 600,
@@ -119,7 +119,7 @@ $(document).ready(function(){
     $('#main_slider .two .list_two li').click(function(){
         $('#main_slider .two .list_two li').removeClass('active');
         $(this).addClass('active');
-        $('#main_slider .two .otrsl_slider').slick('slickGoTo', $(this).index());
+        $('#main_slider .two .industry_slider').slick('slickGoTo', $(this).index());
     })
     $('.product_catalog ul.sidebar li').click(function(){
         $('.product_catalog ul.sidebar li').removeClass('active');
@@ -159,8 +159,9 @@ $(document).ready(function(){
     $('#main_slider .slider_one').on('afterChange', function(event, slick, currentSlide){
         $('#main_slider .slider_one .num_o').html(currentSlide+1+"<span>"+(-$("#main_slider .slider_one").slick("getSlick").slideCount)+"</span>");
     });
-
-
+    
+    //смена стилей при переключении слайдов на главной
+    {
     $('#main_slider').on('beforeChange',function(event, slick, currentSlide,  nextSlide){
         if(nextSlide==1 || nextSlide==2 || nextSlide==5){
             $('.header').addClass("black");
@@ -174,7 +175,7 @@ $(document).ready(function(){
     $('#main_slider .slider_one').on('beforeChange', function(event, slick, currentIndex, index){
         event.stopPropagation()
     })
-    $('#main_slider .two .otrsl_slider').on('beforeChange', function(event, slick, currentIndex, index){
+    $('#main_slider .two .industry_slider').on('beforeChange', function(event, slick, currentIndex, index){
         event.stopPropagation()
     })
     $('#main_slider .four .slider').on('beforeChange', function(event, slick, currentIndex, index){
@@ -183,7 +184,8 @@ $(document).ready(function(){
     $('#main_slider .six .slider').on('beforeChange', function(event, slick, currentIndex, index){
         event.stopPropagation()
     })
-
+    }
+    //смена стилей при переключении слайдов на главной
     
 
 
@@ -210,7 +212,22 @@ $(document).ready(function(){
     })
     //аккардион в вакансиях
     
-    
+    //аккардион в каталоге
+    $('.catalog .sidebar .category ul').hide()
+    $('.catalog .sidebar .category ul').eq(0).show()
+    $('.catalog .sidebar .category > li > a').click(function(e){
+        e.preventDefault();
+        index = $(this).parent().index()
+        if(!$(this).parent().hasClass('open')){
+            $(this).parent().addClass('open')
+            $(this).parent().children('ul').show(500);
+        }
+        else{
+            $(this).parent().removeClass('open')
+            $(this).parent().children('ul').hide(500);
+        }
+    })
+    //аккардион в каталоге
 
     //поле поиска в хедере
     $('.header .center .search input').focus(function(){
@@ -256,37 +273,52 @@ $(document).ready(function(){
         //фиксация года в истории
     })
 
+    //сохранение НОМЕРА СЛАЙДА при переходе в каталог продукции
+    if(!(sessionStorage['industry_slider_tab']>=0)){
+        sessionStorage['industry_slider_tab'] = 0;
+    }
+    $('.product_catalog ul.sidebar li').eq(sessionStorage['industry_slider_tab']).trigger('click');
+    sessionStorage['industry_slider_tab'] = 0;
+    $('.section.two .content > a').click(function(e){
+        e.preventDefault();
+        tab = $('#main_slider .two .industry_slider').slick("getSlick").currentSlide
+        sessionStorage['industry_slider_tab'] = tab
+        window.history.pushState('forward', null, location.href);
+        document.location.replace(($(this).attr('href')))
+    })
+    //сохранение НОМЕРА СЛАЙДА при переходе в каталог продукции
 
-    //обработка перехода на детальную страницу уч. центра
-    var training_page = 0
+
+
+    //обработка ПЕРЕХОДА на детальную страницу уч. центра
+    var training_page_index = 0
+    if(!(localStorage['training_page_index']>=0)){
+        localStorage['training_page_index'] = 0;
+    }
+
     var training_center_load = function(){
         clear_class();
-        for(i = 0; i< location.href.length;i++){
-            if(location.href[i] == "="){
-                training_page = location.href[i+1]
-                break;
-            }
-            else{ training_page = 0;}
-        }
-        $('.training .content').eq(training_page).fadeIn(500)
-        $('.training .navigation li').eq(training_page).addClass('active');
-        $('.reach_header .content h1').text($('.training .navigation li').eq(training_page).text())
-        $('.breadcrumbs p').text($('.training .navigation li').eq(training_page).text())
-        $('.reach_header').addClass($('.training .content').eq(training_page).attr('class').replace('content ',''))
+        training_page_index = localStorage['training_page_index'];
+        $('.training .content').eq(training_page_index).fadeIn(500)
+        $('.training .navigation li').eq(training_page_index).addClass('active');
+        $('.reach_header .content h1').text($('.training .navigation li').eq(training_page_index).text())
+        $('.breadcrumbs p').text($('.training .navigation li').eq(training_page_index).text())
+        $('.reach_header').addClass($('.training .content').eq(training_page_index).attr('class').replace('content ',''))
     }
     if($('.training .content').length>0){
         training_center_load();
     }
-    //обработка перехода на детальную страницу уч. центра
+    //обработка ПЕРЕХОДА на детальную страницу уч. центра
 
 
     //переход на детальную страницу в Уч. центре
     $('.training_center .courses a.col').click(function(e){
         e.preventDefault();
         link = $(this).attr('href');
-        training_page = $(this).index()+1
+        training_page_index = $(this).index()+1
         window.history.pushState('forward', null, location.href);
-        document.location.replace((link+'?training_page='+ training_page));
+        localStorage['training_page_index'] = training_page_index
+        document.location.replace((link));
     })
     //переход на детальную страницу в Уч. центре
 
@@ -294,27 +326,10 @@ $(document).ready(function(){
     //переключение страниц на детальной странице в Уч. центре
     $('.training .navigation li').click(function(){
         if(!$(this).hasClass('active')){
-            /*$('.training .navigation li').removeClass('active');
-            $(this).addClass('active');
-            index = $('.training .navigation li').index(this)
-            $('.training .content').fadeOut(500)
-            $('.training .content').eq(index).delay(500).fadeIn(500)
-            $('.reach_header .content h1').text($(this).text())
-            $('.breadcrumbs p').text($(this).text())
-            $('.reach_header').removeClass('materials courses about active record')
-            $('.reach_header').addClass($('.training .content').eq(index).attr('class').replace('content ',''))*/
-            window.history.pushState('forward', null, location.href);
-            link = location.href.replace('#?training_page=0','').replace('#?training_page=1','').replace('#?training_page=2','').replace('#?training_page=3','')
-            
-            window.location.href = (link+'#?training_page='+  $('.training .navigation li').index(this))
-            //document.location.replace((link+'?training_page='+  $('.training .navigation li').index(this)));
-        }
-    })
-    $(window).bind('hashchange', function() {//привязка к истории
-        if($('.training').length>0){
+            localStorage['training_page_index'] = $('.training .navigation li').index(this);
             training_center_load();
         }
-    });
+    })
     //переключение страниц на детальной странице в Уч. центре
 
     //слайдер на детальной странице в Уч. центре вкладка об уч. центре
@@ -415,15 +430,15 @@ $(document).ready(function(){
     })
     //движение изоражений при движении мыши
 
-    //корректировка размеров 
+    //корректировка размеров
+    var height,m_left,width;
+
     var size_section = function(){
-        var m_left,width
-        
         if($('#main_slider .slider_one .content').length>0){
             m_left = $('#main_slider .slider_one .content').offset().left;
             width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
         }
-        var height = $(window).height();
+        height = $(window).height();
         $('#main_slider').css('height',height);
         $('.main_slider').css('height',height);
         $('#main_slider .slick-list').css('height',height);
