@@ -246,10 +246,16 @@ $(document).ready(function(){
         if($('.reach_header ul').length == 0){
             top_scroll += 70;
         }
+        if($('.reach_header').hasClass('scientific')){
+            top_scroll += 480;
+        }
         if($(this).scrollTop()<=top_scroll){
             $('.reach_header').css('background-color',("rgba(0,0,0,"+($(this).scrollTop()/top_scroll/2)+")"))
         }
-        $('.reach_header h1').css('opacity',1-$(this).scrollTop()/top_scroll)
+        items = [$('.reach_header h1'),$('.scientific_activity .block')]
+        for(i = 0;i<items.length;i++){
+            items[i].css('opacity',1-$(this).scrollTop()/(items[i].offset().top+items[i].height()))
+        }
         if($(this).scrollTop()>=top_scroll){
             $('.reach_header').css('position','fixed');
             $('.reach_header').css('top',((-top_scroll)+"px"));
@@ -421,7 +427,7 @@ $(document).ready(function(){
                 $('.main_slider .block .item .section.four .slider .item img')];
         for(i = 0;i< items.length;i++){
             items[i].css('transform','scale(1.1)')
-            items[i].css('transform-origin','left top')
+            //items[i].css('transform-origin','left top')
             x_cor = items[i].width()/20*x/$(this).width();
             y_cor = items[i].height()/20*y/$(this).height();
             items[i].css('top',-y_cor*k)
