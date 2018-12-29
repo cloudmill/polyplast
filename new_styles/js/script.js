@@ -77,6 +77,15 @@ $(document).ready(function(){
         dots : true,
         infinite: false
     })
+    $('.object_header .slider_img').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 600,
+        arrows: false,
+        swipe: false,
+        dots : true,
+        infinite: false
+    })
     
 
     //появление и скрытие футера при скроле
@@ -132,6 +141,14 @@ $(document).ready(function(){
 
 
 
+    $('.object_header .right_f').on('click', function() {
+        $('.object_header .slider_img').slick('slickNext');
+    });
+    $('.object_header  .left_f').on('click', function() {
+        $('.object_header .slider_img').slick('slickPrev');
+    });
+
+
     $('#main_slider .four .right_f').on('click', function() {
         $('#main_slider .four .slider').slick('slickNext');
     });
@@ -149,6 +166,11 @@ $(document).ready(function(){
     });
 
 
+
+    $('.object_header .num').text(1+'/'+$(".object_header .slider_img").slick("getSlick").slideCount);
+    $('.object_header .slider_img').on('afterChange', function(event, slick, currentSlide){
+        $('.object_header .num').text(currentSlide+1+'/'+$(".object_header .slider_img").slick("getSlick").slideCount);
+    });
 
     $('#main_slider .four .num').text(1+'/'+$("#main_slider .four .slider").slick("getSlick").slideCount);
     $('#main_slider .four .slider').on('afterChange', function(event, slick, currentSlide){
@@ -254,7 +276,9 @@ $(document).ready(function(){
         }
         items = [$('.reach_header h1'),$('.scientific_activity .block')]
         for(i = 0;i<items.length;i++){
-            items[i].css('opacity',1-$(this).scrollTop()/(items[i].offset().top+items[i].height()))
+            if(items[i].length>=1){
+                items[i].css('opacity',1-$(this).scrollTop()/(items[i].offset().top+items[i].height()))
+            }
         }
         if($(this).scrollTop()>=top_scroll){
             $('.reach_header').css('position','fixed');

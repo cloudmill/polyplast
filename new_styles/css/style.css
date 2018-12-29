@@ -1310,6 +1310,235 @@ body {
 .breadcrumbs.white .content p {
   color: white;
 }
+.objects .content {
+  padding-bottom: 45px;
+  width: 1330px;
+  margin: auto;
+}
+.objects .content h1 {
+  color: #2c3538;
+  margin-top: 0;
+  font: bold 58px 'Roboto';
+}
+.objects .content > p {
+  font: 18px 'Roboto';
+  margin-bottom: 60px;
+}
+.objects .content .row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 30px;
+}
+.objects .content .row .col {
+  flex-basis: 50%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00a0e3;
+  cursor: pointer;
+}
+.objects .content .row .col p {
+  font: bold 18px 'Roboto';
+  color: white;
+}
+.objects .content .row .col p img {
+  margin-right: 5px;
+}
+.objects .content .row .col.active {
+  cursor: default;
+  background-color: #fafafa;
+}
+.objects .content .row .col.active p {
+  color: black;
+}
+.objects .content .row .col:last-child.active p img {
+  filter: invert(50%);
+}
+.objects .content .row .col:first-child p img {
+  filter: contrast(2000%);
+}
+.objects .content .row .col:first-child.active p img {
+  filter: contrast(100%);
+}
+.objects .content .items {
+  display: flex;
+}
+.objects .content .items a.item {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  flex-basis: 100%;
+  padding: 15px;
+  height: 420px;
+  margin-bottom: 10px;
+}
+.objects .content .items a.item p {
+  font: bold 14px 'Roboto';
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  color: white;
+}
+.objects .content .items a.item h3 {
+  margin: 0;
+  font: bold 24px 'Roboto';
+  position: absolute;
+  bottom: 45px;
+  color: white;
+  left: 45px;
+}
+.objects .content .items a.item:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+  opacity: 0.5;
+}
+.objects .content .items a.item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+.objects .content .items a.item.col-50 {
+  flex-basis: 50%;
+  margin-right: 10px;
+}
+.objects .content .items a.item.col-50:last-child {
+  margin-right: 0;
+}
+.object_detail {
+  padding-top: 770px;
+  overflow: hidden;
+}
+.object_detail .content {
+  padding-bottom: 45px;
+  width: 1330px;
+  margin: auto;
+}
+.object_detail .content h2 {
+  font: bold 26px 'Roboto';
+}
+.object_detail .content .text h4 {
+  font: 22px/35px 'Roboto';
+  padding-left: 37px;
+  border-left: 3px solid #00a0e3;
+}
+.object_detail .content .text p {
+  padding-left: 40px;
+  font: 16px/25px 'Roboto';
+}
+.object_detail .content .block {
+  padding: 70px 0;
+  position: relative;
+  background-color: #fafafa;
+  margin-bottom: 80px;
+}
+.object_detail .content .block > h2 {
+  margin-top: 0;
+}
+.object_detail .content .block:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fafafa;
+  width: 200%;
+  height: 100%;
+}
+.object_detail .content .block:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  right: 100%;
+  background-color: #fafafa;
+  width: 200%;
+}
+.object_detail .content .block h3 {
+  font: bold 22px 'Roboto';
+}
+.object_detail .content .block .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.object_detail .content .block .row .col {
+  flex-basis: calc(50% - 44px);
+  background-color: #fff;
+  margin-bottom: 10px;
+  border: 1px solid #f0f0f0;
+  margin-right: 10px;
+  height: 80px;
+  padding-left: 30px;
+  border-left: 3px solid #12982e;
+  display: flex;
+  align-items: center;
+}
+.object_detail .content .block .row .col p {
+  font: bold 24px 'Roboto';
+  color: #12982e;
+}
+.object_detail .content .block + h2 {
+  font: bold 28px 'Roboto';
+}
+.object_detail .content .items {
+  display: flex;
+}
+.object_detail .content .items a.item {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  flex-basis: 100%;
+  padding: 15px;
+  height: 420px;
+  margin-bottom: 10px;
+}
+.object_detail .content .items a.item p {
+  font: bold 14px 'Roboto';
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  color: white;
+}
+.object_detail .content .items a.item h3 {
+  margin: 0;
+  font: bold 24px 'Roboto';
+  position: absolute;
+  bottom: 45px;
+  color: white;
+  left: 45px;
+}
+.object_detail .content .items a.item:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+  opacity: 0.5;
+}
+.object_detail .content .items a.item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+.object_detail .content .items a.item.col-50 {
+  flex-basis: 50%;
+  margin-right: 10px;
+}
+.object_detail .content .items a.item.col-50:last-child {
+  margin-right: 0;
+}
 .product_catalog {
   margin-bottom: 80px;
   position: relative;
@@ -2391,6 +2620,103 @@ body {
 }
 .catalog_detail .content > .form form .col input:checked + label:after {
   opacity: 1;
+}
+.object_header {
+  background-size: cover;
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 770px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 4;
+  overflow: hidden;
+}
+.object_header .slider_img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.object_header .slider_img .item {
+  overflow: hidden;
+}
+.object_header .slider_img .item img {
+  margin: 0;
+  padding: 0;
+  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: scale(1.1);
+  min-width: 100%;
+  min-height: 100%;
+}
+.object_header .controls {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  bottom: 50px;
+  display: flex;
+  z-index: 2;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 115px;
+  width: 225px;
+}
+.object_header .controls .arrows {
+  width: 145px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+}
+.object_header .controls .arrows .left_f,
+.object_header .controls .arrows .right_f {
+  cursor: pointer;
+}
+.object_header .controls .arrows .num {
+  font: bold 14px 'Roboto';
+  border: 1px solid #d3d3d369;
+  position: relative;
+  z-index: 1;
+  color: white;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.object_header .controls .arrows:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  top: 0;
+  left: 50%;
+  opacity: .3;
+  background-color: #d3d3d3;
+  transform: translate(-50%, 0);
+  z-index: 0;
+}
+.object_header .content {
+  width: 1330px;
+  margin: 0;
+  margin-top: 200px;
+}
+.object_header .content h1 {
+  font: bold 58px 'Roboto';
+  color: white;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.object_header .content p {
+  font: 16px 'Roboto';
+  color: white;
 }
 .reach_header {
   background-size: cover;
