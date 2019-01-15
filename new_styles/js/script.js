@@ -520,6 +520,7 @@ $(document).ready(function(){
                 $('.product_catalog .slider .item.slick-active .row + .row .col img'),
                 $('.main_slider .block .item .section.slider_one .slide img'),
                 $('.env_slider > img'),
+                $('.documents > img'),
                 $('.main_slider .block .item .section.four .slider .item img')];
         for(i = 0;i< items.length;i++){
             items[i].css('transform','scale(1.1)')
@@ -540,6 +541,10 @@ $(document).ready(function(){
             m_left = $('#main_slider .slider_one .content').offset().left;
             width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
         }
+        if($('.rounds').length>0){
+            $('.rounds .round_4').height($('.rounds .round_4').width());
+        }
+        $('.rounds .round_4').height($('.rounds .round_4').width());
         height = $(window).height();
         $('.page_404').css('height',height);
         $('#main_slider').css('height',height);
