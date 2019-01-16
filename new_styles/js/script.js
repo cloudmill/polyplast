@@ -287,35 +287,7 @@ $(document).ready(function(){
 
 
     $(window).scroll(function(){
-        //фиксация хедера
-        /*top_scroll = 223;
-        if($('.reach_header ul').length == 0){
-            top_scroll += 70;
-        }
-        if($('.reach_header').hasClass('scientific')){
-            top_scroll += 480;
-        }
-        if($(this).scrollTop()<=top_scroll){
-            $('.reach_header').css('background-color',("rgba(0,0,0,"+($(this).scrollTop()/top_scroll/2)+")"))
-        }
-        items = [$('.reach_header h1'),$('.scientific_activity .block')]
-        for(i = 0;i<items.length;i++){
-            if(items[i].length>=1){
-                items[i].css('opacity',1-$(this).scrollTop()/(items[i].offset().top+items[i].height()))
-            }
-        }
-        if($(this).scrollTop()>=top_scroll){
-            $('.reach_header').css('position','fixed');
-            $('.reach_header').css('top',((-top_scroll)+"px"));
-            $('.reach_header h1').css('color','transparent');
-        }
-        else{
-            $('.reach_header').css('position','absolute');
-            $('.reach_header').css('top','0');
-            $('.reach_header h1').css('color','white');
-        }*/
-        //фиксация хедера
-        //---------------
+        
         //фиксация года в истории
         var year = $('.reach.history .section .left h2')
         var section = $('.reach.history .section')
@@ -532,6 +504,71 @@ $(document).ready(function(){
         }
     })
     //движение изоражений при движении мыши
+
+
+    //кастомный скроллбар для страницы контактов
+    var scrollbar_contact_height = 0,
+        mouse_down_scroll = false,
+        mouse_position = 0,
+        last_y_scroll = 0,
+        position_y = 0;
+    for(i = 0;i<$('.map_zavods .sidebar .item').length;i++){
+        scrollbar_contact_height += $('.map_zavods .sidebar .item').eq(i).height();
+        console.log(scrollbar_contact_height)
+    }
+    var kf_lenght = $('.map_zavods .sidebar').height()/scrollbar_contact_height,
+        offset_scrollbar = $('.map_zavods .scrollbar .track').offset().top;
+    $('.map_zavods .scrollbar .track').height(kf_lenght * $('.map_zavods .scrollbar').height())
+    
+    $('.map_zavods .scrollbar .track').mousedown(function(e){
+        mouse_down_scroll = true
+        mouse_position = e.screenY - offset_scrollbar + $(document).scrollTop()-50;
+    })
+    $('.map_zavods .sidebar').mouseup(function(){
+        mouse_down_scroll = false;
+        last_y_scroll = position_y
+    })
+    $('.map_zavods .sidebar').mousemove(function(e){
+        if(mouse_down_scroll){
+            position_y = e.screenY - offset_scrollbar + $(document).scrollTop() - 50 - mouse_position +last_y_scroll;
+            if((position_y+$('.map_zavods .scrollbar .track').height()<=$('.map_zavods .sidebar').height()&&position_y>0)){
+                $('.map_zavods .scrollbar .track').css('top',position_y)
+                kf_moving = position_y/($('.map_zavods .scrollbar').height()-$('.map_zavods .scrollbar .track').height())
+                kf_moving = kf_moving.toFixed(2)
+                $('.map_zavods .sidebar .block').scrollTop(kf_moving*(scrollbar_contact_height))
+                console.log(kf_moving)
+            }
+        }
+    })
+    $('.map_zavods .sidebar .block').scroll(function(){
+        kf_moving = $(this).scrollTop() / scrollbar_contact_height
+        position_y =($('.map_zavods .scrollbar').height()-$('.map_zavods .scrollbar .track').height()) * kf_moving
+        $('.map_zavods .scrollbar .track').css('top',position_y)
+    })
+    //кастомный скроллбар для страницы контактов
+
+    
+    $('.trigger_list .trigger').click(function(){
+        if(!$(this).hasClass('active')){
+            $(this).parent().find('.trigger').removeClass('active');
+            $(this).addClass('active');
+        }
+    })
+
+    $('.dropdown-wrapper .value').click(function(){
+        $(this).parent().toggleClass('active')
+    })
+    $('.dropdown-wrapper .list').on('mouseout',function(){
+        $(this).parent().removeClass('active')
+    })
+    $('.dropdown-wrapper .list li').click(function(){
+        $(this).parent().parent().find('input').val($(this).text())
+        $(this).parent().parent().find('.value').text($(this).text())
+        $(this).parent().find('li').removeClass('checked')
+        $(this).addClass('checked')
+        $(this).parent().parent().toggleClass('active')
+    })
+
 
     //корректировка размеров
     var height,m_left,width;

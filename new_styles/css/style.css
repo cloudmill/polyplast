@@ -3588,6 +3588,65 @@ body {
   font: 16px/30px 'Roboto';
   color: #2c3538;
 }
+.reach.sertificate {
+  margin-bottom: 100px;
+}
+.reach.sertificate .content h2 {
+  font: bold 38px 'Roboto';
+  margin-top: 60px;
+}
+.reach.sertificate .content .prizes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.reach.sertificate .content .prizes .item {
+  flex-basis: 45%;
+  margin-right: 10px;
+  height: 222px;
+  margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border: 1px solid #e6e6e6;
+}
+.reach.sertificate .content .prizes .item h3 {
+  font: bold 16px 'Roboto';
+  color: #e31e24;
+  text-transform: uppercase;
+  position: absolute;
+  top: 20px;
+  margin: 0;
+  left: 20px;
+}
+.reach.sertificate .content .prizes .item > img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.reach.sertificate .content .prizes .item p {
+  font: bold 22px/33px 'Roboto';
+  margin: 20px;
+}
+.reach.sertificate .content .prizes .item .doc {
+  height: 222px;
+  min-width: 56px;
+  display: none;
+  padding: 0 20px;
+  align-items: flex-end;
+  justify-content: center;
+  border-right: 1px solid #e6e6e6;
+}
+.reach.sertificate .content .prizes .item .doc img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.reach.sertificate .content .prizes .item.is_doc .doc {
+  display: flex;
+}
 .training_center {
   padding-top: 222px;
   overflow: hidden;
@@ -7072,6 +7131,204 @@ body {
   margin-right: 10px;
   max-width: 30px;
   max-height: 30px;
+}
+.contacts .content {
+  width: 1330px;
+  margin: auto;
+}
+.contacts .content h1 {
+  font: bold 58px 'Roboto';
+}
+.contacts > .row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e6e6e6;
+}
+.contacts > .row > .col {
+  flex-basis: 50%;
+  padding: 50px 130px;
+  display: flex;
+  justify-content: flex-end;
+}
+.contacts > .row > .col:first-child {
+  border-right: 1px solid #e6e6e6;
+}
+.contacts > .row > .col:last-child {
+  justify-content: flex-start;
+}
+.contacts > .row > .col div h2 {
+  font: bold 24px 'Roboto';
+  margin-bottom: 10px;
+}
+.contacts > .row > .col div h3 {
+  margin-top: 0;
+  font: 14px 'Roboto';
+  text-transform: uppercase;
+}
+.contacts > .row > .col div > .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contacts > .row > .col div > .row .col {
+  flex-basis: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contacts > .row > .col div > .row .col p {
+  font: 16px/30px 'Roboto';
+}
+.contacts > .row > .col div > .row .col p a {
+  font: 20px 'Roboto';
+  text-decoration: none;
+  color: #00a0e3;
+}
+.contacts > .row > .col div > .row .col p a.mail {
+  font: 16px 'Roboto';
+}
+.contacts > .row > .col div a.but {
+  width: 180px;
+  height: 42px;
+  font: 16px 'Roboto';
+  text-decoration: none;
+  background-color: #00a0e3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacts > .row > .col div a.but:before {
+  content: url(../img/location.png);
+  margin-right: 10px;
+}
+.contacts .map_zavods {
+  height: 760px;
+  background-image: url(../img/map_contacts.png);
+  background-size: cover;
+  position: relative;
+}
+.contacts .map_zavods .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contacts .map_zavods .content ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+.contacts .map_zavods .content ul li {
+  font: 500 18px 'Roboto';
+  display: flex;
+  cursor: pointer;
+  padding: 70px 20px 20px 20px;
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-left: 0;
+}
+.contacts .map_zavods .content ul li:first-child {
+  border-left: 1px solid #e6e6e6;
+}
+.contacts .map_zavods .content ul li.active {
+  background-color: #2c3638;
+  color: white;
+  cursor: default;
+}
+.contacts .map_zavods .content .filter {
+  display: flex;
+}
+.contacts .map_zavods .content .filter .col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
+}
+.contacts .map_zavods .content .filter .col label {
+  font: 500 12px 'Roboto';
+  margin-bottom: 10px;
+}
+.contacts .map_zavods .content .filter .col .dropdown-wrapper {
+  cursor: pointer;
+  position: relative;
+}
+.contacts .map_zavods .content .filter .col .dropdown-wrapper .value {
+  font: 500 16px 'Roboto';
+  padding: 20px 15px;
+  padding-right: 40px;
+  width: 145px;
+  border: 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+.contacts .map_zavods .content .filter .col .dropdown-wrapper .value:before {
+  content: url(../img/blue_str.png);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.contacts .map_zavods .content .filter .col .dropdown-wrapper .list {
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  display: none;
+}
+.contacts .map_zavods .content .filter .col .dropdown-wrapper .list li {
+  padding: 10px;
+  font: 500 16px 'Roboto';
+}
+.contacts .map_zavods .content .filter .col .dropdown-wrapper .list li.checked {
+  display: none;
+}
+.contacts .map_zavods .content .filter .col .dropdown-wrapper.active .list {
+  display: block;
+}
+.contacts .map_zavods .sidebar {
+  user-select: none;
+  position: absolute;
+  right: 0;
+  top: 160px;
+  width: 290px;
+  background-color: #fff;
+  padding: 20px;
+  padding-right: 40px;
+}
+.contacts .map_zavods .sidebar .block {
+  height: 500px;
+  overflow-x: scroll;
+}
+.contacts .map_zavods .sidebar h3 {
+  font: 500 18px 'Roboto';
+}
+.contacts .map_zavods .sidebar p {
+  font: 16px 'Roboto';
+}
+.contacts .map_zavods .sidebar p a {
+  text-decoration: none;
+  color: #00a0e3;
+}
+.contacts .map_zavods .sidebar div + div {
+  border-top: 1px solid #e6e6e6;
+}
+.contacts .map_zavods .sidebar .scrollbar {
+  background-color: #f0f0f0;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  height: calc(100% - 40px);
+  width: 8px;
+}
+.contacts .map_zavods .sidebar .scrollbar .track {
+  margin: 3px 0px;
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 4px;
+  background-color: #00a0e3;
 }
 @keyframes menu_fade_in {
   0% {
