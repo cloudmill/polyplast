@@ -3647,6 +3647,196 @@ body {
 .reach.sertificate .content .prizes .item.is_doc .doc {
   display: flex;
 }
+.reach.about {
+  background-color: #fafafa;
+}
+.reach.about .content {
+  margin-top: 80px;
+}
+.reach.about .content .block {
+  margin-bottom: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.reach.about .content .block h3 {
+  font: 500 24px 'Roboto';
+  margin-left: 30px;
+  flex-basis: 65%;
+}
+.reach.about .content .block .year {
+  background-color: #fff;
+  box-shadow: 0px 27px 62px 0px rgba(0, 0, 0, 0.08);
+  padding: 20px 60px;
+  flex-basis: 270px;
+  width: 210px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.reach.about .content .block .year img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.reach.about .content .block .year p {
+  font: bold 14px 'Roboto';
+  margin: 0;
+  position: relative;
+  text-transform: uppercase;
+}
+.reach.about .content .block .year p:before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background-color: #e6e6e6;
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  transform: translate(0, -50%);
+}
+.reach.about .content .block .year p:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background-color: #e6e6e6;
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  transform: translate(0, -50%);
+}
+.reach.about .main_zavod {
+  background-color: #fff;
+}
+.reach.about .main_zavod .content {
+  width: 1330px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 550px;
+}
+.reach.about .main_zavod .content h1 {
+  position: absolute;
+  color: #f9f9f9;
+  font: 900 211px 'Roboto';
+  z-index: 0;
+}
+.reach.about .main_zavod .content h3 {
+  font: bold 48px 'Roboto';
+}
+.reach.about .main_zavod .content .row {
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.reach.about .main_zavod .content .row .col {
+  background-color: #fff;
+  flex-basis: 30%;
+  width: 300px;
+  height: 290px;
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 27px 62px 0px rgba(0, 0, 0, 0.08);
+}
+.reach.about .main_zavod .content .row .col h4 {
+  font: bold 42px 'Roboto';
+  text-align: center;
+  margin-top: 20px;
+  color: #00a0e3;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+.reach.about .main_zavod .content .row .col p {
+  font: bold 19px 'Roboto';
+  text-align: center;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.reach.about .main_zavod .content .row .col img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 0;
+}
+.reach.about .numbers {
+  padding: 80px 0;
+  background-image: url(../img/bg_numbers.png);
+  background-size: cover;
+}
+.reach.about .numbers h2 {
+  font: bold 48px 'Roboto';
+  text-align: center;
+}
+.reach.about .numbers .content {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.reach.about .numbers .content .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: 20%;
+  padding: 0 20px;
+}
+.reach.about .numbers .content .item h3 {
+  font: bold 42px 'Roboto';
+  color: #00a0e3;
+  text-align: center;
+}
+.reach.about .numbers .content .item p {
+  font: bold 20px 'Roboto';
+  text-align: center;
+}
+.reach.about .mission {
+  background-color: #fff;
+}
+.reach.about .mission .content {
+  margin-top: 0;
+  padding: 80px 0;
+}
+.reach.about .mission .content .item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 80px;
+  justify-content: flex-start;
+}
+.reach.about .mission .content .item .img {
+  height: 200px;
+  min-width: 80px;
+  flex-basis: 80px;
+  margin-right: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border: 1px solid #e6e6e6;
+}
+.reach.about .mission .content .item .img img {
+  margin-top: 20px;
+}
+.reach.about .mission .content .item h2 {
+  font: bold 38px 'Roboto';
+  flex-basis: 180px;
+  min-width: 180px;
+}
+.reach.about .mission .content .item p {
+  font: 500 18px/30px 'Roboto';
+  padding-left: 20px;
+  border-left: 2px solid #e31e24;
+}
 .training_center {
   padding-top: 222px;
   overflow: hidden;
@@ -7132,12 +7322,205 @@ body {
   max-width: 30px;
   max-height: 30px;
 }
+.search_page .content {
+  width: 1330px;
+  margin: auto;
+}
+.search_page .content h1 {
+  font: bold 58px 'Roboto';
+}
+.search_page .content .search_area {
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: space-between;
+}
+.search_page .content .search_area input {
+  font: 24px 'Roboto';
+  flex-basis: 90%;
+  display: block;
+  border: 0;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #00a0e3;
+  padding-right: 20px;
+}
+.search_page .content .search_area a.search {
+  text-decoration: none;
+  width: 10%;
+  text-align: right;
+  color: #00a0e3;
+  font: 24px 'Roboto';
+  padding-bottom: 17px;
+  border-bottom: 1px solid #00a0e3;
+}
+.search_page .content .search_area a.search img {
+  margin-right: 10px;
+  max-width: 30px;
+  max-height: 30px;
+}
+.search_page .content .row {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+.search_page .content .row .founded {
+  font: 16px 'Roboto';
+  color: #819998;
+}
+.search_page .content .row .found_only {
+  display: flex;
+  align-items: center;
+}
+.search_page .content .row .found_only input {
+  display: none;
+}
+.search_page .content .row .found_only input:checked + label:before {
+  content: '✓';
+}
+.search_page .content .row .found_only label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font: 16px 'Roboto';
+}
+.search_page .content .row .found_only label:before {
+  content: '';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+  margin-right: 15px;
+}
+.search_page .content .list {
+  margin-top: 60px;
+}
+.search_page .content .list .item {
+  position: relative;
+  background-color: white;
+  padding: 40px 0;
+}
+.search_page .content .list .item.gray {
+  background-color: #fafafa;
+}
+.search_page .content .list .item:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  right: 100%;
+  width: 200%;
+  background-color: inherit;
+}
+.search_page .content .list .item:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  left: 100%;
+  background-color: inherit;
+}
+.search_page .content .list .item p.breadcrumbs_for_item {
+  font: 10px 'Roboto';
+  text-transform: uppercase;
+}
+.search_page .content .list .item h2 {
+  font: bold 22px 'Roboto';
+}
+.search_page .content .list .item p {
+  font: 16px/30px 'Roboto';
+}
 .contacts .content {
   width: 1330px;
   margin: auto;
 }
 .contacts .content h1 {
   font: bold 58px 'Roboto';
+}
+.contacts .content h2 {
+  font: 500 28px 'Roboto';
+}
+.contacts .content .user_list {
+  margin-bottom: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.contacts .content .user_list .item {
+  width: 280px;
+  height: 180px;
+  padding: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e6e6e6;
+}
+.contacts .content .user_list .item .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.contacts .content .user_list .item .avatar img {
+  margin-right: 20px;
+}
+.contacts .content .user_list .item .avatar .text h3 {
+  font: 500 18px 'Roboto';
+  margin-bottom: 0px;
+}
+.contacts .content .user_list .item .avatar .text p {
+  font: 12px 'Roboto';
+  text-transform: uppercase;
+  color: #797979;
+  margin-top: 0;
+}
+.contacts .content .user_list .item p {
+  font: 12px/22px 'Roboto';
+  text-transform: uppercase;
+}
+.contacts .content .user_list .item p a {
+  text-decoration: none;
+  text-transform: none;
+  color: #00a0e3;
+  font: 500 16px 'Roboto';
+}
+.contacts .content .social_block {
+  height: 100px;
+  width: 100%;
+  margin-bottom: 100px;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+}
+.contacts .content .social_block h3 {
+  flex-basis: 33%;
+  font: 500 28px 'Roboto';
+  padding: 0 40px;
+}
+.contacts .content .social_block a {
+  padding: 0 70px;
+  font: bold 18px 'Roboto';
+  height: 50px;
+  border-right: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacts .content .social_block a:nth-child(2) {
+  color: #45668f;
+}
+.contacts .content .social_block a:nth-child(3) {
+  color: #3b5999;
+}
+.contacts .content .social_block a:nth-child(4) {
+  color: #f2730c;
+}
+.contacts .content .social_block a:nth-child(5) {
+  color: #00acee;
+  border: 0;
 }
 .contacts > .row {
   width: 100%;
@@ -7248,6 +7631,7 @@ body {
   margin-right: 20px;
 }
 .contacts .map_zavods .content .filter .col label {
+  margin-top: 20px;
   font: 500 12px 'Roboto';
   margin-bottom: 10px;
 }
@@ -7258,6 +7642,7 @@ body {
 .contacts .map_zavods .content .filter .col .dropdown-wrapper .value {
   font: 500 16px 'Roboto';
   padding: 20px 15px;
+  background: #fff;
   padding-right: 40px;
   width: 145px;
   border: 0;
@@ -7329,6 +7714,10 @@ body {
   left: 2px;
   width: 4px;
   background-color: #00a0e3;
+}
+.contacts .map_zavods + .content > h1 {
+  font: bold 38px 'Roboto';
+  text-align: center;
 }
 @keyframes menu_fade_in {
   0% {
