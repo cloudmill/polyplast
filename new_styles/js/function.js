@@ -90,6 +90,25 @@ $(document).ready(function(){
     //фиксация года в истории
 
 
+
+    //popups
+
+    $('a.js-popup').click(function(){
+        if($(this).data('popup-name') != '' && $('.blackhole').find('#'+$(this).data('popup-name')).length>0){
+            $('.blackhole').addClass('active')
+            $('.blackhole').find('#'+$(this).data('popup-name')).addClass('active')
+            console.log($(this).data('popup-name'))
+        }
+        
+    })
+    $('.blackhole .popup-item .close_but').click(function(){
+        $('.blackhole').removeClass('active')
+        $('.blackhole .popup-item').removeClass('active')
+    })
+
+
+    //popups
+
     //движение изоражений при движении мыши
     $('body').on("mousemove",function(e){
         x = e.screenX

@@ -7719,6 +7719,343 @@ body {
   font: bold 38px 'Roboto';
   text-align: center;
 }
+.blackhole {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -10;
+  transition: opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blackhole.active {
+  opacity: 1;
+  z-index: 1000;
+}
+.blackhole .popup-item {
+  transition: opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: -10;
+}
+.blackhole .popup-item#registration .form-content .row h2,
+.blackhole .popup-item#application .form-content .row h2,
+.blackhole .popup-item#mess_data .form-content .row h2 {
+  width: 100%;
+}
+.blackhole .popup-item .content {
+  position: absolute;
+  width: 1330px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.blackhole .popup-item .close_but {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 58px;
+  height: 58px;
+  cursor: pointer;
+}
+.blackhole .popup-item .close_but:before {
+  content: '';
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 58px;
+  height: 3px;
+  background-color: #00a0e3;
+  display: block;
+  top: 50%;
+  left: 0;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  position: absolute;
+}
+.blackhole .popup-item .close_but:after {
+  content: '';
+  width: 58px;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform-origin: center;
+  height: 3px;
+  background-color: #00a0e3;
+  display: block;
+  top: 50%;
+  left: 0;
+  position: absolute;
+  transform: rotate(45deg);
+}
+.blackhole .popup-item.active {
+  opacity: 1;
+  z-index: 1;
+}
+.blackhole .popup-item .form-content {
+  background-color: #fff;
+  padding: 20px 180px;
+  z-index: 1;
+  padding-bottom: 150px;
+}
+.blackhole .popup-item .form-content .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.blackhole .popup-item .form-content .row h2 {
+  font: bold 38px 'Roboto';
+  text-align: left;
+}
+.blackhole .popup-item .form-content .row p.left {
+  font: 16px 'Roboto';
+  align-items: center;
+  color: #727272;
+  display: flex;
+  padding-left: 35px;
+  height: 90px;
+  margin-left: 35px;
+  border-left: 1px solid #00a0e3;
+}
+.blackhole .popup-item .form-content form {
+  display: block;
+}
+.blackhole .popup-item .form-content form > .row {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.blackhole .popup-item .form-content form > .row .block {
+  width: 100%;
+}
+.blackhole .popup-item .form-content form > .row .left {
+  width: 50%;
+}
+.blackhole .popup-item .form-content form > .row .left input,
+.blackhole .popup-item .form-content form > .row .left .select_item {
+  width: 90%;
+}
+.blackhole .popup-item .form-content form > .row .right {
+  width: 50%;
+}
+.blackhole .popup-item .form-content form > .row .right textarea {
+  width: 90%;
+  resize: none;
+}
+.blackhole .popup-item .form-content form > .row .right .file {
+  background-color: #f5fbfe;
+  border: 2px dashed #00a0e3;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  height: 120px;
+  width: 90%;
+  margin-bottom: 30px;
+}
+.blackhole .popup-item .form-content form > .row .right .file p {
+  font: 12px 'Roboto';
+  color: #727272;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 25px;
+}
+.blackhole .popup-item .form-content form > .row .right .file p:before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 1px;
+  position: absolute;
+  background-color: #00a0e3;
+  top: 50%;
+  left: 0;
+  transform-origin: center;
+}
+.blackhole .popup-item .form-content form > .row .right .file p:after {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  background-color: #00a0e3;
+  left: 0;
+  transform-origin: center;
+  transform: rotate(90deg);
+}
+.blackhole .popup-item .form-content form > .row .right .connect_to {
+  margin-top: 30px;
+  font: 14px 'Roboto';
+  color: #00a0e3;
+  text-decoration: none;
+}
+.blackhole .popup-item .form-content form > .row .right .connect_to img {
+  margin-right: 10px;
+}
+.blackhole .popup-item .form-content form > .row input,
+.blackhole .popup-item .form-content form > .row .select_item {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #cdcdcd;
+  width: 48%;
+  font: 18px 'Roboto';
+  color: #727272;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+.blackhole .popup-item .form-content form > .row .dropdown-wrapper {
+  cursor: pointer;
+  position: relative;
+  width: 90%;
+}
+.blackhole .popup-item .form-content form > .row .dropdown-wrapper .value.select_item {
+  width: 100%;
+  position: relative;
+}
+.blackhole .popup-item .form-content form > .row .dropdown-wrapper .value.select_item:before {
+  content: url(../img/blue_str.png);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.blackhole .popup-item .form-content form > .row .dropdown-wrapper .list {
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  padding-left: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: none;
+}
+.blackhole .popup-item .form-content form > .row .dropdown-wrapper .list li {
+  padding: 10px;
+  font: 500 18px 'Roboto';
+  color: #727272;
+}
+.blackhole .popup-item .form-content form > .row .dropdown-wrapper .list li.checked {
+  display: none;
+}
+.blackhole .popup-item .form-content form > .row .dropdown-wrapper.active .list {
+  display: block;
+}
+.blackhole .popup-item .form-content form > .row label {
+  display: block;
+  font: 12px 'Roboto';
+  color: #727272;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.blackhole .popup-item .form-content form > .row textarea {
+  border: 1px solid #cbcbcb;
+  background-color: #fff;
+  height: 220px;
+  padding: 20px;
+  font: 18px 'Roboto';
+  color: #727272;
+}
+.blackhole .popup-item .form-content form .button {
+  width: 46%;
+  display: inline-grid;
+  margin-top: 50px;
+  float: right;
+}
+.blackhole .popup-item .form-content form .button button {
+  cursor: pointer;
+  font: 500 16px 'Roboto';
+  width: 220px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: #00a0e3;
+  color: white;
+}
+.blackhole .popup-item .form-content form .button button.blue_but {
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.blackhole .popup-item .form-content form .button button.blue_but:before {
+  content: '';
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.blackhole .popup-item .form-content form .button button.blue_but:hover {
+  border-color: #00a0e3;
+  color: #00a0e3;
+}
+.blackhole .popup-item .form-content form .button button.blue_but:hover:before {
+  width: 100%;
+}
+.blackhole .popup-item .form-content form .button input {
+  display: none;
+}
+.blackhole .popup-item .form-content form .button input + label {
+  cursor: pointer;
+  text-transform: lowercase;
+  margin-top: 30px;
+  opacity: 0.8;
+  position: relative;
+  padding-left: 30px;
+}
+.blackhole .popup-item .form-content form .button input + label a {
+  color: #007fb5;
+  text-decoration: none;
+}
+.blackhole .popup-item .form-content form .button input + label:before {
+  top: 7px;
+  left: 11px;
+  position: absolute;
+  content: '';
+  display: block;
+  height: 22px;
+  width: 22px;
+  border: 1px solid #cccccc;
+  transform: translate(-50%, -50%);
+}
+.blackhole .popup-item .form-content form .button input + label:after {
+  top: 7px;
+  left: 11px;
+  position: absolute;
+  content: '';
+  display: block;
+  height: 10px;
+  width: 10px;
+  background-color: #00a0e3;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.blackhole .popup-item .form-content form .button input:checked + label:after {
+  opacity: 1;
+}
+.blackhole .popup-item .form-content form .button.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.blackhole .popup-item .form-content form .button.row label {
+  width: calc(50% - 30px);
+  margin-top: 0;
+}
 @keyframes menu_fade_in {
   0% {
     right: 100%;

@@ -24,6 +24,9 @@ var size_section = function(){
     height = $(window).height();
     $('.page_404').css('height',height);
     $('#main_slider').css('height',height);
+    $('.blackhole').css('height',height);
+    $('.page_test').css('height',height);
+    
     $('.main_slider').css('height',height);
     $('#main_slider .slick-list').css('height',height);
     $('#main_slider .slick-list .section').css('height',height);
