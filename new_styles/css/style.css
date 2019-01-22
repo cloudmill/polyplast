@@ -1412,6 +1412,10 @@ body {
 .objects .content .items a.item.col-50:last-child {
   margin-right: 0;
 }
+.objects .content #objectsMap {
+  height: 500px;
+  width: 100%;
+}
 .object_detail {
   padding-top: 770px;
   overflow: hidden;
@@ -2196,7 +2200,12 @@ body {
   align-items: center;
   text-align: center;
 }
-.catalog_detail .content .region select {
+.catalog_detail .content .region .dropdown-wrapper {
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+}
+.catalog_detail .content .region .dropdown-wrapper .value {
   font: 16px 'Roboto';
   height: 100%;
   border: 0;
@@ -2208,12 +2217,36 @@ body {
   position: relative;
   justify-content: space-between;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url(../img/blue_str.png);
-  background-position: 95% center;
-  background-repeat: no-repeat;
   border-left: 1px solid #e6e6e6;
+}
+.catalog_detail .content .region .dropdown-wrapper .value:before {
+  content: url(../img/blue_str.png);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.catalog_detail .content .region .dropdown-wrapper .list {
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  list-style: none;
+  top: 100%;
+  background-color: #fff;
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+.catalog_detail .content .region .dropdown-wrapper .list li {
+  padding: 10px;
+  font: 500 16px 'Roboto';
+  border: 1px solid #e6e6e6;
+}
+.catalog_detail .content .region .dropdown-wrapper .list li.checked {
+  display: none;
+}
+.catalog_detail .content .region .dropdown-wrapper.active .list {
+  display: block;
 }
 .catalog_detail .content > .row {
   display: flex;
@@ -3302,7 +3335,7 @@ body {
   padding: 30px;
   box-shadow: 0px 27px 62px 0px rgba(0, 0, 0, 0.08);
 }
-.reach.plant .content .contacts .adress h2 {
+.reach.plant .content .contacts .adress h3 {
   font: bold 18px 'Roboto';
 }
 .reach.plant .content .contacts .adress p {
@@ -3621,7 +3654,7 @@ body {
   margin: 0;
   left: 20px;
 }
-.reach.sertificate .content .prizes .item > img {
+.reach.sertificate .content .prizes .item > a img {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -3679,6 +3712,7 @@ body {
 .reach.about .content .block .year img {
   max-width: 100%;
   max-height: 100%;
+  height: 110px;
 }
 .reach.about .content .block .year p {
   font: bold 14px 'Roboto';
@@ -6103,6 +6137,8 @@ body {
 .scientific_article .block .content .items a.item .img p {
   margin: 0;
   top: 20px;
+  text-decoration: none;
+  color: #2c3538;
   right: 20px;
   font: bold 14px 'Roboto';
   color: white;
@@ -6403,6 +6439,18 @@ body {
   position: relative;
   padding: 80px;
   margin-top: 200px;
+}
+.stable_develop > .content:hover .round_4 {
+  animation: round_scale 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+.stable_develop > .content:hover .round_4 .round_3 {
+  animation: round_scale 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s both;
+}
+.stable_develop > .content:hover .round_4 .round_3 .round_2 {
+  animation: round_scale 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s both;
+}
+.stable_develop > .content:hover .round_4 .round_3 .round_2 .round_1 {
+  animation: round_scale 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s both;
 }
 .stable_develop > .content .rounds {
   position: relative;
@@ -7593,10 +7641,25 @@ body {
   background-size: cover;
   position: relative;
 }
+.contacts .map_zavods [class*="ymaps-2"][class*="-ground-pane"] {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* Firefox 3.5+ */
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+ & Safari 6+ */
+}
+.contacts .map_zavods #contactsMap {
+  width: 100%;
+  height: 100%;
+}
 .contacts .map_zavods .content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: 0;
+  width: 100%;
 }
 .contacts .map_zavods .content ul {
   padding: 0;
@@ -8101,5 +8164,19 @@ body {
   }
   100% {
     box-shadow: 0 0 10px 20px #cecece00;
+  }
+}
+@keyframes round_scale {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  33% {
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+  66% {
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
   }
 }

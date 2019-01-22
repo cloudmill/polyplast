@@ -69,6 +69,7 @@ function include(url) {
 
     include('new_styles/js/scrollbar.js');
     include('new_styles/js/filter.js');
+    include('new_styles/js/maps.js');
 
 $(document).ready(function(){
     size_section();

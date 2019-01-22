@@ -94,10 +94,10 @@ $(document).ready(function(){
     //popups
 
     $('a.js-popup').click(function(){
-        if($(this).data('popup-name') != '' && $('.blackhole').find('#'+$(this).data('popup-name')).length>0){
+        if($(this).attr('href') != '' && $('.blackhole').find($(this).attr('href')).length>0){
             $('.blackhole').addClass('active')
-            $('.blackhole').find('#'+$(this).data('popup-name')).addClass('active')
-            console.log($(this).data('popup-name'))
+            $('.blackhole').find($(this).attr('href')).addClass('active')
+            console.log($(this).attr('href')) 
         }
         
     })
@@ -135,8 +135,15 @@ $(document).ready(function(){
     $('.dropdown-wrapper .value').click(function(){
         $(this).parent().toggleClass('active')
     })
-    $('.dropdown-wrapper .list').on('mouseout',function(){
-        $(this).parent().removeClass('active')
+    $('body').click(function(){
+        for(var i in $('.dropdown-wrapper')){
+            if ($('.dropdown-wrapper').eq(i).is(':hover')){
+
+            }
+            else if($('.dropdown-wrapper').eq(i).hasClass('active')){
+                $('.dropdown-wrapper').eq(i).removeClass('active')
+            }
+        }
     })
     $('.dropdown-wrapper .list li').click(function(){
         $(this).parent().parent().find('input').val($(this).text())
@@ -182,9 +189,11 @@ $(document).ready(function(){
     $('.trigger_list .trigger').click(function(){
         if(!$(this).hasClass('active')){
             $(this).parent().find('.trigger').removeClass('active');
-            $(this).addClass('active');
+            $(this).addClass('active').trigger('classChange');
         }
     })
+
+    
 })
 
 

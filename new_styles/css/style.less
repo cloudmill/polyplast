@@ -1516,6 +1516,10 @@ body{
                 
             }
         }
+        #objectsMap{
+            height: 500px;
+            width: 100%;
+        }
     }
 }
 .object_detail{
@@ -2351,24 +2355,55 @@ body{
                     text-align: center;
                 }
             }
-            select{
-                font: 16px @font;
-                height: 100%;
-                border: 0;
-                border-bottom: 2px solid @c_green;
-                width: 260px;
-                padding:0 20px;
-                display: flex;
-                align-items: center;
+            .dropdown-wrapper{
+                cursor: pointer;
                 position: relative;
-                justify-content: space-between;
-                appearance: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                background-image: url(../img/blue_str.png);
-                background-position: 95% center;
-                background-repeat: no-repeat;
-                border-left: 1px solid #e6e6e6
+                height: 100%;
+                .value{
+                    font: 16px @font;
+                    height: 100%;
+                    border: 0;
+                    border-bottom: 2px solid @c_green;
+                    width: 260px;
+                    padding:0 20px;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    justify-content: space-between;
+                    appearance: none;
+                    border-left: 1px solid #e6e6e6;
+                    &:before{
+                        content: url(../img/blue_str.png);
+                        position: absolute;
+                        right: 20px;
+                        top: 50%;
+                        transform: translate(0,-50%);
+                    }
+                }
+                .list{
+                    position: absolute;
+                    z-index: 5;
+                    width: 100%;
+                    list-style: none;
+                    top: 100%;
+                    background-color: #fff;
+                    display: none;
+                    padding: 0;
+                    margin: 0;
+                    li{
+                        padding: 10px;
+                        font: 500 16px @font;
+                        border: 1px solid #e6e6e6;
+                        &.checked{
+                            display: none;
+                        }
+                    }
+                }
+                &.active{
+                    .list{
+                        display: block;
+                    }
+                }
             }
         }
         >.row{
@@ -3493,7 +3528,7 @@ body{
                     background-color: #fff;
                     padding: 30px;
                     box-shadow: 0px 27px 62px 0px rgba(0, 0, 0, 0.08);
-                    h2{
+                    h3{
                         font: bold 18px @font;
                     }
                     p{
@@ -3838,7 +3873,7 @@ body{
                         margin: 0;
                         left: 20px;
                     }
-                    >img{
+                    >a img{
                         position: absolute;
                         top: 20px;
                         right: 20px;
@@ -3898,6 +3933,7 @@ body{
                     img{
                         max-width: 100%;
                         max-height: 100%;
+                        height: 110px;
                     }
                     p{
                         font: bold 14px @font;
@@ -6385,6 +6421,8 @@ body{
                             margin: 0;
                             position: absolute;
                             top: 20px;
+                            text-decoration: none;
+                            color: @c_black;
                             right: 20px;
                             font: bold 14px @font;
                             color: white;
@@ -6695,6 +6733,20 @@ body{
         position: relative;
         padding: 80px;
         margin-top: 200px;
+        &:hover{
+            .round_4{
+                animation: round_scale @time_a*3 @cb both;
+                .round_3{
+                    animation: round_scale @time_a*3 @cb 0.1s both;
+                    .round_2{
+                        animation: round_scale @time_a*3 @cb 0.2s both;
+                        .round_1{
+                            animation: round_scale @time_a*3 @cb 0.3s both;
+                        }
+                    }
+                }
+            }
+        }
         .rounds{
             position: relative;
             display: flex;
@@ -6748,6 +6800,8 @@ body{
                 border: 1px solid #00a0e3;
                 border-radius: 50%;
                 overflow: hidden;
+                
+                
                 img{
                     position: absolute;
                     top: 50%;
@@ -7922,15 +7976,29 @@ body{
         }
     }
     .map_zavods{
+        [class*="ymaps-2"][class*="-ground-pane"] {
+            filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+            /* Firefox 3.5+ */
+            -webkit-filter: grayscale(100%);
+            /* Chrome 19+ & Safari 6+ */
+        }
         height: 760px;
         background-image: url(../img/map_contacts.png);
         background-size: cover;
         position: relative;
+        #contactsMap{
+            width: 100%;
+            height: 100%;
+        }
         .content{
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            left: 0;
+            width: 100%;
             ul{
                 padding: 0;
                 list-style: none;
@@ -8457,5 +8525,19 @@ body{
 
     100%{
         box-shadow: 0 0 10px 20px #cecece00;
+    }
+}
+@keyframes round_scale{
+    0%{
+        transform: translate(-50%,-50%) scale(1);
+    }
+    33%{
+        transform: translate(-50%,-50%) scale(1.02);
+    }
+    66%{
+        transform: translate(-50%,-50%) scale(0.98);
+    }
+    100%{
+        transform: translate(-50%,-50%) scale(1);
     }
 }
