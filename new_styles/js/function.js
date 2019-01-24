@@ -136,14 +136,17 @@ $(document).ready(function(){
         $(this).parent().toggleClass('active')
     })
     $('body').click(function(){
-        for(var i in $('.dropdown-wrapper')){
-            if ($('.dropdown-wrapper').eq(i).is(':hover')){
-
-            }
-            else if($('.dropdown-wrapper').eq(i).hasClass('active')){
-                $('.dropdown-wrapper').eq(i).removeClass('active')
+        if($('.dropdown-wrapper.active').length>0){
+            for(var i in $('.dropdown-wrapper')){
+                if ($('.dropdown-wrapper').eq(i).is(':hover')){
+    
+                }
+                else if($('.dropdown-wrapper').eq(i).hasClass('active')){
+                    $('.dropdown-wrapper').eq(i).removeClass('active')
+                }
             }
         }
+        
     })
     $('.dropdown-wrapper .list li').click(function(){
         $(this).parent().parent().find('input').val($(this).text())

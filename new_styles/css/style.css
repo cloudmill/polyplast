@@ -3377,17 +3377,33 @@ body {
   overflow: hidden;
   margin-top: 40px;
 }
-.reach.plant .geography img {
+.reach.plant .geography [class*="ymaps-2"][class*="-ground-pane"] {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* Firefox 3.5+ */
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+ & Safari 6+ */
+}
+.reach.plant .geography img.map {
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: -2;
   left: 0;
   min-width: 100%;
   min-height: 100%;
+  opacity: 0.5;
+}
+.reach.plant .geography #deliveryMap {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 0;
+  height: 800px;
+  width: 100%;
 }
 .reach.plant .geography h1 {
+  position: relative;
+  z-index: 1;
   font: 30px 'Roboto';
-  position: unset;
   color: #2c3538;
   margin-bottom: 100px;
   letter-spacing: 5px;
@@ -3395,6 +3411,8 @@ body {
   text-transform: uppercase;
 }
 .reach.plant .geography .list {
+  z-index: 1;
+  position: relative;
   background-color: #fff;
   width: 414px;
   margin-left: auto;
@@ -3402,16 +3420,29 @@ body {
   border-bottom: 0;
 }
 .reach.plant .geography .list div {
+  cursor: pointer;
   padding: 30px;
   border-bottom: 1px solid #e6e6e6;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .reach.plant .geography .list div h2 {
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   font: bold 18px 'Roboto';
   margin-top: 0;
 }
 .reach.plant .geography .list div p {
   font: 16px/30px 'Roboto';
   margin-bottom: 0;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.reach.plant .geography .list div.active {
+  background-color: #00a0e3;
+}
+.reach.plant .geography .list div.active h2 {
+  color: white;
+}
+.reach.plant .geography .list div.active p {
+  color: white;
 }
 .reach.history .content .section img {
   max-width: 100%;
@@ -7675,6 +7706,7 @@ body {
   background: white;
   border: 1px solid #e6e6e6;
   border-left: 0;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .contacts .map_zavods .content ul li:first-child {
   border-left: 1px solid #e6e6e6;
@@ -7746,8 +7778,15 @@ body {
   padding-right: 40px;
 }
 .contacts .map_zavods .sidebar .block {
+  display: none;
   height: 500px;
   overflow-x: scroll;
+}
+.contacts .map_zavods .sidebar .block.active {
+  display: block;
+}
+.contacts .map_zavods .sidebar .block .item + .item {
+  border-top: 1px solid #e6e6e6;
 }
 .contacts .map_zavods .sidebar h3 {
   font: 500 18px 'Roboto';
@@ -7758,9 +7797,6 @@ body {
 .contacts .map_zavods .sidebar p a {
   text-decoration: none;
   color: #00a0e3;
-}
-.contacts .map_zavods .sidebar div + div {
-  border-top: 1px solid #e6e6e6;
 }
 .contacts .map_zavods .sidebar .scrollbar {
   background-color: #f0f0f0;

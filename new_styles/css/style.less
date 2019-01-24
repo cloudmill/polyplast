@@ -3566,22 +3566,38 @@ body{
             
         }
         .geography{
+            [class*="ymaps-2"][class*="-ground-pane"] {
+                filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+                /* Firefox 3.5+ */
+                -webkit-filter: grayscale(100%);
+                /* Chrome 19+ & Safari 6+ */
+            }
             width: 100%;
             padding-top: 130px;
             position: relative;
             overflow: hidden;
             margin-top: 40px;
-            img{
+            img.map{
                 position: absolute;
                 top: 0;
-                z-index: -1;
+                z-index: -2;
                 left: 0;
                 min-width: 100%;
                 min-height: 100%;
+                opacity: 0.5;
+            }
+            #deliveryMap{
+                top: 0;
+                left: 0;
+                position: absolute;
+                z-index: 0;
+                height: 800px;
+                width: 100%;
             }
             h1{
+                position: relative;
+                z-index: 1;
                 font: 30px @font;
-                position: unset;
                 color: @c_black;
                 margin-bottom: 100px;
                 letter-spacing: 5px;
@@ -3589,21 +3605,36 @@ body{
                 text-transform: uppercase;
             }
             .list{
+                z-index: 1;
+                position: relative;
                 background-color: #fff;
                 width: 414px;
                 margin-left: auto;
                 border: 1px solid #e6e6e6;
                 border-bottom: 0;
                 div{
+                    cursor: pointer;
                     padding: 30px;
                     border-bottom: 1px solid #e6e6e6;
+                    transition: all @time_a @cb;
                     h2{
+                        transition: all @time_a @cb;
                         font: bold 18px @font;
                         margin-top: 0;
                     }
                     p{
                         font: 16px/30px @font;
                         margin-bottom: 0;
+                        transition: all @time_a @cb;
+                    }
+                    &.active{
+                        background-color: #00a0e3;
+                        h2{
+                            color: white;
+                        }
+                        p{
+                            color: white;
+                        }
                     }
                 }
             }
@@ -8012,6 +8043,7 @@ body{
                     background: white;
                     border: 1px solid #e6e6e6;
                     border-left: 0;
+                    transition: all @time_a @cb;
                     &:first-child{
                         border-left: 1px solid #e6e6e6;
                     }
@@ -8087,8 +8119,15 @@ body{
             padding: 20px;
             padding-right: 40px;
             .block{
+                display: none;
                 height: 500px;
                 overflow-x: scroll;
+                &.active{
+                    display: block;
+                }
+                .item +.item{
+                    border-top: 1px solid #e6e6e6;
+                }
             }
             h3{
                 font: 500 18px @font;
@@ -8101,9 +8140,7 @@ body{
                 }
                 
             }
-            div+div{
-                border-top: 1px solid #e6e6e6;
-            }
+            
             .scrollbar{
                 background-color: #f0f0f0;
                 position: absolute;
