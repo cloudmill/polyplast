@@ -3204,7 +3204,7 @@ body {
 }
 .reach.plant .content .block .row .col p {
   padding: 0;
-  font: bold 14px;
+  font: bold 14px 'Roboto';
   text-transform: uppercase;
 }
 .reach.plant .content .block > h4 {
@@ -7716,6 +7716,10 @@ body {
   color: white;
   cursor: default;
 }
+.contacts .map_zavods .content ul li.disabled {
+  cursor: default;
+  color: #e6e6e6;
+}
 .contacts .map_zavods .content .filter {
   display: flex;
 }
@@ -7771,6 +7775,7 @@ body {
   user-select: none;
   position: absolute;
   right: 0;
+  height: 500px;
   top: 160px;
   width: 290px;
   background-color: #fff;
@@ -7785,7 +7790,13 @@ body {
 .contacts .map_zavods .sidebar .block.active {
   display: block;
 }
-.contacts .map_zavods .sidebar .block .item + .item {
+.contacts .map_zavods .sidebar .block .item {
+  display: none;
+}
+.contacts .map_zavods .sidebar .block .item.active {
+  display: block;
+}
+.contacts .map_zavods .sidebar .block .item.active + .item {
   border-top: 1px solid #e6e6e6;
 }
 .contacts .map_zavods .sidebar h3 {

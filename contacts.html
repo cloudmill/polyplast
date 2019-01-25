@@ -354,21 +354,21 @@
                     <li id="materials" class="trigger">Синтетические клеевые материалы</li>
                 </ul>
                 <div class="filter">
-                    <div class="col">
+                    <div class="col region">
                         <label for="region">Выбрать регион</label>
                         <div class="dropdown-wrapper">
-                            <input type="hidden" id=region>
-                            <div class="value">Тульская обл.</div>
+                            <input type="hidden"  id=region value="Тульская область">
+                            <div class="value">Тульская область</div>
                             <ul class="list">
-                                <li class="checked">Тульская обл.</li>
-                                <li>Московская обл.</li>
+                                <li class="checked">Тульская область</li>
+                                <li>Московская область</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col country">
                         <label for="country">Выбрать страну</label>
                         <div class="dropdown-wrapper">
-                            <input type="hidden" id=country>
+                            <input type="hidden"  id=country value="Россия">
                             <div class="value">Россия</div>
                             <ul class="list">
                                 <li class="checked">Россия</li>
@@ -381,7 +381,7 @@
             <div id="contactsMap"></div>
             <div class="sidebar">
                 <div id="plants_block" class="block active">
-                    <div class="item">
+                    <div class="item" data-region="Тульская область" data-country="Россия">
                             <h3>Склад готовой продукции
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -395,7 +395,7 @@
                             <p>Электронная почта <br>
                                 <a href="">sekretar@polyplast-nm.ru</a></p>
                     </div>
-                    <div class="item">
+                    <div class="item"data-region="Московская область" data-country="Россия">
                             <h3>Склад готовой продукции
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -409,7 +409,7 @@
                             <p>Электронная почта <br>
                                 <a href="">sekretar@polyplast-nm.ru</a></p>
                     </div>
-                    <div class="item">
+                    <div class="item"data-region="Московская область" data-country="Россия">
                             <h3>Склад готовой продукции
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -425,7 +425,7 @@
                     </div>
                 </div>
                 <div id="representation_block" class="block ">
-                    <div class="item">
+                    <div class="item"data-region="Московская область" data-country="Россия">
                             <h3>Представительство
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -439,7 +439,7 @@
                             <p>Электронная почта <br>
                                 <a href="">sekretar@polyplast-nm.ru</a></p>
                     </div>
-                    <div class="item">
+                    <div class="item"data-region="Московская область" data-country="Россия">
                             <h3>Склад готовой продукции
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -453,7 +453,35 @@
                             <p>Электронная почта <br>
                                 <a href="">sekretar@polyplast-nm.ru</a></p>
                     </div>
-                    <div class="item">
+                    <div class="item"data-region="Тульская область" data-country="Россия">
+                            <h3>Склад готовой продукции
+                                    ООО Полипласт Новомосковск</h3>
+                            <p>301661, Тульская область
+                                    г. Новомосковск
+                                    ул. Комсомольское шоссе, д. 72</p>
+                            <p>Телефон горячей линии: <br>
+                                <a href="">8-800-200-08-28</a></p>
+                            <p>Телефон/факс:    <br>
+                                <a href="">(48762) 2-09-66<br>
+                                </a><a href="">(48762) 2-09-90</a></p>
+                            <p>Электронная почта <br>
+                                <a href="">sekretar@polyplast-nm.ru</a></p>
+                    </div>
+                    <div class="item"data-region="Алматинская область" data-country="Казахстан">
+                            <h3>Склад готовой продукции
+                                    ООО Полипласт Новомосковск</h3>
+                            <p>301661, Тульская область
+                                    г. Новомосковск
+                                    ул. Комсомольское шоссе, д. 72</p>
+                            <p>Телефон горячей линии: <br>
+                                <a href="">8-800-200-08-28</a></p>
+                            <p>Телефон/факс:    <br>
+                                <a href="">(48762) 2-09-66<br>
+                                </a><a href="">(48762) 2-09-90</a></p>
+                            <p>Электронная почта <br>
+                                <a href="">sekretar@polyplast-nm.ru</a></p>
+                    </div>
+                    <div class="item"data-region="Костанайская область" data-country="Казахстан">
                             <h3>Склад готовой продукции
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -469,7 +497,7 @@
                     </div>
                 </div>
                 <div id="materials_block" class="block ">
-                    <div class="item">
+                    <div class="item"data-region="Тульская область" data-country="Россия">
                             <h3>Синтетические материалы
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -483,7 +511,7 @@
                             <p>Электронная почта <br>
                                 <a href="">sekretar@polyplast-nm.ru</a></p>
                     </div>
-                    <div class="item">
+                    <div class="item"data-region="Московская область" data-country="Россия">
                             <h3>Склад готовой продукции
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область
@@ -497,7 +525,7 @@
                             <p>Электронная почта <br>
                                 <a href="">sekretar@polyplast-nm.ru</a></p>
                     </div>
-                    <div class="item">
+                    <div class="item"data-region="Московская область" data-country="Россия">
                             <h3>Склад готовой продукции
                                     ООО Полипласт Новомосковск</h3>
                             <p>301661, Тульская область

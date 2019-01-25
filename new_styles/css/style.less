@@ -3393,7 +3393,7 @@ body{
                         }
                         p{
                             padding: 0;
-                            font: bold 14px;
+                            font: bold 14px @font;
                             text-transform: uppercase;
                         }
                     }
@@ -8052,6 +8052,10 @@ body{
                         color: white;
                         cursor: default;
                     }
+                    &.disabled{
+                        cursor: default;
+                        color: #e6e6e6;
+                    }
                 }
             }
             .filter{
@@ -8113,6 +8117,7 @@ body{
             user-select: none;
             position: absolute;
             right: 0;
+            height: 500px;
             top: 160px;
             width: 290px;
             background-color: #fff;
@@ -8125,7 +8130,13 @@ body{
                 &.active{
                     display: block;
                 }
-                .item +.item{
+                .item{
+                    display: none;
+                    &.active{
+                        display: block;
+                    }
+                }
+                .item.active +.item{
                     border-top: 1px solid #e6e6e6;
                 }
             }

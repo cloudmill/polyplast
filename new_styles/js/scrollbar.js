@@ -7,14 +7,14 @@ $(document).ready(function(){
         position_y,
         kf_lenght
     var scrollbarfunction = function(){
-        if($('.map_zavods .sidebar .block.active .item').length>0){
+        if($('.map_zavods .sidebar .block.active .item.active').length>1){
                 scrollbar_contact_height = 0
                 mouse_down_scroll = false
                 mouse_position = 0
                 last_y_scroll = 0
                 position_y = 0
-            for(i = 0;i<$('.map_zavods .sidebar .block.active .item').length;i++){
-                scrollbar_contact_height += $('.map_zavods .sidebar .block.active .item').eq(i).height()+20;
+            for(i = 0;i<$('.map_zavods .sidebar .block.active .item.active').length;i++){
+                scrollbar_contact_height += $('.map_zavods .sidebar .block.active .item.active').eq(i).height()+20;
             }
                 kf_lenght = $('.map_zavods .sidebar .block.active').height()/scrollbar_contact_height,
                 offset_scrollbar = $('.map_zavods .scrollbar .track').offset().top;

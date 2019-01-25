@@ -150,6 +150,7 @@ $(document).ready(function(){
     })
     $('.dropdown-wrapper .list li').click(function(){
         $(this).parent().parent().find('input').val($(this).text())
+        $(this).parent().parent().find('input').change()
         $(this).parent().parent().find('.value').text($(this).text())
         $(this).parent().find('li').removeClass('checked')
         $(this).addClass('checked')
@@ -190,7 +191,7 @@ $(document).ready(function(){
 
 
     $('.trigger_list .trigger').click(function(){
-        if(!$(this).hasClass('active')){
+        if(!$(this).hasClass('active') && !$(this).hasClass('disabled')){
             $(this).parent().find('.trigger').removeClass('active');
             $(this).addClass('active').trigger('classChange');
         }
