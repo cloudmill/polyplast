@@ -2054,15 +2054,20 @@ body {
 }
 .catalog .content .main .region label {
   font: bold 14px 'Roboto';
+  position: relative;
+  padding-left: 30px;
 }
 .catalog .content .main .region label:before {
   content: '?';
   height: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
   width: 20px;
   border-radius: 50%;
   border: 1px solid #00a0e3;
   color: #00a0e3;
-  margin-right: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -2201,15 +2206,21 @@ body {
 }
 .catalog_detail .content .region label {
   font: bold 14px 'Roboto';
+  position: relative;
+  padding-left: 30px;
+  padding-right: 15px;
 }
 .catalog_detail .content .region label:before {
   content: '?';
   height: 20px;
   width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
   border-radius: 50%;
   border: 1px solid #00a0e3;
   color: #00a0e3;
-  margin-right: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -7303,7 +7314,7 @@ body {
 .footer .left p.registr img {
   margin-right: 40px;
 }
-.footer .left p.registr span {
+.footer .left p.registr span > span {
   margin-left: 4px;
   text-transform: uppercase;
   color: white;
