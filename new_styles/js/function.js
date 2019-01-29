@@ -137,7 +137,7 @@ $(document).ready(function(){
     })
     $('body').click(function(){
         if($('.dropdown-wrapper.active').length>0){
-            for(var i in $('.dropdown-wrapper')){
+            for(var i = 0;i<$('.dropdown-wrapper').length;i++){
                 if ($('.dropdown-wrapper').eq(i).is(':hover')){
     
                 }

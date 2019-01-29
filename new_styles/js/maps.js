@@ -54,19 +54,16 @@ $(document).ready(function(){
                 },
                 'Костанайская область':{
                     'plants':{
+                        
                     },
                     'representation':{
-                        1: [58.004758,50.788521],
+                        
                     },
                     'materials':{
+                        1: [58.004758,50.788521],
                     }
                 }
             }
-        }
-        function crds(crd, callback) {
-            ymaps.geocode(crd).then(function (res) {
-                callback(res.geoObjects.get(0).geometry.getCoordinates());     
-            });
         }
         var active_type = 'plants';
         var contactsMap = new ymaps.Map("contactsMap", {
@@ -78,73 +75,87 @@ $(document).ready(function(){
             maxZoom: 17,
         });
         contactsMap.behaviors.disable('scrollZoom')
-        var filter_objects = function(triger){
+
+
+
+        var correction_active_type = function(){
             var country_name = $('.map_zavods .filter .country input').val(),
-            region_name;
-            contactsMap.geoObjects.removeAll()
-            for(var country in data_location){
-                if(country_name == country){
-                    if(triger=='country'){
-                        if(!$('.map_zavods .filter .region ul.list li').hasClass('checked')){
-                            $('.map_zavods .filter .region ul.list li').hide();
-                        }
-                    }
-                    var iteration = 0;
-                    for(var region in data_location[country]){
-                        
-                        if(triger=='country'){
-                            if(iteration==0){
-                                $('.map_zavods .filter .region .value').text(region)
-                                $('.map_zavods .filter .region input').val(region)
-                                $('.map_zavods .filter .region ul.list li').eq(iteration).text(region)
-                            }
-                            else{
-                                $('.map_zavods .filter .region ul.list li').eq(iteration).text(region)
-                                $('.map_zavods .filter .region ul.list li').eq(iteration).show()
-                            }
-                        }
-                        iteration ++;
-                        region_name = $('.map_zavods .filter .region input').val()
-                        if(region_name == region){
-                            for(var type in data_location[country][region]){
-                                type_objects[type].splice(0,100)
-                                $('.map_zavods .content ul.type_placemarks').find('#'+type).removeClass('disabled')
-                                var error = true;
-                                for(var i in data_location[country][region][type]){
-                                    error = false
-                                    
-                                    if(data_location[country][region][type][i]){
-                                        /* crds(data_location[country][region][type][i], function (coords) {
-                                            type_objects[type].add(new ymaps.Placemark(coords,{
-                                                id: i
-                                            },{
-                                                iconLayout: 'default#image',
-                                                iconImageHref: 'new_styles/img/icon_map.png',
-                                                iconImageSize: [44, 50],
-                                                iconImageOffset: [-23, -50],
-                                                iconContentOffset: [0, 0],
-                                            }))
-                                        }); */
-                                        type_objects[type].add(new ymaps.Placemark(data_location[country][region][type][i],{
-                                            id: i
-                                        },{
-                                            iconLayout: 'default#image',
-                                            iconImageHref: 'new_styles/img/icon_map.png',
-                                            iconImageSize: [44, 50],
-                                            iconImageOffset: [-23, -50],
-                                            iconContentOffset: [0, 0],
-                                        }))
-                                    }
-                                    else{
-                                    }
-                                }
-                                if(error){
-                                    $('.map_zavods .content ul.type_placemarks').find('#'+type).addClass('disabled');
-                                }
-                            }
-                        }
-                    }
+            region_name = $('.map_zavods .filter .region input').val()
+            var find = false;
+            var empty_types = {
+                'plants': false,
+                'representation': false,
+                'materials': false
+            }
+            var index = 0,
+            correct_index = 0,
+            new_type;
+            console.log(country_name)
+            console.log(region_name)
+            for(type in data_location[country_name][region_name]){
+                var error = true;
+                for(i in data_location[country_name][region_name][type]){
+                    error = false;
                 }
+                if(type == active_type && !error){
+                    console.log('Все нормас')
+                    return index;
+                }
+                if(error){
+                    console.log('ошибка')
+                    empty_types[type] = true
+                    $('.map_zavods .content ul.type_placemarks').find('#'+type).addClass('disabled');
+                }
+                else{
+                    console.log('не ошибка')
+                    new_type = type;
+                    correct_index = index
+                    find = true;
+                }
+                index ++
+            }
+            console.log(new_type)
+            console.log(find)
+            console.log(correct_index)
+            active_type = new_type
+            if(!find ){
+                return false;
+            }
+            return correct_index;
+        }
+
+
+
+        var filter_objects = function(){
+            var country_name = $('.map_zavods .filter .country input').val(),
+            region_name = $('.map_zavods .filter .region input').val()
+            contactsMap.geoObjects.removeAll()
+            var need_correction_in_type = false;
+            for(region in data_location[country_name]){
+                for(type in type_objects){
+                    type_objects[type].splice(0,Object.keys(data_location[country_name][region][type]).length)
+                }
+            }
+            
+            
+            var error = true;
+            if(Object.keys(data_location[country_name][region_name][active_type]).length>0){
+                for(var i in data_location[country_name][region_name][active_type]){
+                    error = false
+                    console.log(i)
+                    type_objects[active_type].add(new ymaps.Placemark(data_location[country_name][region_name][active_type][i],{
+                        id: i
+                    },{
+                        iconLayout: 'default#image',
+                        iconImageHref: 'new_styles/img/icon_map.png',
+                        iconImageSize: [44, 50],
+                        iconImageOffset: [-23, -50],
+                        iconContentOffset: [0, 0],
+                    }))
+                }
+            }
+            if(error){
+                need_correction_in_type = true;
             }
             $('.map_zavods .block.active .item').removeClass('active')
             for(var index=0;index<$('.map_zavods .block.active .item').length;index++){
@@ -154,12 +165,51 @@ $(document).ready(function(){
                 }
             }
             contactsMap.geoObjects.add(type_objects[active_type])
+            if(need_correction_in_type){
+                $('.map_zavods .content ul.type_placemarks li').eq(correction_active_type()).click()
+                filter_objects();
+                return false;
+            }
+            return true;
         }
         filter_objects();
+
+
+
         $('.map_zavods .filter .col input').change(function(){
-            filter_objects($(this).attr('id'));
-            contactsMap.setBounds(type_objects[$('.map_zavods .content ul.type_placemarks li.active').attr("id")].getBounds(),{checkZoomRange: true,duration: 1000});
+            $('.map_zavods .content ul.type_placemarks li').removeClass('disabled')
+            
+            
+            if($(this).attr('id')=='country'){
+                
+                var iteration = 0;
+                for(var region in data_location[$(this).val()]){
+                    if(iteration==0){
+                        $('.map_zavods .filter .region ul.list li').removeClass('checked')
+                        $('.map_zavods .filter .region .value').text(region)
+                        $('.map_zavods .filter .region input').val(region)
+                        $('.map_zavods .filter .region ul.list li').eq(iteration).text(region)
+                        $('.map_zavods .filter .region ul.list li').eq(iteration).addClass('checked')
+                    }
+                    else{
+                        $('.map_zavods .filter .region ul.list li').eq(iteration).text(region);
+                        $('.map_zavods .filter .region ul.list li').eq(iteration).attr('style','')
+                    }
+                    iteration ++;
+                }
+                
+            }
+            correction_active_type()
+            
+            if(filter_objects()){
+                contactsMap.geoObjects.removeAll()
+                contactsMap.geoObjects.add(type_objects[$('.map_zavods .content ul.type_placemarks li.active').attr("id")])
+                //console.log(type_objects[$('.map_zavods .content ul.type_placemarks li.active').attr("id")])
+                contactsMap.setBounds(type_objects[$('.map_zavods .content ul.type_placemarks li.active').attr("id")].getBounds(),{checkZoomRange: true,duration: 1000});
+            }
         })
+
+
         show_item_in_sidebar = function(id){
             var scrollbar_top = 0;
             for(i = 0;i<id-1;i++){
@@ -181,14 +231,11 @@ $(document).ready(function(){
             if(!$(this).hasClass('disabled')){
                 $('.map_zavods .sidebar .block').removeClass('active')
                 $('.map_zavods .sidebar').find('#'+$(this).attr("id")+'_block').addClass('active')
-                filter_objects()
-                contactsMap.geoObjects.removeAll()
-                for(var type in type_objects){
-                    if($(this).attr("id")==type){
-                        active_type = type
-                        contactsMap.geoObjects.add(type_objects[type])
-                        contactsMap.setBounds(type_objects[type].getBounds(),{checkZoomRange: true,duration: 1000});
-                    }
+                active_type = $(this).attr("id")
+                if(filter_objects()){
+                    contactsMap.geoObjects.removeAll()
+                    contactsMap.geoObjects.add(type_objects[active_type])
+                    contactsMap.setBounds(type_objects[active_type].getBounds(),{checkZoomRange: true,duration: 1000});
                 }
             }
         })
