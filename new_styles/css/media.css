@@ -1,3 +1,18 @@
+@media (max-width: 1600px) {
+  .reach.plant .content {
+    margin-left: 190px;
+    margin-right: 36px;
+  }
+  .reach.plant .content .contacts h1 {
+    left: -100px;
+  }
+  .reach.plant .content .block > img {
+    max-width: 100%;
+  }
+  .reach.plant .geography + .content {
+    margin-left: 120px;
+  }
+}
 @media (max-width: 1500px) {
   .header .center {
     width: 768px;
@@ -25,6 +40,147 @@
     margin-left: 40px;
     width: auto;
   }
+  .reach_header {
+    align-items: flex-start;
+  }
+  .reach_header .content {
+    margin: 0 40px;
+    width: auto;
+  }
+  .reach_header .content h1 {
+    font-size: 42px;
+  }
+  .reach_header ul {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .reach_header ul li {
+    padding: 0 20px;
+    text-align: center;
+  }
+  .reach_header ul li a {
+    font-size: 16px;
+  }
+  .reach_header ul li:first-child {
+    padding-left: 40px;
+  }
+  .reach_header ul li:last-child {
+    padding-right: 40px;
+  }
+  .scientific_activity .block .content {
+    flex-basis: 70%;
+  }
+  .scientific_activity > .content {
+    margin: 0 40px;
+    width: auto;
+  }
+  .scientific_activity > .content .ideas {
+    margin-left: 100px;
+  }
+  .scientific_activity > .content .new {
+    margin: 0 80px;
+    width: auto;
+  }
+  .scientific_activity > .content > img {
+    top: 320px;
+    margin-right: 100px;
+  }
+  .scientific_activity > .content h1 {
+    font-size: 140px;
+  }
+  .scientific_activity.technical_centers .content .sotrud {
+    top: 170px;
+  }
+  .scientific_activity.technical_centers .content h2 {
+    width: 100%;
+  }
+  .scientific_activity.technical_centers .content h3 {
+    width: 100%;
+    left: 80px;
+    top: 40px;
+  }
+  .scientific_activity.technical_centers .content .inf_block {
+    margin-top: 0;
+  }
+  .scientific_activity.technical_centers .content .user {
+    width: 100%;
+  }
+  .reach .content {
+    margin: 0 40px;
+    width: auto;
+  }
+  .reach .content h1 {
+    font-size: 308px;
+    left: -30px;
+  }
+  .reach .content .section + .section h1 {
+    font-size: 400px;
+  }
+  .reach .content .section + .section h2 {
+    font-size: 34px;
+  }
+  .reach .content .section .row a.col {
+    height: 140px;
+  }
+  .reach.about .content .block .year {
+    height: 150px;
+  }
+  .reach.about .content .block .year img {
+    height: 100px;
+  }
+  .reach.about .content .block h3 {
+    font-size: 20px;
+  }
+  .reach.about .main_zavod .content {
+    height: 450px;
+    margin: 0 40px;
+    width: auto;
+  }
+  .reach.about .main_zavod .content h3 {
+    font-size: 38px;
+  }
+  .reach.about .main_zavod .content h1 {
+    font-size: 153px;
+  }
+  .reach.about .main_zavod .content .row .col {
+    width: 230px;
+    height: 230px;
+  }
+  .reach.about .mission .content .item h2 {
+    font-size: 34px;
+  }
+  .reach.about .numbers h2 {
+    font-size: 38px;
+  }
+  .reach.vacancy .content .section {
+    padding: 20px 0;
+  }
+  .reach.vacancy .content .section img {
+    left: 0;
+  }
+  .reach.vacancy .content .section p {
+    padding-left: 250px;
+    font-size: 18px;
+  }
+  .reach.vacancy .content h2 {
+    font-size: 34px;
+  }
+  .reach.history .content .section h4 {
+    font-size: 20px;
+  }
+  .reach.history .content .section h2 {
+    font-size: 58px;
+  }
+  .reach.history .content .section div.right {
+    flex-basis: 100%;
+  }
+  .reach.sertificate .content h2 {
+    font-size: 34px;
+  }
+  .reach.sertificate .content .prizes .item p {
+    font-size: 20px;
+    line-height: 28px;
+  }
   .catalog .content {
     margin: 0 40px;
     width: auto;
@@ -38,9 +194,139 @@
   .catalog .content .main .region label {
     padding-right: 15px;
   }
+  .object_header .content {
+    width: auto;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .object_header .content h1 {
+    font-size: 42px;
+  }
+  .search_page .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .search_page .content h1 {
+    font-size: 44px;
+  }
+  .objects .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .objects .content h1 {
+    font-size: 42px;
+  }
+  .objects .content .items a.item {
+    height: 310px;
+  }
+  .objects .content .items a.item h3 {
+    font-size: 20px;
+  }
+  .object_detail {
+    padding-top: 630px;
+  }
+  .object_detail .content {
+    margin: 0 40px;
+    width: auto;
+  }
+  .object_detail .content .items a.item {
+    height: 310px;
+  }
+  .object_detail .content .items a.item h3 {
+    font-size: 20px;
+  }
   .catalog_detail .content {
     margin: 0 40px;
     width: auto;
+  }
+  .news_page .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .news_page .content h1 {
+    font-size: 42px;
+  }
+  .news_page .content .type_content .col p {
+    font-size: 20px;
+  }
+  .news_page .content .block .object .list {
+    margin-top: 30px;
+  }
+  .news_page .content .block .object .list a.item {
+    width: calc(33% - 10px);
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .news_page .content .block .object .list a.item p {
+    font-size: 20px;
+  }
+  .contacts .content {
+    margin-left: 40px;
+    width: auto;
+  }
+  .contacts .content h1 {
+    font-size: 42px;
+  }
+  .contacts > .row > .col {
+    padding: 40px;
+  }
+  .contacts > .row > .col div h2 {
+    font-size: 20px;
+  }
+  .contacts > .row > .col div .row .col {
+    flex-basis: 48%;
+  }
+  .contacts .map_zavods .content {
+    margin: 0;
+  }
+  .contacts .map_zavods .content ul li {
+    font-size: 16px;
+  }
+  .contacts .map_zavods .content ul li:last-child {
+    flex-basis: 155px;
+    padding-top: 30px;
+  }
+  .contacts .map_zavods + .content .user_list {
+    flex-wrap: nowrap;
+  }
+  .contacts .map_zavods + .content .user_list .item {
+    width: auto;
+  }
+  .contacts .map_zavods + .content .social_block {
+    width: auto;
+  }
+  .contacts .map_zavods + .content .social_block h3 {
+    flex-basis: 35%;
+  }
+  .contacts .map_zavods + .content .social_block a {
+    padding: 0 20px;
+  }
+  .contacts .map_zavods + .content h1 {
+    font-size: 34px;
+  }
+  .product_catalog .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .product_catalog .slider .item .content {
+    margin: 0 40px;
+    margin-right: 100px;
+    width: auto;
+  }
+  .product_catalog .slider .item .content .row .col.white h3 {
+    flex-basis: 34%;
+  }
+  .product_catalog .slider .item .content .row .col.white p.small {
+    flex-basis: 43%;
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .product_catalog .slider .item .content .row a.col p {
+    font-size: 20px;
+  }
+  .product_catalog .slider .item .content .row a.col p.num {
+    font-size: 20px;
   }
 }
 @media (max-width: 1300px) {
@@ -68,6 +354,9 @@
     top: 33%;
     right: 50px;
   }
+  .reach.plant .content .block .row .col {
+    margin: 0 50px;
+  }
 }
 @media (max-width: 1200px) {
   .header .center {
@@ -76,6 +365,48 @@
   .header .center a.catalog {
     width: 100px;
     text-align: center;
+  }
+  .search_page .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .search_page .content h1 {
+    font-size: 44px;
+  }
+  .search_page .content .search_area input {
+    width: 85%;
+    font-size: 20px;
+  }
+  .search_page .content .search_area a.search {
+    width: 15%;
+  }
+  .reach.plant .content .block .row .col {
+    padding: 60px 50px 20px 60px;
+  }
+  .reach.plant .content .block .row .col img {
+    max-width: 230px;
+  }
+  .reach.sertificate .content .prizes .item p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .scientific_activity .block .content h4 {
+    font-size: 20px;
+  }
+  .scientific_activity > .content .ideas {
+    margin-left: 40px;
+  }
+  .scientific_activity > .content > img {
+    margin-right: 40px;
+  }
+  .scientific_activity > .content h1 {
+    font-size: 120px;
+  }
+  .scientific_activity > .content .new h2 {
+    font-size: 34px;
+  }
+  .scientific_activity > .content h2 {
+    font-size: 34px;
   }
   .catalog .content .main .items .item {
     min-height: 150px;
@@ -120,5 +451,11 @@
   .header .center a.catalog {
     width: 70px;
     text-align: center;
+  }
+  .reach.plant .content h2 {
+    font-size: 34px;
+  }
+  .reach.plant .content .block .row .col p {
+    font-size: 11px;
   }
 }

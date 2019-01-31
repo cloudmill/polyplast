@@ -57,14 +57,67 @@ $(document).ready(function(){
                         
                     },
                     'representation':{
-                        
+                        1: [58.004758,50.888521],
                     },
                     'materials':{
                         1: [58.004758,50.788521],
+                        2: [58.004758,52.788521]
                     }
                 }
             }
         }
+        /* data_location = {
+            'Россия':{
+                'Тульская область':{
+                    'plants':{
+                        1: 'Москва улица ленина 1',
+                    },
+                    'representation':{
+                        1: '',
+                    },
+                    'materials':{
+                        1: '',
+                    }
+                },
+                'Московская область':{
+                    'plants':{
+                        1: '',
+                        2: ''
+                    },
+                    'representation':{
+                        1: '',
+                        2: ''
+                    },
+                    'materials':{
+                        1: '',
+                        2:''
+                    }
+                }
+            },
+            'Казахстан':{
+                'Алматинская область':{
+                    'plants':{
+                    },
+                    'representation':{
+                        1:'',
+                    },
+                    'materials':{
+                    }
+                },
+                'Костанайская область':{
+                    'plants':{
+                        
+                    },
+                    'representation':{
+                        1: '',
+                    },
+                    'materials':{
+                        1: '',
+                        2: ''
+                    }
+                }
+            }
+        } */
         var active_type = 'plants';
         var contactsMap = new ymaps.Map("contactsMap", {
             center: [55.76, 37.64],
@@ -90,38 +143,39 @@ $(document).ready(function(){
             var index = 0,
             correct_index = 0,
             new_type;
-            console.log(country_name)
-            console.log(region_name)
             for(type in data_location[country_name][region_name]){
                 var error = true;
-                for(i in data_location[country_name][region_name][type]){
+                if(Object.keys(data_location[country_name][region_name][type]).length>0){
                     error = false;
+                    console.log('Точек в типе: ' +type+ ' найдено :'+Object.keys(data_location[country_name][region_name][type]).length+'шт')
+                }
+                else{
+                    console.log('Точек в типе: ' +type+ ' нет')
                 }
                 if(type == active_type && !error){
-                    console.log('Все нормас')
                     return index;
                 }
                 if(error){
-                    console.log('ошибка')
                     empty_types[type] = true
                     $('.map_zavods .content ul.type_placemarks').find('#'+type).addClass('disabled');
                 }
                 else{
-                    console.log('не ошибка')
                     new_type = type;
                     correct_index = index
                     find = true;
                 }
                 index ++
             }
-            console.log(new_type)
-            console.log(find)
-            console.log(correct_index)
             active_type = new_type
             if(!find ){
+                console.log('Точек в стране не найдено')
                 return false;
             }
-            return correct_index;
+            else{
+                console.log('Найдена точка в типе с индексом: '+correct_index)
+                return correct_index;
+            }
+            
         }
 
 
@@ -130,19 +184,44 @@ $(document).ready(function(){
             var country_name = $('.map_zavods .filter .country input').val(),
             region_name = $('.map_zavods .filter .region input').val()
             contactsMap.geoObjects.removeAll()
+            console.log('фильтрация началась')
             var need_correction_in_type = false;
+            for(type in data_location[country_name][region_name]){
+                var error = true;
+                for(i in data_location[country_name][region_name][type]){
+                    error = false;
+                    ''
+                }
+                if(error){
+                    $('.map_zavods .content ul.type_placemarks').find('#'+type).addClass('disabled');
+                }
+            }
             for(region in data_location[country_name]){
                 for(type in type_objects){
                     type_objects[type].splice(0,Object.keys(data_location[country_name][region][type]).length)
                 }
             }
-            
-            
             var error = true;
             if(Object.keys(data_location[country_name][region_name][active_type]).length>0){
+                error = false
+                console.log('не пустой объект длиной: '+Object.keys(data_location[country_name][region_name][active_type]).length+' и типом: '+active_type )
+                /* for(var i in data_location[country_name][region_name][active_type]){
+                    var myGeocoder = ymaps.geocode(data_location[country_name][region_name][active_type][i]);
+                    myGeocoder.then(function(res){
+                        console.log('вывелась '+i+'я метка')
+                        type_objects[active_type].add(new ymaps.Placemark(res.geoObjects.properties._data.metaDataProperty.GeocoderResponseMetaData.Point.coordinates,{
+                            id: i
+                        },{
+                            iconLayout: 'default#image',
+                            iconImageHref: 'new_styles/img/icon_map.png',
+                            iconImageSize: [44, 50],
+                            iconImageOffset: [-23, -50],
+                            iconContentOffset: [0, 0],
+                        }))
+                    })
+                } */
                 for(var i in data_location[country_name][region_name][active_type]){
-                    error = false
-                    console.log(i)
+                    console.log('вывелась '+i+'я метка')
                     type_objects[active_type].add(new ymaps.Placemark(data_location[country_name][region_name][active_type][i],{
                         id: i
                     },{
@@ -166,22 +245,17 @@ $(document).ready(function(){
             }
             contactsMap.geoObjects.add(type_objects[active_type])
             if(need_correction_in_type){
+                console.log('-----------начало функции корректировки')
                 $('.map_zavods .content ul.type_placemarks li').eq(correction_active_type()).click()
-                filter_objects();
-                return false;
+                console.log('-----------конец функции корректировки')
             }
             return true;
         }
         filter_objects();
 
-
-
         $('.map_zavods .filter .col input').change(function(){
             $('.map_zavods .content ul.type_placemarks li').removeClass('disabled')
-            
-            
             if($(this).attr('id')=='country'){
-                
                 var iteration = 0;
                 for(var region in data_location[$(this).val()]){
                     if(iteration==0){
@@ -197,14 +271,11 @@ $(document).ready(function(){
                     }
                     iteration ++;
                 }
-                
             }
-            correction_active_type()
             
             if(filter_objects()){
                 contactsMap.geoObjects.removeAll()
                 contactsMap.geoObjects.add(type_objects[$('.map_zavods .content ul.type_placemarks li.active').attr("id")])
-                //console.log(type_objects[$('.map_zavods .content ul.type_placemarks li.active').attr("id")])
                 contactsMap.setBounds(type_objects[$('.map_zavods .content ul.type_placemarks li.active').attr("id")].getBounds(),{checkZoomRange: true,duration: 1000});
             }
         })
@@ -355,6 +426,7 @@ $(document).ready(function(){
             2: [54.684758,38.738521]
         }
         if($(this).hasClass('show_map')){
+            $('#objectsMap').addClass('active')
             $(this).parent().parent().find('.objects_list').hide()
             objectsMap = new ymaps.Map("objectsMap", {
                 center: [55.76, 37.64],
@@ -364,6 +436,10 @@ $(document).ready(function(){
             objectsMap.behaviors.disable('scrollZoom') 
             for (var i in data_location) {
                 objectsMap.geoObjects.add(new ymaps.Placemark(data_location[i],{
+                    balloonContentHeader: "Название обьекта",
+                    balloonContentBody: "адресс",
+                    balloonContentFooter: "доп. инфлрмация",
+                    hintContent: "Название обьекта при навелении"
                 },{
                     iconLayout: 'default#image',
                     iconImageHref: 'new_styles/img/icon_map.png',
@@ -375,6 +451,7 @@ $(document).ready(function(){
         }
         else{
             $('#objectsMap').find('ymaps').remove()
+            $('#objectsMap').removeClass('active')
             $(this).parent().parent().find('.objects_list').show()
         }
     })

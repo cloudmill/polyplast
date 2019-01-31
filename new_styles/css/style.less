@@ -1517,8 +1517,18 @@ body{
             }
         }
         #objectsMap{
+            [class*="ymaps-2"][class*="-ground-pane"] {
+                filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+                /* Firefox 3.5+ */
+                -webkit-filter: grayscale(100%);
+                /* Chrome 19+ & Safari 6+ */
+            }
             height: 500px;
             width: 100%;
+            display: none;
+            &.active{
+                display: block;
+            }
         }
     }
 }
@@ -1578,6 +1588,7 @@ body{
                 display: flex;
                 flex-wrap: wrap;
                 .col{
+                    text-decoration: none;
                     flex-basis: ~"calc(50% - 44px)";
                     background-color: #fff;
                     margin-bottom: 10px;
@@ -2991,7 +3002,7 @@ body{
         position: absolute;
         z-index: -1;
         transform: scale(1.1);
-        width: 100%;
+        min-width: 100%;
         min-height: 100%;
         opacity: 0;
         top: 0;
@@ -3000,6 +3011,9 @@ body{
             opacity: 1;
         }
         &.reach{
+            opacity: 1;
+        }
+        &.vacancy{
             opacity: 1;
         }
     }
@@ -3741,7 +3755,16 @@ body{
             background-color: #00a0e3;
             justify-content: space-between;
             align-items: center;
+            >img{
+                display: block;
+                transform: scale(1.3);
+                position: absolute;
+                bottom: 0;
+                transform-origin: bottom left;
+                left: -60px;
+            }
             p{
+                padding-left: 200px;
                 flex-basis: 65%;
                 font: bold 22px/30px @font;
                 color: white;
@@ -7208,6 +7231,7 @@ body{
                 .list{
                     flex-wrap: wrap;
                     min-height: 500px;
+                    margin-top: 30px;
                     width: 100%;
                     display: flex;
                     align-items: center;
@@ -7215,7 +7239,6 @@ body{
                     a.item{
                         margin-right: 30px;
                         margin-bottom: 30px;
-                        margin-top: 30px;
                         display: block;
                         width: ~"calc(33% - 30px)";
                         height: 430px;

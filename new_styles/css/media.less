@@ -1,4 +1,29 @@
-@width_content_1024: 970px;
+@media(max-width:1600px){
+  .reach{
+    &.plant{
+      .content{
+        margin-left: 190px;
+        margin-right: 36px;
+        .contacts{
+          h1{
+            left: -100px;
+          }
+        }
+        .block{
+          >img{
+            max-width: 100%;
+          }
+          .row{
+            
+          }
+        }
+      }
+      .geography + .content{
+        margin-left: 120px;
+      }
+    }
+  } 
+}
 @media(max-width:1500px){
   .header{
     .center{
@@ -31,6 +56,193 @@
     margin-left: 40px;
     width: auto;
   }
+  .reach_header{
+    align-items: flex-start;
+    .content{
+      margin:0 40px;
+      width: auto;
+      h1{
+        font-size: 42px;
+      }
+    }
+    ul{
+      width: 90%;
+      margin: 0 auto;
+      li{
+        padding: 0 20px;
+        text-align: center;
+        a{
+          font-size: 16px;
+        }
+      }
+      li:first-child {
+        padding-left: 40px;
+      }
+      li:last-child {
+        padding-right: 40px;
+      }
+    }
+  }
+  .scientific_activity {
+    .block .content {
+      flex-basis: 70%;
+    }
+    >.content{
+      margin: 0 40px;
+      width: auto;
+      .ideas{
+        margin-left: 100px;
+      }
+      .new{
+        margin: 0 80px;
+        width: auto;
+      }
+      >img{
+        top: 320px;
+        margin-right: 100px;
+      }
+      h1{
+        font-size: 140px;
+      }
+    }
+    &.technical_centers{
+      .content{
+        .sotrud{
+          top: 170px;
+        }
+        h2{
+          width: 100%;
+        }
+        h3{
+          width: 100%;
+          left: 80px;
+          top: 40px;
+        }
+        .inf_block{
+          margin-top: 0;
+        }
+        .user{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .reach {
+    .content{
+      h1{
+        font-size: 308px;
+        left: -30px;
+      }
+      .section + .section{
+        h1{
+          font-size: 400px;
+        }
+        h2{
+          font-size: 34px;
+        }
+      }
+      margin: 0 40px;
+      width: auto;
+      .section .row a.col{
+        height: 140px;
+      }
+    }
+    &.about{
+      .content{
+        .block{
+          .year{
+            height: 150px;
+            img{
+              height: 100px;
+            }
+          }
+          h3{
+            font-size: 20px;
+          }
+        }
+      }
+      .main_zavod{
+        .content{
+          height: 450px;
+          h3{
+            font-size: 38px;
+          }
+          h1{
+            font-size: 153px;
+          }
+          .row{
+            .col{
+              width: 230px;
+              height: 230px;
+            }
+          }
+          margin: 0 40px;
+        width: auto;
+        }
+      }
+      .mission{
+        .content{
+          .item{
+            h2{
+              font-size: 34px;
+            }
+          }
+        }
+      }
+      .numbers{
+        h2{
+          font-size: 38px;
+        }
+      }
+    }
+    &.vacancy{
+      .content{
+        .section{
+          padding: 20px 0;
+          img{
+            left: 0;
+          }
+          p{
+            padding-left: 250px;
+            font-size: 18px;
+          }
+        }
+        h2{
+          font-size: 34px;
+        }
+      }
+    }
+    &.history{
+      .content{
+        .section{
+          h4{
+            font-size: 20px;
+          }
+          h2{
+            font-size: 58px;
+          }
+          div.right{
+            flex-basis: 100%;
+          }
+        }
+      }
+    }
+    &.sertificate {
+      .content {
+        h2{
+          font-size: 34px;
+        }
+        .prizes {
+          .item {
+            p{
+              font-size: 20px;
+              line-height: 28px;
+            }
+          }
+        }
+      }
+    }
+  }
   .catalog .content{
     margin:0 40px;
     width: auto;
@@ -45,9 +257,178 @@
       
     }
   }
+  .object_header {
+    .content{
+      width: auto;
+      margin-left: 40px;
+      margin-right: 40px;
+      h1{
+        font-size: 42px;
+      }
+    }
+  }
+  .search_page{
+    .content{
+      width: auto;
+      margin: 0 40px;
+      h1{
+        font-size: 44px;
+      }
+    }
+  }
+  .objects .content{
+    width: auto;
+    margin: 0 40px;
+    h1{
+      font-size: 42px;
+    }
+    .items{
+      a.item{
+        height: 310px;
+        h3{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .object_detail {
+    padding-top: 630px;
+    .content{
+      margin: 0 40px;
+      width: auto;
+      .items a.item{
+        height: 310px;
+        h3{
+          font-size: 20px;
+        }
+      }
+    }
+  }
   .catalog_detail .content{
     margin: 0 40px;
     width: auto;
+  }
+  .news_page{
+    .content{
+      width: auto;
+      margin: 0 40px;
+      h1{
+        font-size: 42px;
+      }
+      .type_content .col p{
+        font-size: 20px;
+      }
+      .block {
+        .object .list {
+          margin-top: 30px;
+          a.item {
+            width: ~"calc(33% - 10px)";
+            margin-top: 0px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            p{
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .contacts{
+    .content{
+      margin-left: 40px;
+      width: auto;
+      h1{
+        font-size: 42px;
+      }
+    }
+    >.row{
+      >.col{
+        padding: 40px;
+        div{
+          h2{
+            font-size: 20px;
+          }
+          .row {
+            .col{
+              flex-basis: 48%;
+            }
+          }
+        }
+      }
+    }
+    .map_zavods{
+      .content{
+        margin: 0;
+        ul{
+          li{
+            font-size: 16px;
+            &:last-child{
+              flex-basis: 155px;
+              padding-top: 30px;
+            }
+          }
+        }
+      }
+      +.content{
+        .user_list{
+          flex-wrap: nowrap;
+          .item{
+            width: auto;
+          }
+        }
+        .social_block{
+          width: auto;
+          h3{
+            flex-basis: 35%;
+          }
+          a{
+            padding: 0 20px;
+          }
+        }
+        h1{
+          font-size: 34px;
+        }
+      }
+    }
+  }
+  .product_catalog{
+    .content{
+      width: auto;
+      margin: 0 40px;
+    }
+    .slider {
+          .item {
+            .content {
+              margin: 0 40px;
+              margin-right: 100px;
+              width: auto;
+              .row {
+                .col{
+                  &.white{
+                    h3{
+                      flex-basis: 34%;
+                    }
+                    p.small{
+                      flex-basis: 43%;
+                      font-size: 13px;
+                      line-height: 18px;
+                    }
+                  }
+                }
+                a.col {
+                  
+                  p{
+                    font-size: 20px;
+                    &.num{
+                      font-size: 20px;
+                    }
+                  }
+                }
+              }
+            }
+        }
+      }
   }
 }
 @media(max-width: 1300px){
@@ -79,6 +460,19 @@
       right: 50px;
     }
   }
+  .reach{
+    &.plant{
+      .content{
+        .block{
+          .row{
+            .col{
+              margin: 0 50px;
+            }
+          }
+        }
+      }
+    }
+  } 
 }
 @media(max-width: 1200px){
   .header{
@@ -87,6 +481,74 @@
       a.catalog{
         width: 100px;
         text-align: center;
+      }
+    }
+  }
+  .search_page{
+    .content{
+      width: auto;
+      margin: 0 40px;
+      h1{
+        font-size: 44px;
+      }
+      .search_area{
+        input{
+          width: 85%;
+          font-size: 20px;
+        }
+        a.search{
+          width: 15%;
+        }
+      }
+    }
+  }
+  .reach{
+    &.plant{
+      .content{
+        .block{
+          .row{
+            .col{
+              padding: 60px 50px 20px 60px;
+              img{
+                max-width: 230px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.sertificate {
+      .content {
+        .prizes {
+          .item {
+            p{
+              font-size: 18px;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .scientific_activity {
+    .block .content h4{
+      font-size: 20px;
+    }
+    >.content{
+      .ideas{
+        margin-left: 40px;
+      }
+      >img{
+        margin-right: 40px;
+      }
+      h1{
+        font-size: 120px;
+      }
+      .new h2{
+        font-size: 34px;
+      }
+      h2{
+        font-size: 34px;
       }
     }
   }
@@ -146,4 +608,22 @@
       }
     }
   }
+  .reach{
+    &.plant{
+      .content{
+        h2{
+          font-size: 34px;
+        }
+        .block{
+          .row{
+            .col{
+              p{
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+  } 
 }
