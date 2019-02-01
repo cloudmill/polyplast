@@ -58,11 +58,13 @@
   }
   .reach_header{
     align-items: flex-start;
+    height: 315px;
     .content{
       margin:0 40px;
       width: auto;
       h1{
         font-size: 42px;
+        margin-bottom: 15px;
       }
     }
     ul{
@@ -84,8 +86,14 @@
     }
   }
   .scientific_activity {
-    .block .content {
-      flex-basis: 70%;
+    .block {
+      ul.navigation{
+        width: 200px;
+        min-width: 200px;
+      }
+      .content {
+        flex-basis: 70%;
+      }
     }
     >.content{
       margin: 0 40px;
@@ -123,6 +131,32 @@
         }
         .user{
           width: 100%;
+        }
+      }
+    }
+  }
+  .env_respons {
+    > .content .row .col{
+      padding: 0 15px;
+      p{
+        font-size: 15px;
+      }
+      h2{
+        font-size: 32px;
+      }
+      
+    }
+    .env_slider .content{
+      width: auto;
+      margin: 0 40px;
+      h2{
+        font-size: 34px;
+      }
+      .items{
+        .item{
+          p{
+            width: 600px;
+          }
         }
       }
     }
@@ -243,6 +277,89 @@
       }
     }
   }
+  .scientific_article{
+    margin-top: 100px;
+    .block{
+      ul.navigation{
+        width: 200px;
+        min-width: 200px;
+      }
+      .content{
+        width: auto;
+        margin: 0 40px;
+        margin-left: auto;
+        flex-basis: 70%;
+        .items a.item p{
+          font-size: 19px;
+          &.date{
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .news_detail{
+    .content{
+      width: auto;
+      margin: 0 40px;
+      h1{
+        font-size: 42px;
+      }
+      h2{
+        font-size: 34px;
+      }
+      .list{
+        a.item {
+          p{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  .stable_develop{
+    .content{
+      width: auto;
+      margin: 0 40px;
+      padding: 40px;
+      .rounds{
+        .item{
+          h1{
+            left:30%;
+          }
+          &:first-child{
+            h1{
+              left: 50%;
+            }
+          }
+          &:last-child{
+            h1{
+              left: 70%;
+            }
+          }
+        }
+      }
+    }
+    .documents{
+      .content{
+        width: auto;
+        margin:  40px;
+      }
+    }
+    .garant{
+      .content{
+        width: auto;
+        margin: 0 40px;
+        h1{
+          font-size: 140px;
+          &.two{
+            transform: translate(-21%,0);
+          }
+        }
+        
+      }
+    }
+  }
   .catalog .content{
     margin:0 40px;
     width: auto;
@@ -255,6 +372,12 @@
         padding-right: 15px;
       }
       
+    }
+  }
+  .training_center{
+    .content{
+      width: auto;
+      margin: 0 40px;
     }
   }
   .object_header {
@@ -430,6 +553,107 @@
         }
       }
   }
+  .training{
+    .content{
+      &.record{
+        margin-left: 200px;
+      }
+      &.materials{
+        margin-left: 200px;
+        .items .item{
+          margin-right: 22px;
+          width: 250px;
+          .img{
+            height: 140px;
+            a.play{
+              color: transparent;
+              width: 60px;
+              height: 60px;
+              &:after{
+                position: absolute;
+              }
+            }
+          }
+          p{
+            font-size: 20px;
+          }
+        }
+      }
+      &.courses{
+        margin-left: 200px;
+        .row .left h2{
+          font-size: 20px;
+        }
+      }
+      &.about{
+        max-width: ~'calc(100% - 200px)';
+        margin-left: 200px;
+        .block{
+          padding: 0;
+          .right{
+            p{
+              font-size: 16px;
+            }
+          }
+          .left{
+            flex-basis: 40%;
+            padding-top: 35px;
+            p{
+              font-size: 11px;
+            }
+          }
+        }
+        .gray .items {
+          padding: 0;
+          .item {
+            h1{
+            font-size: 172px;
+          }
+          p{
+            font-size: 18px;
+          }
+        }
+        }
+        .methods .block_r {
+          .left{
+            min-width: 175px;
+            width: 175px;
+            flex-basis: 175px;
+          }
+          .right {
+            h2{
+              font-size: 34px;
+              width: ~"calc(33.33% + 175px - 60px)";
+              transform: translate(-175px, 0)
+            }
+          }
+        }
+        .offer .row {
+          h2{
+            font-size: 34px;
+          }
+          h3{
+            font-size: 18px;
+            line-height: 21px;
+          }
+          p{
+            line-height: 21px;
+            padding-bottom: 20px;
+          }
+        }
+        .form{
+          padding: 20px;
+          .bg-gray{
+            width: 80%;
+          }
+        }
+      }
+    }
+    ul.navigation{
+      width: 150px;
+      min-width: 150px;
+    }
+  }
 }
 @media(max-width: 1300px){
   .header{
@@ -472,7 +696,19 @@
         }
       }
     }
-  } 
+  }
+  .stable_develop{
+    .content{
+      .rounds{
+          .round_4{
+            .round_3,.round_2,.round_1{
+              width: ~"calc(100% - 180px)";
+              height: ~"calc(100% - 180px)";
+          }
+          }
+      }
+    }
+  }
 }
 @media(max-width: 1200px){
   .header{
@@ -481,6 +717,17 @@
       a.catalog{
         width: 100px;
         text-align: center;
+      }
+    }
+  }
+  .training_center{
+    .content{
+      .form{
+        padding-left: 0;
+        padding-right: 0;
+        .bg-gray{
+          width: 80%;
+        }
       }
     }
   }
@@ -525,6 +772,19 @@
               font-size: 18px;
               line-height: 24px;
             }
+          }
+        }
+      }
+    }
+  }
+  .stable_develop{
+    .content{
+      padding: 0;
+      .rounds{
+        .round_4{
+          .round_3,.round_2,.round_1{
+            width: ~"calc(100% - 160px)";
+            height: ~"calc(100% - 160px)";
           }
         }
       }
@@ -594,6 +854,23 @@
       padding-right: 0;
       .bg-gray{
         width: 80%;
+      }
+    }
+  }
+}
+@media(max-width:1100px){
+  .stable_develop{
+    .content{
+      .rounds{
+        .round_4{
+          img{
+            height: 273px;
+          }
+          .round_3,.round_2,.round_1{
+            width: ~"calc(100% - 140px)";
+            height: ~"calc(100% - 140px)";
+          }
+        }
       }
     }
   }

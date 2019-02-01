@@ -1,15 +1,3 @@
-//обнуление классов
-var clear_class = function(){
-    $('.training .about .methods .block_r .right img').fadeOut(0)
-    $('.training .about .methods ul').fadeOut(0)
-    $('.training .content').fadeOut(0)
-    $('.training .navigation li').removeClass('active');
-    $('.reach_header').removeClass('materials courses about active record')
-}
-clear_class();
-//обнуление классов
-
-
 //корректировка размеров
 var height,m_left,width;
 var size_section = function(){

@@ -42,6 +42,7 @@
   }
   .reach_header {
     align-items: flex-start;
+    height: 315px;
   }
   .reach_header .content {
     margin: 0 40px;
@@ -49,6 +50,7 @@
   }
   .reach_header .content h1 {
     font-size: 42px;
+    margin-bottom: 15px;
   }
   .reach_header ul {
     width: 90%;
@@ -66,6 +68,10 @@
   }
   .reach_header ul li:last-child {
     padding-right: 40px;
+  }
+  .scientific_activity .block ul.navigation {
+    width: 200px;
+    min-width: 200px;
   }
   .scientific_activity .block .content {
     flex-basis: 70%;
@@ -104,6 +110,25 @@
   }
   .scientific_activity.technical_centers .content .user {
     width: 100%;
+  }
+  .env_respons > .content .row .col {
+    padding: 0 15px;
+  }
+  .env_respons > .content .row .col p {
+    font-size: 15px;
+  }
+  .env_respons > .content .row .col h2 {
+    font-size: 32px;
+  }
+  .env_respons .env_slider .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .env_respons .env_slider .content h2 {
+    font-size: 34px;
+  }
+  .env_respons .env_slider .content .items .item p {
+    width: 600px;
   }
   .reach .content {
     margin: 0 40px;
@@ -181,6 +206,66 @@
     font-size: 20px;
     line-height: 28px;
   }
+  .scientific_article {
+    margin-top: 100px;
+  }
+  .scientific_article .block ul.navigation {
+    width: 200px;
+    min-width: 200px;
+  }
+  .scientific_article .block .content {
+    width: auto;
+    margin: 0 40px;
+    margin-left: auto;
+    flex-basis: 70%;
+  }
+  .scientific_article .block .content .items a.item p {
+    font-size: 19px;
+  }
+  .scientific_article .block .content .items a.item p.date {
+    margin-top: 10px;
+  }
+  .news_detail .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .news_detail .content h1 {
+    font-size: 42px;
+  }
+  .news_detail .content h2 {
+    font-size: 34px;
+  }
+  .news_detail .content .list a.item p {
+    font-size: 20px;
+  }
+  .stable_develop .content {
+    width: auto;
+    margin: 0 40px;
+    padding: 40px;
+  }
+  .stable_develop .content .rounds .item h1 {
+    left: 30%;
+  }
+  .stable_develop .content .rounds .item:first-child h1 {
+    left: 50%;
+  }
+  .stable_develop .content .rounds .item:last-child h1 {
+    left: 70%;
+  }
+  .stable_develop .documents .content {
+    width: auto;
+    margin: 40px;
+  }
+  .stable_develop .garant .content {
+    width: auto;
+    margin: 0 40px;
+  }
+  .stable_develop .garant .content h1 {
+    font-size: 140px;
+  }
+  .stable_develop .garant .content h1.two {
+    transform: translate(-21%, 0);
+  }
   .catalog .content {
     margin: 0 40px;
     width: auto;
@@ -193,6 +278,10 @@
   }
   .catalog .content .main .region label {
     padding-right: 15px;
+  }
+  .training_center .content {
+    width: auto;
+    margin: 0 40px;
   }
   .object_header .content {
     width: auto;
@@ -328,6 +417,93 @@
   .product_catalog .slider .item .content .row a.col p.num {
     font-size: 20px;
   }
+  .training .content.record {
+    margin-left: 200px;
+  }
+  .training .content.materials {
+    margin-left: 200px;
+  }
+  .training .content.materials .items .item {
+    margin-right: 22px;
+    width: 250px;
+  }
+  .training .content.materials .items .item .img {
+    height: 140px;
+  }
+  .training .content.materials .items .item .img a.play {
+    color: transparent;
+    width: 60px;
+    height: 60px;
+  }
+  .training .content.materials .items .item .img a.play:after {
+    position: absolute;
+  }
+  .training .content.materials .items .item p {
+    font-size: 20px;
+  }
+  .training .content.courses {
+    margin-left: 200px;
+  }
+  .training .content.courses .row .left h2 {
+    font-size: 20px;
+  }
+  .training .content.about {
+    max-width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+  .training .content.about .block {
+    padding: 0;
+  }
+  .training .content.about .block .right p {
+    font-size: 16px;
+  }
+  .training .content.about .block .left {
+    flex-basis: 40%;
+    padding-top: 35px;
+  }
+  .training .content.about .block .left p {
+    font-size: 11px;
+  }
+  .training .content.about .gray .items {
+    padding: 0;
+  }
+  .training .content.about .gray .items .item h1 {
+    font-size: 172px;
+  }
+  .training .content.about .gray .items .item p {
+    font-size: 18px;
+  }
+  .training .content.about .methods .block_r .left {
+    min-width: 175px;
+    width: 175px;
+    flex-basis: 175px;
+  }
+  .training .content.about .methods .block_r .right h2 {
+    font-size: 34px;
+    width: calc(33.33% + 175px - 60px);
+    transform: translate(-175px, 0);
+  }
+  .training .content.about .offer .row h2 {
+    font-size: 34px;
+  }
+  .training .content.about .offer .row h3 {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .training .content.about .offer .row p {
+    line-height: 21px;
+    padding-bottom: 20px;
+  }
+  .training .content.about .form {
+    padding: 20px;
+  }
+  .training .content.about .form .bg-gray {
+    width: 80%;
+  }
+  .training ul.navigation {
+    width: 150px;
+    min-width: 150px;
+  }
 }
 @media (max-width: 1300px) {
   .header .center a.search {
@@ -357,6 +533,12 @@
   .reach.plant .content .block .row .col {
     margin: 0 50px;
   }
+  .stable_develop .content .rounds .round_4 .round_3,
+  .stable_develop .content .rounds .round_4 .round_2,
+  .stable_develop .content .rounds .round_4 .round_1 {
+    width: calc(100% - 180px);
+    height: calc(100% - 180px);
+  }
 }
 @media (max-width: 1200px) {
   .header .center {
@@ -365,6 +547,13 @@
   .header .center a.catalog {
     width: 100px;
     text-align: center;
+  }
+  .training_center .content .form {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .training_center .content .form .bg-gray {
+    width: 80%;
   }
   .search_page .content {
     width: auto;
@@ -389,6 +578,15 @@
   .reach.sertificate .content .prizes .item p {
     font-size: 18px;
     line-height: 24px;
+  }
+  .stable_develop .content {
+    padding: 0;
+  }
+  .stable_develop .content .rounds .round_4 .round_3,
+  .stable_develop .content .rounds .round_4 .round_2,
+  .stable_develop .content .rounds .round_4 .round_1 {
+    width: calc(100% - 160px);
+    height: calc(100% - 160px);
   }
   .scientific_activity .block .content h4 {
     font-size: 20px;
@@ -442,6 +640,17 @@
   }
   .catalog_detail .content .form .bg-gray {
     width: 80%;
+  }
+}
+@media (max-width: 1100px) {
+  .stable_develop .content .rounds .round_4 img {
+    height: 273px;
+  }
+  .stable_develop .content .rounds .round_4 .round_3,
+  .stable_develop .content .rounds .round_4 .round_2,
+  .stable_develop .content .rounds .round_4 .round_1 {
+    width: calc(100% - 140px);
+    height: calc(100% - 140px);
   }
 }
 @media (max-width: 1024px) {

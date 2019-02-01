@@ -162,6 +162,8 @@ $(document).ready(function(){
 
 
     //слайдер на детальной странице в Уч. центре вкладка об уч. центре
+    $('.training .about .methods .block_r .right img').fadeOut(0)
+    $('.training .about .methods ul').fadeOut(0)
     $('.training .about .methods .block_r .right img').eq(0).fadeIn(500)
     $('.training .about .methods ul').eq(0).fadeIn(500)
     $('.training .about .methods .block_r .col').click(function(){

@@ -3972,6 +3972,7 @@ body {
 .training_center .content .row h2 {
   font: bold 38px 'Roboto';
   flex-basis: 250px;
+  min-width: 212px;
 }
 .training_center .content .row .brackets {
   height: 142px;
@@ -4031,6 +4032,7 @@ body {
 .training_center .content .row a.plus p {
   font: 10px 'Roboto';
   color: #727272;
+  text-align: center;
   text-transform: uppercase;
 }
 .training_center .content .row a.plus:before {
@@ -4279,7 +4281,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
   position: relative;
   user-select: none;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -4296,6 +4298,8 @@ body {
   text-align: center;
   height: 11px;
   width: 11px;
+  min-width: 11px;
+  min-height: 11px;
   border-radius: 50%;
   background-color: #00a0e3;
   color: white;
@@ -4307,7 +4311,7 @@ body {
   width: 2px;
   height: 2px;
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: 5.5px;
   transform: translate(-50%, -50%);
   background-color: #fff;
@@ -4649,6 +4653,7 @@ body {
 }
 .training .courses .block div p {
   font: 14px/25px 'Roboto';
+  margin-top: 0;
 }
 .training .courses .block div a {
   text-decoration: none;
@@ -5406,7 +5411,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
   position: relative;
   user-select: none;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -5428,6 +5433,8 @@ body {
   text-align: center;
   height: 11px;
   width: 11px;
+  min-width: 11px;
+  min-height: 11px;
   border-radius: 50%;
   background-color: #00a0e3;
   color: white;
@@ -5439,7 +5446,7 @@ body {
   width: 2px;
   height: 2px;
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: 5.5px;
   transform: translate(-50%, -50%);
   background-color: #fff;
@@ -5940,7 +5947,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
   position: relative;
   user-select: none;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -5960,6 +5967,8 @@ body {
   justify-content: center;
   text-align: center;
   height: 11px;
+  min-width: 11px;
+  min-height: 11px;
   width: 11px;
   border-radius: 50%;
   background-color: #00a0e3;
@@ -5972,7 +5981,7 @@ body {
   width: 2px;
   height: 2px;
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: 5.5px;
   transform: translate(-50%, -50%);
   background-color: #fff;
@@ -6680,6 +6689,7 @@ body {
   margin: 0;
   margin-left: 20px;
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 .stable_develop .garant {
   padding: 200px 0;
@@ -6706,6 +6716,7 @@ body {
 .stable_develop .garant .content h3 {
   font: 24px/34px 'Roboto';
   position: relative;
+  margin-right: 250px;
 }
 .stable_develop .garant .content h3:before {
   content: '';

@@ -21,7 +21,12 @@ $(document).ready(function(){
     if(!(localStorage['training_page_index']>=0)){
         localStorage['training_page_index'] = 0;
     }
-
+    clear_class = function(){
+        $('.training .content').fadeOut(0)
+        $('.training .navigation li').removeClass('active');
+        $('.reach_header').removeClass('materials courses about active record')
+    }
+    clear_class();
     var training_center_load = function(){
         clear_class();
         training_page_index = localStorage['training_page_index'];
