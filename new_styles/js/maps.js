@@ -70,10 +70,11 @@ $(document).ready(function(){
             'Россия':{
                 'Тульская область':{
                     'plants':{
-                        1: 'Москва улица ленина 1',
+                        1: 'Тула, улица ленина 1',
+                        2: 'Тула, улица ленина 52',
                     },
                     'representation':{
-                        1: '',
+                         1: 'Тула ,улица труда 18' ,
                     },
                     'materials':{
                         1: '',
@@ -204,12 +205,12 @@ $(document).ready(function(){
             var error = true;
             if(Object.keys(data_location[country_name][region_name][active_type]).length>0){
                 error = false
-                console.log('не пустой объект длиной: '+Object.keys(data_location[country_name][region_name][active_type]).length+' и типом: '+active_type )
                 /* for(var i in data_location[country_name][region_name][active_type]){
-                    var myGeocoder = ymaps.geocode(data_location[country_name][region_name][active_type][i]);
-                    myGeocoder.then(function(res){
+                    ymaps.geocode(data_location[country_name][region_name][active_type][i],{ results: 1 })
+                    .then(function(res){
                         console.log('вывелась '+i+'я метка')
-                        type_objects[active_type].add(new ymaps.Placemark(res.geoObjects.properties._data.metaDataProperty.GeocoderResponseMetaData.Point.coordinates,{
+                        console.log(res.geoObjects.get(0).geometry.getCoordinates())
+                        type_objects[active_type].add(new ymaps.Placemark(res.geoObjects.get(0).geometry.getCoordinates(),{
                             id: i
                         },{
                             iconLayout: 'default#image',

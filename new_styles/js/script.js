@@ -25,13 +25,14 @@ var size_section = function(){
     $('.over_line.four').css('left',m_left+197.3*2+"px");
     $('.over_line.five').css('right',m_left+"px");
 
-    $('#main_slider .two .content').css('width',m_left+width+'px');
-
-    $('#main_slider .three .content').css('width',width+'px');
-    $('#main_slider .three .content').css('margin-left',m_left/2+'px');
-    $('#main_slider .three .content').css('padding-left',m_left/2+'px');
-
-    $('#main_slider .five .content').css('width',width+m_left-70+'px');
+    
+    if($(window).width()>=1400){
+        $('#main_slider .two .content').css('width',m_left+width+'px');
+        $('#main_slider .three .content').css('width',width+'px');
+        $('#main_slider .three .content').css('margin-left',m_left/2+'px');
+        $('#main_slider .three .content').css('padding-left',m_left/2+'px');
+        $('#main_slider .five .content').css('width',width+m_left-70+'px');
+    }
 
     $('#main_slider .six .content').css('width',width+'px');
     $('#main_slider .six .content').css('margin-left',m_left/2+'px');
