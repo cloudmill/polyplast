@@ -16,8 +16,8 @@ var size_section = function(){
     $('.page_test').css('height',height);
     
     $('.main_slider').css('height',height);
-    $('#main_slider .slick-list').css('height',height);
-    $('#main_slider .slick-list .section').css('height',height);
+    $('#main_slider > .slick-list').css('height',height);
+    $('#main_slider > .slick-list .section').css('height',height);
         
     $('.over_line').css('height',height+"px");
     $('.over_line.two').css('left',m_left+"px");
@@ -32,14 +32,22 @@ var size_section = function(){
         $('#main_slider .three .content').css('margin-left',m_left/2+'px');
         $('#main_slider .three .content').css('padding-left',m_left/2+'px');
         $('#main_slider .five .content').css('width',width+m_left-70+'px');
-    }
 
-    $('#main_slider .six .content').css('width',width+'px');
-    $('#main_slider .six .content').css('margin-left',m_left/2+'px');
-    $('#main_slider .six .content').css('padding-left',m_left/2+'px');
-    $('#main_slider .six .content .container').css('width',width+m_left+'px');
-    $('#main_slider .six .content .container').css('left',m_left/2+'px');
-    $('#main_slider .six .content .container .slider').css('width',width+'px');
+
+        $('#main_slider .six .content').css('width',width+'px');
+        $('#main_slider .six .content').css('margin-left',m_left/2+'px');
+        $('#main_slider .six .content').css('padding-left',m_left/2+'px');
+        $('#main_slider .six .content ').css('width',width+m_left+'px');
+        $('#main_slider .six .content .container').css('left',m_left/2+'px');
+        $('#main_slider .six .content .container .slider').css('width',width+'px');
+    }
+    else{
+        $('#main_slider .two .content').attr('style','');
+        $('#main_slider .three .content').attr('style','');
+        $('#main_slider .five .content').attr('style','');
+        $('#main_slider .six .content').attr('style','');
+        $('#main_slider .six .content .container').attr('style','');
+    }
 }
 size_section();
 //корректировка размеров

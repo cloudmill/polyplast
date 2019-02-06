@@ -766,6 +766,49 @@ body {
 .main_slider .block .item .section.two .content ul li:hover {
   background-color: #ffffffed;
 }
+.main_slider .block .item .section.two .content .controls {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  z-index: 2;
+  right: 0;
+  height: 115px;
+  width: 145px;
+  display: none;
+}
+.main_slider .block .item .section.two .content .controls .arrows {
+  width: 145px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.main_slider .block .item .section.two .content .controls .arrows .left_f,
+.main_slider .block .item .section.two .content .controls .arrows .right_f {
+  cursor: pointer;
+}
+.main_slider .block .item .section.two .content .controls .arrows .num {
+  font: bold 14px 'Roboto';
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_slider .block .item .section.two .content .controls .arrows:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 0;
+}
 .main_slider .block .item .section.three .content {
   position: absolute;
   top: 30%;

@@ -812,7 +812,48 @@ body{
                                 }
                             }
                         }
-                        
+                        .controls{
+                            position: absolute;
+                            bottom: 0;
+                            display: flex;
+                            z-index: 2;
+                            right: 0;
+                            height: 115px;
+                            width: 145px;
+                            display: none;
+                            .arrows{
+                                width: 145px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                position: relative;
+                                .left_f, .right_f{
+                                    cursor: pointer;
+                                }
+                                .num{
+                                    font: bold 14px @font;
+                                    position: relative;
+                                    z-index: 1;
+                                    border-radius: 50%;
+                                    height: 38px;
+                                    width: 38px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                                &:before{
+                                    content:'';
+                                    display: block;
+                                    position: absolute;
+                                    height: 100%;
+                                    width: 1px;
+                                    top: 0;
+                                    left: 50%;
+                                    transform: translate(-50%,0);
+                                    z-index: 0;
+                                }
+                            }
+                        }
                     }
                 }
                 &.three{
