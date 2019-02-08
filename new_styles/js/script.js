@@ -1,5 +1,6 @@
 //корректировка размеров
 var height,m_left,width;
+
 var size_section = function(){
     if($('#main_slider .slider_one .content').length>0){
         m_left = $('#main_slider .slider_one .content').offset().left;

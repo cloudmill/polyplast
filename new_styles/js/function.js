@@ -108,28 +108,30 @@ $(document).ready(function(){
 
 
     //popups
-
-    //движение изоражений при движении мыши
-    $('body').on("mousemove",function(e){
-        x = e.screenX
-        y = e.screenY
-        k = 0.8;
-        items = [$('.reach_header img'),
-                $('.product_catalog .slider .item.slick-active .row + .row .col img'),
-                $('.main_slider .block .item .section.slider_one .slide img'),
-                $('.env_slider > img'),
-                $('.documents > img'),
-                $('.main_slider .block .item .section.four .slider .item img')];
-        for(i = 0;i< items.length;i++){
-            items[i].css('transform','scale(1.1)')
-            //items[i].css('transform-origin','left top')
-            x_cor = items[i].width()/20*x/$(this).width();
-            y_cor = items[i].height()/20*y/$(this).height();
-            items[i].css('top',-y_cor*k)
-            items[i].css('left',-x_cor*k)
-        }
-    })
-    //движение изоражений при движении мыши
+    if($(window).width>950){
+        //движение изоражений при движении мыши
+        $('body').on("mousemove",function(e){
+            x = e.screenX
+            y = e.screenY
+            k = 0.8;
+            items = [$('.reach_header img'),
+                    $('.product_catalog .slider .item.slick-active .row + .row .col img'),
+                    $('.main_slider .block .item .section.slider_one .slide img'),
+                    $('.env_slider > img'),
+                    $('.documents > img'),
+                    $('.main_slider .block .item .section.four .slider .item img')];
+            for(i = 0;i< items.length;i++){
+                items[i].css('transform','scale(1.1)')
+                //items[i].css('transform-origin','left top')
+                x_cor = items[i].width()/20*x/$(this).width();
+                y_cor = items[i].height()/20*y/$(this).height();
+                items[i].css('top',-y_cor*k)
+                items[i].css('left',-x_cor*k)
+            }
+        })
+        //движение изоражений при движении мыши
+    }
+    
 
     //кастомный select
     $('.dropdown-wrapper .value').click(function(){
@@ -187,9 +189,96 @@ $(document).ready(function(){
     }
     //стили для эллементов списка при поиске
 
+    var move_list = false,
+    start_X = 0,
+    has_moving = false;
+    $('.reach_header ul li a').click(function(e){
+        if($(this).data('href') && !has_moving){
+            window.history.pushState('forward', null, location.href);
+            document.location.replace($(this).data('href'));
+        }
+        if(has_moving){
+            has_moving = false;
+            console.log('ыыыы')
+            return false;
+        }
+    })
+
+    //крутящееся меню в REACH
+    if($(window).width()<950){
+        $('.reach_header ul').mousedown(function(e){
+        move_list = true;
+        var left = 0;
+        if($(this).css('left')!=0 ){
+            left = $(this).css('left').replace('px','')
+        }
+        start_X = e.screenX - Number(left);
+        })
+        
+
+        $('.reach_header').mouseleave(function(){
+            move_list =false;
+            has_moving = false;
+        })
+       
 
 
+        $('body').mouseup(function(){
+            move_list =false
+        })
+        
 
+
+        $('.reach_header').mousemove(function(e){
+            if(move_list && start_X != 0){
+                has_moving = true;
+                var x = e.screenX
+                e.preventDefault;
+                length_li = 0
+                for(i=0;i<$(this).find('ul').children('li').length;i++){
+                    length_li +=$(this).find('ul').children('li').eq(i).width()+45;
+                }
+                if((-start_X + x)<=0 && (-start_X + x)>(-length_li+$(this).find('ul').width())){
+                    $(this).find('ul').attr('style','left:'+(-start_X + x)+'px')
+                }
+            }
+        })
+        $(".reach_header ul").swipe({
+            swipe:function(event, direction, distance, duration, fingerCount) {
+                console.log('swipe')
+                console.log(distance)
+                console.log(direction)
+                if(direction == 'right'){
+                    var x = distance*2
+                }
+                else if(direction == 'left'){
+                    var x = - distance*2
+                }
+                    length_li = 0
+                    var left = 0;
+                    if($(this).css('left')!=0 ){
+                        left = $(this).css('left').replace('px','')
+                    }
+                    start_X = - Number(left);
+
+                    for(i=0;i<$(this).children('li').length;i++){
+                        length_li +=$(this).children('li').eq(i).width()+45;
+                    }
+                    if((-start_X + x)<=0 && (-start_X + x)>(-length_li+$(this).width())){
+                        //$(this).attr('style','left:'+(start_X + x)+'px')
+                        $( this ).animate( { left: +(-start_X + x)+'px' }, 500)
+                    }
+                    if((-start_X + x)>0){
+                        $( this ).animate( { left: 0+'px' }, 500)
+                    }
+                    if((-start_X + x)<(-length_li+$(this).width())){
+                        $( this ).animate( { left: (-length_li+$(this).width())+'px' }, 500)
+                    }
+                
+            }
+          });
+    }
+    //крутящееся меню в REACH
 
 
     $('.trigger_list .trigger').click(function(){
