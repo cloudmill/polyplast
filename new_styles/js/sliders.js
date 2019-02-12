@@ -73,17 +73,19 @@ $(document).ready(function(){
         dots : false,
         infinite: false
     })
-    $('.product_catalog .slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        speed: 800,
-        arrows: false,
-        vertical : true,
-        cssEase: 'cubic-bezier(0.215, 0.610, 0.355, 1)',
-        swipe: false,
-        dots : false,
-        infinite: false
-    })
+    if($(window).width()>950){
+        $('.product_catalog .slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 800,
+            arrows: false,
+            vertical : true,
+            cssEase: 'cubic-bezier(0.215, 0.610, 0.355, 1)',
+            swipe: false,
+            dots : false,
+            infinite: false
+        })
+    }
     $('.training .about .gray .items').slick({
         slidesToShow: 1,
         slidesToScroll: 1,

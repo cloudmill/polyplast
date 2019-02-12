@@ -2106,12 +2106,10 @@ body {
   border: 1px solid #e6e6e6;
   margin-bottom: 25px;
 }
-.catalog .content .main .region label {
-  font: bold 14px 'Roboto';
+.catalog .content .main .region span {
   position: relative;
-  padding-left: 30px;
 }
-.catalog .content .main .region label:before {
+.catalog .content .main .region span:before {
   content: '?';
   height: 20px;
   position: absolute;
@@ -2126,6 +2124,11 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.catalog .content .main .region label {
+  font: bold 14px 'Roboto';
+  position: relative;
+  padding-left: 30px;
 }
 .catalog .content .main .region select {
   font: 16px 'Roboto';
@@ -2258,13 +2261,10 @@ body {
   justify-content: space-between;
   border: 1px solid #e6e6e6;
 }
-.catalog_detail .content .region label {
-  font: bold 14px 'Roboto';
+.catalog_detail .content .region span {
   position: relative;
-  padding-left: 30px;
-  padding-right: 15px;
 }
-.catalog_detail .content .region label:before {
+.catalog_detail .content .region span:before {
   content: '?';
   height: 20px;
   width: 20px;
@@ -2279,6 +2279,12 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.catalog_detail .content .region label {
+  font: bold 14px 'Roboto';
+  position: relative;
+  padding-left: 30px;
+  padding-right: 15px;
 }
 .catalog_detail .content .region .dropdown-wrapper {
   cursor: pointer;

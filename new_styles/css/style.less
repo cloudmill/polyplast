@@ -1475,9 +1475,6 @@ body{
                     background-color: #fafafa;
                     p{
                         color: black;
-                        img{
-
-                        }
                     }
                 }
                 &:last-child{
@@ -1856,10 +1853,7 @@ body{
                     }
                 }
             }
-            &.slick-active{
-                .content{
-                }
-            }
+            
             &:hover{
                 .content .row .col{
                     .img img{
@@ -2058,10 +2052,6 @@ body{
                     }
                 }
             }
-            &.slick-active{
-                .content{
-                }
-            }
             &:hover{
                 .content .row .col{
                     .img img{
@@ -2256,10 +2246,8 @@ body{
                 justify-content: space-between;
                 border: 1px solid #e6e6e6;
                 margin-bottom: 25px;
-                label{
-                    font: bold 14px @font;
+                span{
                     position: relative;
-                    padding-left: 30px;
                     &:before{
                         content: '?';
                         height: 20px;
@@ -2276,6 +2264,12 @@ body{
                         align-items: center;
                         text-align: center;
                     }
+                }
+                label{
+                    font: bold 14px @font;
+                    position: relative;
+                    padding-left: 30px;
+                    
                 }
                 select{
                     font: 16px @font;
@@ -2411,11 +2405,8 @@ body{
             align-items: center;
             justify-content: space-between;
             border: 1px solid #e6e6e6;
-            label{
-                font: bold 14px @font;
+            span{
                 position: relative;
-                padding-left: 30px;
-                padding-right: 15px;
                 &:before{
                     content: '?';
                     height: 20px;
@@ -2432,6 +2423,12 @@ body{
                     align-items: center;
                     text-align: center;
                 }
+            }
+            label{
+                font: bold 14px @font;
+                position: relative;
+                padding-left: 30px;
+                padding-right: 15px;
             }
             .dropdown-wrapper{
                 cursor: pointer;
@@ -4800,8 +4797,7 @@ body{
                     margin-bottom: 0;
                 }
             }
-            label{
-            }
+            
         }
         a.add_member{
             display: flex;
@@ -6913,9 +6909,7 @@ body{
                     margin-left: 80px;
                     align-self: flex-start;
                 }
-                &:nth-child(2){
-                    
-                }
+                
                 &:last-child{
                     margin-left: 140px;
                     align-self: flex-start;
@@ -8348,9 +8342,7 @@ body{
                 position: absolute;
                 transform: rotate(45deg);
             }
-            &:hover{
-                
-            }
+            
         }
         &.active{
             opacity: 1;
