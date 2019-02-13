@@ -919,6 +919,13 @@
     margin: 0;
     margin-bottom: 10px;
   }
+  .scientific_activity > .content h1 {
+    font-size: 90px;
+  }
+  .scientific_activity > .content .items {
+    margin: 30px 0;
+    width: calc(100% - 60px);
+  }
 }
 @media (max-width: 950px) {
   .main_slider .block .item .section.slider_one .content {
@@ -1160,6 +1167,61 @@
     order: 3;
     flex-basis: auto;
   }
+  .contacts .map_zavods {
+    height: auto;
+    margin-top: 222px;
+    position: relative;
+  }
+  .contacts .map_zavods .content {
+    height: 222px;
+    top: -242px;
+    flex-direction: column;
+  }
+  .contacts .map_zavods .content ul {
+    width: 100%;
+  }
+  .contacts .map_zavods .content ul li {
+    flex-basis: calc(100%/3);
+  }
+  .contacts .map_zavods .content ul li:last-child {
+    flex-basis: calc(100%/3);
+  }
+  .contacts .map_zavods .content .filter {
+    margin: auto;
+  }
+  .contacts .map_zavods .content .filter .col .dropdown-wrapper .value {
+    width: 175px;
+  }
+  .contacts .map_zavods #contactsMap {
+    height: 535px;
+  }
+  .contacts .map_zavods .sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 40px);
+  }
+  .contacts .map_zavods + .content h2 {
+    text-align: center;
+  }
+  .contacts .map_zavods + .content .user_list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .contacts .map_zavods + .content .social_block {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .contacts .map_zavods + .content .social_block h3 {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .contacts .map_zavods + .content .social_block a {
+    border-right: 0;
+  }
 }
 @media (max-width: 850px) {
   .header .right > div {
@@ -1250,6 +1312,10 @@
   }
   .contacts .row .col {
     flex-basis: 100%;
+  }
+  .scientific_activity > .content {
+    width: calc(100% - 20px);
+    margin: 0 10px;
   }
 }
 @media (max-width: 768px) {
@@ -1437,6 +1503,49 @@
   .catalog_detail .content .form {
     display: none;
   }
+  .scientific_activity > .content .new,
+  .scientific_activity > .content h2 {
+    margin: 30px 0;
+    width: 100%;
+  }
+  .scientific_activity > .content .form {
+    padding: 20px 0;
+  }
+  .scientific_activity > .content .form .bg-gray {
+    width: 80%;
+    margin-right: 0;
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+  .scientific_activity > .content .form .row p.left {
+    display: none;
+  }
+  .scientific_activity > .content .form .row h2 {
+    flex-basis: auto;
+  }
+  .scientific_activity > .content .form form input {
+    width: 100%;
+  }
+  .scientific_activity > .content .form form .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .scientific_activity > .content .items {
+    flex-direction: column;
+  }
+  .scientific_activity > .content .items img {
+    padding: 0;
+    padding: 20px 80px;
+    border: 0;
+    border-top: 1px #e6e6e6 solid;
+  }
+  .scientific_activity > .content .items img:first-child {
+    padding: 20px 80px;
+  }
 }
 @media (max-width: 650px) {
   .header .center a.search {
@@ -1605,6 +1714,61 @@
   }
   .news_page .content .type_content .col p {
     font-size: 16px;
+  }
+  .scientific_activity .block {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .scientific_activity .block ul.navigation {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: auto;
+    position: unset;
+    width: 100%;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+  .scientific_activity .block ul.navigation li {
+    margin: 10px;
+  }
+  .scientific_activity .block ul.navigation li:before {
+    display: none;
+  }
+  .scientific_activity .block ul.navigation li:after {
+    display: none;
+  }
+  .scientific_activity .block ul.navigation li:hover {
+    padding: 0;
+  }
+  .scientific_activity .block .content {
+    flex-basis: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 0;
+  }
+  .scientific_activity .content h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .scientific_activity .content .new p {
+    margin-top: 45px;
+    width: 100%;
+  }
+  .scientific_activity .content .new .gray {
+    width: 80%;
+  }
+  .scientific_activity .content .ideas {
+    width: calc(100% - 60px);
+    position: relative;
+    left: -10px;
+    margin: 0;
+  }
+  .scientific_activity .content h1 {
+    display: none;
+  }
+  .scientific_activity .content img {
+    position: unset;
+    max-width: 100%;
+    height: auto;
   }
   .scientific_article .block ul.navigation li {
     margin: 10px;
@@ -1864,6 +2028,45 @@
     left: 25%;
     transform: translate(-25%, 0);
   }
+  .contacts > .row > .col div .row {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .contacts > .row > .col div .row .col {
+    flex-basis: 100%;
+  }
+  .contacts .map_zavods {
+    margin-top: 360px;
+  }
+  .contacts .map_zavods .content {
+    top: -360px;
+    height: 320px;
+  }
+  .contacts .map_zavods .content ul {
+    flex-direction: column;
+  }
+  .contacts .map_zavods .content ul li {
+    flex-basis: 100%;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contacts .map_zavods .content ul li:last-child {
+    padding: 0;
+    height: 50px;
+    flex-basis: 100%;
+  }
+  .contacts .map_zavods .content .filter {
+    flex-direction: column;
+  }
+  .contacts .map_zavods .content .filter .col {
+    margin: 10px 0;
+  }
+  .contacts .map_zavods .sidebar .scrollbar {
+    overflow: hidden;
+  }
 }
 @media (max-width: 450px) {
   .main_slider .block .item .section.two .content .industry_slider {
@@ -2030,6 +2233,12 @@
   }
   .scientific_article .block .content > p {
     display: none;
+  }
+  .scientific_activity {
+    margin-top: 120px;
+  }
+  .scientific_activity > .content {
+    padding-top: 40px;
   }
   .news_detail .content h1 {
     font-size: 32px;
