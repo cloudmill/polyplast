@@ -6,8 +6,16 @@ var size_section = function(){
         m_left = $('#main_slider .slider_one .content').offset().left;
         width =  Number($('#main_slider .slider_one .content').css('width').replace("px",''));
     }
-    if($('.rounds').length>0){
-        $('.rounds .round_4').height($('.rounds .round_4').width());
+    if($(window).width()>990){
+        if($('.rounds').length>0){
+            $('.rounds .round_4').height($('.rounds .round_4').width());
+        }
+    }
+    else{
+        if($('.rounds').length>0){
+            $('.rounds .round_4').height(680+"px");
+            $('.rounds .round_4').width(680+"px");
+        }
     }
     $('.rounds .round_4').height($('.rounds .round_4').width());
     height = $(window).height();

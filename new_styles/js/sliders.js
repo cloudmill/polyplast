@@ -73,6 +73,17 @@ $(document).ready(function(){
         dots : false,
         infinite: false
     })
+    if($(window).width()<991){
+        $('.scientific_activity .block .content .row').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 600,
+            arrows: false,
+            swipe: true,
+            dots : false,
+            infinite: false
+        })
+    }
     if($(window).width()>950){
         $('.product_catalog .slider').slick({
             slidesToShow: 1,
