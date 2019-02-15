@@ -797,6 +797,9 @@
   .reach.plant .content .block .row .col p {
     font-size: 11px;
   }
+  .catalog .content .main .region .dropdown-wrapper .value {
+    width: 240px;
+  }
 }
 @media (max-width: 990px) {
   .header .right > div {
@@ -828,14 +831,45 @@
     min-width: auto;
     width: calc(100% - 2px);
     flex-basis: auto;
+    overflow: visible;
   }
   .catalog .content .sidebar .all {
     font-size: 16px;
     height: 60px;
   }
+  .catalog .content .sidebar .adaptive_popup {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    right: 100%;
+    border: 1px solid #e6e6e6;
+    z-index: 2;
+    width: 100%;
+  }
+  .catalog .content .sidebar .adaptive_popup.active {
+    opacity: 1;
+    right: -1px;
+  }
+  .catalog .content .sidebar .adaptive_popup .section_list {
+    position: unset;
+    order: 3;
+    opacity: 1;
+  }
   .catalog .content .sidebar .name,
   .catalog .content .sidebar .category {
-    display: none;
+    right: 100%;
+  }
+  .catalog .content .sidebar .name {
+    width: 100%;
+    background-color: #fff;
+    order: 1;
+    padding: 0;
+  }
+  .catalog .content .sidebar .category {
+    order: 2 ;
+    width: calc(100% - 30px);
   }
   .reach .content h1 {
     font-size: 250px;
@@ -878,6 +912,7 @@
   }
   .reach.about .main_zavod .content .row {
     width: 100%;
+    margin-left: 0;
   }
   .reach.about .main_zavod .content .row .col {
     flex-basis: auto;
@@ -2220,6 +2255,12 @@
   }
   .catalog .content .main .region select {
     flex-basis: 98%;
+  }
+  .catalog .content .main .region .dropdown-wrapper {
+    flex-basis: 98%;
+  }
+  .catalog .content .main .region .dropdown-wrapper .value {
+    width: auto;
   }
   .catalog .content .main .row {
     flex-direction: column;

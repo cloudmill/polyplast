@@ -81,7 +81,9 @@ $(document).ready(function(){
             arrows: false,
             swipe: true,
             dots : false,
-            infinite: false
+            infinite: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
         })
     }
     if($(window).width()>950){
@@ -96,6 +98,9 @@ $(document).ready(function(){
             dots : false,
             infinite: false
         })
+    }
+    else{
+        $('.product_catalog .slider').slick('unslick')
     }
     $('.training .about .gray .items').slick({
         slidesToShow: 1,
@@ -139,21 +144,32 @@ $(document).ready(function(){
         $('.product_catalog .slider .item.slick-active').height($('.product_catalog .slider .item.slick-active .content').height())
     });
 
-
+    var product_catalog_slider_animate = false,
+    list_two_slider_animate = false;
 
     $('#main_slider .two .list_two li').click(function(){
-        $('#main_slider .two .list_two li').removeClass('active');
-        $(this).addClass('active');
-        $('#main_slider .two .industry_slider').slick('slickGoTo', $(this).index());
+        if(!list_two_slider_animate){
+            $('#main_slider .two .list_two li').removeClass('active');
+            $(this).addClass('active');
+            $('#main_slider .two .industry_slider').slick('slickGoTo', $(this).index());
+        }
+        list_two_slider_animate = true;
     })
     $('.product_catalog ul.sidebar li').click(function(){
-        $('.product_catalog ul.sidebar li').removeClass('active');
-        $(this).addClass('active');
-        $('.product_catalog .slider').slick('slickGoTo', $(this).index());
-        height = $('.product_catalog .slider .item').eq(0).height();
-        $('.product_catalog .slider .item').height(height)
-        $('.product_catalog .slider .item.slick-active').height($('.product_catalog .slider .item.slick-active .content').height())
-    })
+        if(!product_catalog_slider_animate){
+            $('.product_catalog ul.sidebar li').removeClass('active');
+            $(this).addClass('active');
+            $('.product_catalog .slider').slick('slickGoTo', $(this).index());
+            height = $('.product_catalog .slider .item').eq(0).height();
+            $('.product_catalog .slider .item').height(height)
+            $('.product_catalog .slider .item.slick-active').height($('.product_catalog .slider .item.slick-active .content').height())
+            product_catalog_slider_animate = true
+        }
+        })
+
+    $('.product_catalog .slider').on('afterChange', function(event, slick, currentSlide){
+        product_catalog_slider_animate = false;
+    });
 
 
     //подключение кнопок к слайдерам
@@ -175,11 +191,9 @@ $(document).ready(function(){
 
     $('#main_slider #industry_slider_controls .right_f').on('click', function() {
         $('#main_slider .two .industry_slider').slick('slickNext');
-        
     });
     $('#main_slider #industry_slider_controls .left_f').on('click', function() {
         $('#main_slider .two .industry_slider').slick('slickPrev');
-        
     });
 
 
@@ -214,8 +228,11 @@ $(document).ready(function(){
         $('#main_slider .four .num').text(currentSlide+1+'/'+$("#main_slider .four .slider").slick("getSlick").slideCount);
     });
 
+    
+
     $('#main_slider .two .num').text(1+'/'+$("#main_slider .two .industry_slider").slick("getSlick").slideCount);
     $('#main_slider .two .industry_slider').on('afterChange', function(event, slick, currentSlide){
+        list_two_slider_animate = false;
         $('#main_slider .two .list_two li').removeClass('active')
         $('#main_slider .two .list_two li').eq(currentSlide).addClass('active')
         $('#main_slider .two .num').text(currentSlide+1+'/'+$("#main_slider .two .industry_slider").slick("getSlick").slideCount);

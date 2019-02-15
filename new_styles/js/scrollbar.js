@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //кастомный скроллбар для страницы контактов
-    var scrollbar_contact_height,
+    /* var scrollbar_contact_height,
         mouse_down_scroll,
         mouse_position,
         last_y_scroll,
@@ -50,9 +50,7 @@ $(document).ready(function(){
                 $('.map_zavods .scrollbar .track').css('top',position_y)
                 }
             })
-            
         }
-        
     }
     
     scrollbarfunction();
@@ -63,6 +61,6 @@ $(document).ready(function(){
             scrollbarfunction();
         }, 50);
         
-    })
+    }) */
     //кастомный скроллбар для страницы контактов
 })

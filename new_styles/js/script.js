@@ -10,6 +10,7 @@ var size_section = function(){
         if($('.rounds').length>0){
             $('.rounds .round_4').height($('.rounds .round_4').width());
         }
+        
     }
     else{
         if($('.rounds').length>0){

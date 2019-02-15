@@ -52,17 +52,26 @@ $(document).ready(function(){
     //аккардион в каталоге
     $('.catalog .sidebar .category ul').hide()
     $('.catalog .sidebar .category ul').eq(0).show()
+    var list_opening = false;
     $('.catalog .sidebar .category > li > a').click(function(e){
         e.preventDefault();
-        index = $(this).parent().index()
-        if(!$(this).parent().hasClass('open')){
-            $(this).parent().addClass('open')
-            $(this).parent().children('ul').show(500);
+        if(!list_opening){
+            
+            index = $(this).parent().index()
+            if(!$(this).parent().hasClass('open')){
+                $(this).parent().addClass('open')
+                $(this).parent().children('ul').show(500);
+            }
+            else{
+                $(this).parent().removeClass('open')
+                $(this).parent().children('ul').hide(500);
+            }
+            list_opening = true;
         }
-        else{
-            $(this).parent().removeClass('open')
-            $(this).parent().children('ul').hide(500);
-        }
+        setTimeout(() => {
+            list_opening = false
+        }, 500);
+        
     })
     //аккардион в каталоге
 
@@ -287,7 +296,15 @@ $(document).ready(function(){
             $(this).addClass('active').trigger('classChange');
         }
     })
-
+    $('.catalog .content .sidebar .all').click(function(){
+        if($(window).width()>990){
+            $('.catalog .content .sidebar .section_list').toggleClass('active')
+        }
+        else{
+            $('.catalog .content .sidebar .adaptive_popup').toggleClass('active')
+        }
+    })
+    
     
 })
 
