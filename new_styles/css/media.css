@@ -812,7 +812,7 @@
   .header .right > div .phone:after {
     display: none;
   }
-  .header .right > div .sity {
+  .header .right > div .dropdown-wrapper {
     margin-right: 0;
   }
   .footer .right {
@@ -1630,9 +1630,23 @@
   }
   .main_slider .block .item .section.three .content .row {
     margin-top: 30px;
+    margin-left: 0;
+    width: 100%;
+  }
+  .main_slider .block .item .section.three .content .row .col {
+    border: 0;
+    height: auto;
+    width: auto;
+    box-shadow: none;
   }
   .main_slider .block .item .section.three .content .row .col img {
     display: none;
+  }
+  .main_slider .block .item .section.three .content .row .col h4 {
+    display: none;
+  }
+  .main_slider .block .item .section.three .content .row .col p {
+    color: #00a0e3;
   }
   .reach {
     padding-top: 135px;

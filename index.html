@@ -37,7 +37,17 @@
         <div class="right">
             <div>
                 <a href="tel:88002000828" class="phone">8-800-200-08-28</a>
-                <a href="" class="sity">Новомосковск <span>&#9660</span></a>
+                <div class="dropdown-wrapper">
+                    <input type="hidden" id="region" value="Тульская область">
+                    <div class="value">Новомосковск</div>
+                    <ul class="list">
+                        <li class="checked">Новомосковск</li>
+                        <li>Москова</li>
+                        <li>Новомосковск</li>
+                        <li>Тула</li>
+                    </ul>
+                </div>
+                
             </div>
             <a href="#feedback" class=" js-popup link-to">Связаться с нами</a>
         </div>
@@ -325,7 +335,7 @@
                             </div>
                         </div>
                             <ul class="list_two">
-                            <li class="active"><a>
+                            <li class="active"><a href="">
                                     <div class="svg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
                                         <g>
                                             <title>Layer 1</title>
@@ -333,7 +343,7 @@
                                         </g>
                                         </svg></div>
                                 Производство бетона</a></li>
-                            <li><a>
+                            <li><a href="">
                                     <div class="svg">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 191.462 191.462" style="enable-background:new 0 0 191.462 191.462;" xml:space="preserve">
@@ -353,7 +363,7 @@
                                 </svg>
                                     </div>
                                 Цементы</a></li>
-                            <li><a>
+                            <li><a href="">
                                     <div class="svg">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -371,7 +381,7 @@
                                 </svg>
                                     </div>
                                 Металлургия</a></li>
-                            <li><a>
+                            <li><a href="">
                                     <div class="svg">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 491.28 491.28" style="enable-background:new 0 0 491.28 491.28;" xml:space="preserve">
@@ -394,7 +404,7 @@
                                 </svg>
                                     </div>
                                 Гипсовые изделия</a></li>
-                            <li><a>
+                            <li><a href="">
                                     <div class="svg">
                                         <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
                                             <g>
@@ -405,7 +415,7 @@
                                     </div>
         
                                 Сухие строительные смеси</a></li>
-                            <li><a>
+                            <li><a href="">
                                     <div class="svg">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">
@@ -445,7 +455,7 @@
                                 </svg>
                                     </div>
                                 Деревообработка</a></li>
-                            <li><a>
+                            <li><a href="">
                                 <div class="svg">
                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 312.414 312.414" style="enable-background:new 0 0 312.414 312.414;"
@@ -471,7 +481,7 @@
                             </svg>
                                 </div>
                             Бумага и упаковка</a></li>
-                            <li><a>
+                            <li><a href="">
                                     <div class="svg">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 439.832 439.832" style="enable-background:new 0 0 439.832 439.832;" xml:space="preserve">
@@ -541,7 +551,7 @@
                                 </svg>
                                     </div>
                                 Другие отрасли</a></li>
-                            <li><a>
+                            <li><a href="">
                                     <div class="svg">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <g>
@@ -593,16 +603,19 @@
                         <h3>3 современных завода:</h3>
                         <div class="row">
                             <div class="col">
-                                <img src="new_styles/img/zavod.png" alt="">
+                                <h4>01</h4>
                                 <p>Новомосковск</p>
+                                <img src="new_styles/img/plant_1.png" alt="">
                             </div>
                             <div class="col">
-                                <img src="new_styles/img/zavod.png" alt="">
-                                <p>УралСиб</p>
+                                <h4>02</h4>
+                                <p>Уралсиб</p>
+                                <img src="new_styles/img/plant_2.png" alt="">
                             </div>
-                            <div class="col"> 
-                                <img src="new_styles/img/zavod.png" alt="">
-                                <p>Северо-Запад</p>
+                            <div class="col">
+                                <h4>03</h4>
+                                <p>Северо-запад</p>
+                                <img src="new_styles/img/plant_3.png" alt="">
                             </div>
                         </div>
                     </div>
