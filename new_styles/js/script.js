@@ -900,15 +900,16 @@ function maps(){
         RU_regions = {
             region: {
                 'RU-BRY': 'Брянская область',
-                'RU-KLU': 'Калужская область',
                 'RU-LIP': 'Липецкая область',
                 'RU-ORL': 'Орловская область',
                 'RU-RYA': 'Рязанская область',
                 'RU-SMO': 'Смоленская область',
                 'RU-TAM': 'Тамбовская область',
                 'RU-TVE': 'Тверская область',
+                'RU-KRY': 'Республика Крым',
                 'RU-TUL': 'Тульская область',
-                'RU-SVE': 'Свердловская область'
+                'RU-SVE': 'Свердловская область',
+                'RU-KLU': 'Калужская область'
             },
             parent_region: 'RU',
             market: 'RU_market'
@@ -948,17 +949,11 @@ function maps(){
                 lang: 'ru',
                 quality: 0
             }).then(function (result) {
+                
                 result.features.forEach(function (feature) {
                     var iso = feature.properties.iso3166;
                     feature.id = iso;
-                    if (regions_list.region[iso] == result.name) {
-                        feature.options = {
-                            fillMethod: 'tile',
-                            fillColor: '#ffffff00',
-                            strokeColor: '#ffffff00'
-                        };
-                    }
-                    else{
+                    if (regions_list.region[iso]) {
                         feature.options = {
                             fillMethod: 'tile',
                             fillColor: '#00a0e3',
@@ -966,6 +961,13 @@ function maps(){
                             fillOpacity: 0.8
                         };
                         Markets[regions_list.market].add(new ymaps.GeoObject(feature));
+                    }
+                    else{
+                        feature.options = {
+                            fillMethod: 'tile',
+                            fillColor: '#ffffff00',
+                            strokeColor: '#ffffff00',
+                        };
                     }
                 });
             })
