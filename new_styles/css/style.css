@@ -6183,6 +6183,18 @@ body .dropdown-wrapper.active .list {
   flex-direction: column;
   align-items: flex-start;
 }
+.scientific_article .block ul.navigation.internal_documents {
+  width: 220px;
+}
+.scientific_article .block ul.navigation.internal_documents li {
+  margin-bottom: 25px;
+}
+.scientific_article .block ul.navigation.internal_documents li:hover {
+  padding-left: 0;
+}
+.scientific_article .block ul.navigation.internal_documents li:hover:after {
+  left: 5.5px;
+}
 .scientific_article .block ul.navigation li {
   display: flex;
   justify-content: flex-start;
@@ -6231,6 +6243,31 @@ body .dropdown-wrapper.active .list {
 }
 .scientific_article .block ul.navigation li.active:before {
   background-color: #e6e6e6;
+}
+.scientific_article .block ul.navigation li.list_drop {
+  width: 100%;
+  width: 220px;
+}
+.scientific_article .block ul.navigation li.list_drop .drop_but {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  font: 16px 'Roboto';
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate(0, -50%);
+}
+.scientific_article .block ul.navigation li.list_drop.open .drop_but {
+  transform: translate(0, -50%) rotate(180deg);
+}
+.scientific_article .block ul.navigation li.list_drop.open + .list {
+  display: block;
+  opacity: 1;
+}
+.scientific_article .block ul.navigation li.list_drop + .list {
+  display: none;
+  opacity: 0;
+  width: calc(100% - 25px);
+  padding-left: 25px;
 }
 .scientific_article .block ul.navigation li:hover {
   padding-left: 5px;

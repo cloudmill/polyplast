@@ -94,9 +94,12 @@ function filter(){
                     for(j=0;j<items.length;j++){
                         if(categories.eq(i).children('a').text() == items.eq(j).children('.img').children('p').attr('data-type')){
                             items.eq(j).delay((count)*100).show()
+                            
                             items.eq(j).delay((1+count)*100).addClass('show')
                             count ++;
                         }
+                        console.log(items.eq(j).children('.img').children('p').attr('data-type'))
+                        console.log(categories.eq(i).children('a').text())
                     }
                 }
                 else{
@@ -111,7 +114,7 @@ function filter(){
         }
     }
 
-    $('.news_page .block .object ul.categories li').click(function(){
+    $('.news_page .block .object ul.categories li').click(function(event){
         if($(this).attr('class') != 'active'){
             $('.news_page .block .object').eq(cat_active).find('ul.categories li:first-child').removeClass('active');
             $(this).addClass('active');
@@ -159,7 +162,7 @@ function filter(){
                 $('.scientific_article ul.categories li').removeClass('active');
                 $('.scientific_article ul.categories li:first-child').addClass('active');
             }
-            filter_news($('.scientific_article ul.categories li'),$('.scientific_article .items .item'));
+            filter_news($('.scientific_article ul.categories li'),$('.scientific_article .items .item'));console.log()
         }
         else {
             
@@ -170,6 +173,11 @@ function filter(){
             }
             filter_news($('.scientific_article ul.categories li'),$('.scientific_article .items .item'));
         }
+    })
+    $('.scientific_article ul.navigation li .drop_but').click(function(e){
+        e.preventDefault();
+        $(this).parent().toggleClass('open')
+        console.log('awdaw')
     })
 }
 function custom(){
@@ -301,7 +309,7 @@ function custom(){
     //появление и скрытие футера при скроле
 
 
-    $('#menu_opened').click(function(){
+    $('#menu_opened').click(function(event){
         event.preventDefault()
         $(this).toggleClass('opened');
         $(".menu-hidden").toggleClass('hide');
@@ -909,7 +917,8 @@ function maps(){
                 'RU-KRY': 'Республика Крым',
                 'RU-TUL': 'Тульская область',
                 'RU-SVE': 'Свердловская область',
-                'RU-KLU': 'Калужская область'
+                'RU-KLU': 'Калужская область',
+                'RU-ARK': 'Архангельская область'   
             },
             parent_region: 'RU',
             market: 'RU_market'

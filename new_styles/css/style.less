@@ -6451,6 +6451,18 @@ body{
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            &.internal_documents{
+                width: 220px;
+                li{
+                    margin-bottom: 25px;
+                    &:hover{
+                        padding-left: 0;
+                        &:after{
+                            left: 5.5px;
+                        }
+                    }
+                }
+            }
             li{
                 display: flex;
                 justify-content: flex-start;
@@ -6500,6 +6512,33 @@ body{
                     }
                     &:before{
                         background-color: #e6e6e6;
+                    }
+                }
+                &.list_drop{
+                    width: 100%;
+                    width: 220px;
+                    .drop_but{
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        font: 16px @font;
+                        transition: all @time_a @cb;
+                        transform: translate(0,-50%);
+                    }
+                    &.open{
+                        .drop_but{
+                            transform:translate(0,-50%) rotate(180deg);
+                        }
+                        &+.list{
+                            display: block;
+                            opacity: 1;
+                        }
+                    }
+                    &+.list{
+                        display: none;
+                        opacity: 0;
+                        width: ~'calc(100% - 25px)';
+                        padding-left: 25px;
                     }
                 }
                 &:hover{
