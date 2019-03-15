@@ -7637,6 +7637,29 @@ body .dropdown-wrapper.active .list {
   text-transform: uppercase;
   color: white;
 }
+.footer .left .dropdown-wrapper {
+  width: 150px;
+  margin-right: 20px;
+}
+.footer .left .dropdown-wrapper .value {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  box-shadow: none;
+  background-color: transparent;
+  font: 500 15.7px/15.7px 'Roboto';
+  color: white;
+}
+.footer .left .dropdown-wrapper .list {
+  top: 100%;
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+}
+.footer .left .dropdown-wrapper .list li {
+  font: 500 15.7px/15.7px 'Roboto';
+}
 .footer .left a.pp {
   font: 18px 'Roboto';
   color: #00a0e3;
@@ -7770,16 +7793,19 @@ body .dropdown-wrapper.active .list {
   border-bottom: 1px solid #00a0e3;
   padding-right: 20px;
 }
-.search_page .content .search_area a.search {
+.search_page .content .search_area button.search {
   text-decoration: none;
   width: 10%;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
   text-align: right;
   color: #00a0e3;
   font: 24px 'Roboto';
   padding-bottom: 17px;
   border-bottom: 1px solid #00a0e3;
 }
-.search_page .content .search_area a.search img {
+.search_page .content .search_area button.search img {
   margin-right: 10px;
   max-width: 30px;
   max-height: 30px;
