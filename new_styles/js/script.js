@@ -429,7 +429,7 @@ function custom(){
     
 
     //кастомный select
-    $('.dropdown-wrapper .value').click(function(){
+    $(document).on('click','.dropdown-wrapper .value',function(){
         $(this).parent().toggleClass('active')
     })
     $('body').click(function(){
@@ -445,7 +445,7 @@ function custom(){
         }
         
     })
-    $('.dropdown-wrapper .list li').click(function(){
+    $(document).on('click','.dropdown-wrapper .list li',function(){
         $(this).parent().parent().find('input').val($(this).text())
         $(this).parent().parent().find('input').change()
         $(this).parent().parent().find('.value').text($(this).text())
@@ -609,6 +609,17 @@ function maps(){
         data_location = {
             'Россия':{
                 'Тульская область':{
+                    'plants':{
+                        1: [54.088921, 38.256023],
+                    },
+                    'representation':{
+                        1: [56.684758,37.738521],
+                    },
+                    'materials':{
+                        1: [56.684758,37.738521],
+                    }
+                },
+                'другая область':{
                     'plants':{
                         1: [54.088921, 38.256023],
                     },
@@ -850,15 +861,17 @@ function maps(){
             $('.map_zavods .content ul.type_placemarks li').removeClass('disabled')
             if($(this).attr('id')=='country'){
                 var iteration = 0;
+                $('.map_zavods .filter .region ul.list li').remove();
                 for(var region in data_location[$(this).val()]){
                     if(iteration==0){
-                        $('.map_zavods .filter .region ul.list li').removeClass('checked')
                         $('.map_zavods .filter .region .value').text(region)
                         $('.map_zavods .filter .region input').val(region)
+                        $('.map_zavods .filter .region ul.list').append('<li>');
                         $('.map_zavods .filter .region ul.list li').eq(iteration).text(region)
                         $('.map_zavods .filter .region ul.list li').eq(iteration).addClass('checked')
                     }
                     else{
+                        $('.map_zavods .filter .region ul.list').append('<li>');
                         $('.map_zavods .filter .region ul.list li').eq(iteration).text(region);
                         $('.map_zavods .filter .region ul.list li').eq(iteration).attr('style','')
                     }
