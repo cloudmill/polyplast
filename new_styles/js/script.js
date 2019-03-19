@@ -647,18 +647,11 @@ function maps(){
             },
             'Казахстан':{
                 'Алматинская область':{
-                    'plants':{
-                    },
                     'representation':{
                         1: [56.004758,50.788521],
-                    },
-                    'materials':{
                     }
                 },
                 'Костанайская область':{
-                    'plants':{
-                        
-                    },
                     'representation':{
                         1: [58.004758,50.888521],
                     },
@@ -669,59 +662,7 @@ function maps(){
                 }
             }
         }
-        /* data_location = {
-            'Россия':{
-                'Тульская область':{
-                    'plants':{
-                        1: 'Тула, улица ленина 1',
-                        2: 'Тула, улица ленина 52',
-                    },
-                    'representation':{
-                         1: 'Тула ,улица труда 18' ,
-                    },
-                    'materials':{
-                        1: '',
-                    }
-                },
-                'Московская область':{
-                    'plants':{
-                        1: '',
-                        2: ''
-                    },
-                    'representation':{
-                        1: '',
-                        2: ''
-                    },
-                    'materials':{
-                        1: '',
-                        2:''
-                    }
-                }
-            },
-            'Казахстан':{
-                'Алматинская область':{
-                    'plants':{
-                    },
-                    'representation':{
-                        1:'',
-                    },
-                    'materials':{
-                    }
-                },
-                'Костанайская область':{
-                    'plants':{
-                        
-                    },
-                    'representation':{
-                        1: '',
-                    },
-                    'materials':{
-                        1: '',
-                        2: ''
-                    }
-                }
-            }
-        } */
+
         var active_type = 'plants';
         var contactsMap = new ymaps.Map("contactsMap", {
             center: [55.76, 37.64],
@@ -734,7 +675,7 @@ function maps(){
         contactsMap.behaviors.disable('scrollZoom')
 
 
-
+        var show_inf = true; // включение вывода в консоль отладочной информации
         var correction_active_type = function(){
             var country_name = $('.map_zavods .filter .country input').val(),
             region_name = $('.map_zavods .filter .region input').val()
@@ -751,10 +692,33 @@ function maps(){
                 var error = true;
                 if(Object.keys(data_location[country_name][region_name][type]).length>0){
                     error = false;
-                    console.log('Точек в типе: ' +type+ ' найдено :'+Object.keys(data_location[country_name][region_name][type]).length+'шт')
+                    if(show_inf){
+                        console.log('Точек в типе: ' +type+ ' найдено :'+Object.keys(data_location[country_name][region_name][type]).length+'шт')
+                    }
+                    
+                    if(type == 'plants'){
+                        if(show_inf){
+                            console.log('новый индекс '+ 0)
+                        }
+                        index = 0
+                    }
+                    if(type == 'representation'){
+                        if(show_inf){
+                            console.log('новый индекс '+ 1)
+                        }
+                        index = 1
+                    }
+                    if(type == 'materials'){
+                        if(show_inf){
+                            console.log('новый индекс '+ 2)
+                        }
+                        index = 2
+                    }
                 }
                 else{
-                    console.log('Точек в типе: ' +type+ ' нет')
+                    if(show_inf){
+                        console.log('Точек в типе: ' +type+ ' нет')
+                    }
                 }
                 if(type == active_type && !error){
                     return index;
@@ -768,15 +732,18 @@ function maps(){
                     correct_index = index
                     find = true;
                 }
-                index ++
             }
             active_type = new_type
             if(!find ){
-                console.log('Точек в стране не найдено')
+                if(show_inf){
+                    console.log('Точек в стране не найдено')
+                }
                 return false;
             }
             else{
-                console.log('Найдена точка в типе с индексом: '+correct_index)
+                if(show_inf){
+                    console.log('Найдена точка в типе с индексом: '+correct_index)
+                }
                 return correct_index;
             }
             
@@ -788,7 +755,10 @@ function maps(){
             var country_name = $('.map_zavods .filter .country input').val(),
             region_name = $('.map_zavods .filter .region input').val()
             contactsMap.geoObjects.removeAll()
-            console.log('фильтрация началась')
+            if(show_inf){
+                console.log('*****начало фильтрации*****')
+            }
+            
             var need_correction_in_type = false;
             for(type in data_location[country_name][region_name]){
                 var error = true;
@@ -802,30 +772,31 @@ function maps(){
             }
             for(region in data_location[country_name]){
                 for(type in type_objects){
-                    type_objects[type].splice(0,Object.keys(data_location[country_name][region][type]).length)
+                    if(data_location[country_name][region][type]){
+                        type_objects[type].splice(0,Object.keys(data_location[country_name][region][type]).length)
+                    }
+                }
+            }
+            for(type in type_objects){
+                if(!data_location[country_name][region_name][type]){
+                    $('.map_zavods .content ul.type_placemarks').find('#'+type).addClass('disabled');
+                    if(show_inf){
+                        console.log('в категории '+type+" нет точек")
+                    }
+                    
                 }
             }
             var error = true;
-            if(Object.keys(data_location[country_name][region_name][active_type]).length>0){
+            if(data_location[country_name][region_name][active_type]){
+                
+                if(show_inf){
+                    console.log('ошибок в данных нет')
+                }
                 error = false
-                /* for(var i in data_location[country_name][region_name][active_type]){
-                    ymaps.geocode(data_location[country_name][region_name][active_type][i],{ results: 1 })
-                    .then(function(res){
-                        console.log('вывелась '+i+'я метка')
-                        console.log(res.geoObjects.get(0).geometry.getCoordinates())
-                        type_objects[active_type].add(new ymaps.Placemark(res.geoObjects.get(0).geometry.getCoordinates(),{
-                            id: i
-                        },{
-                            iconLayout: 'default#image',
-                            iconImageHref: 'new_styles/img/icon_map.png',
-                            iconImageSize: [44, 50],
-                            iconImageOffset: [-23, -50],
-                            iconContentOffset: [0, 0],
-                        }))
-                    })
-                } */
                 for(var i in data_location[country_name][region_name][active_type]){
-                    console.log('вывелась '+i+'я метка')
+                    if(show_inf){
+                        console.log('вывелась '+i+'я метка')
+                    }
                     type_objects[active_type].add(new ymaps.Placemark(data_location[country_name][region_name][active_type][i],{
                         id: i
                     },{
@@ -839,6 +810,9 @@ function maps(){
             }
             if(error){
                 need_correction_in_type = true;
+                if(show_inf){
+                    console.log('нужна корректировка')
+                }
             }
             $('.map_zavods .block.active .item').removeClass('active')
             for(var index=0;index<$('.map_zavods .block.active .item').length;index++){
@@ -849,9 +823,22 @@ function maps(){
             }
             contactsMap.geoObjects.add(type_objects[active_type])
             if(need_correction_in_type){
-                console.log('-----------начало функции корректировки')
-                $('.map_zavods .content ul.type_placemarks li').eq(correction_active_type()).click()
-                console.log('-----------конец функции корректировки')
+                if(show_inf){
+                    console.log('-----------начало функции корректировки-----------')
+                    console.log(' ')
+                }
+                var new_index = correction_active_type()
+                if(show_inf){
+                    console.log('-----------конец функции корректировки-----------')
+                    console.log(' ')
+                }
+                $('.map_zavods .content ul.type_placemarks li').eq(new_index).click()
+            }
+            else{
+                if(show_inf){
+                    console.log('*****конец фильтрации*****')
+                    console.log(' ')
+                }
             }
             return true;
         }
