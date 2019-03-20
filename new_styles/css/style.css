@@ -93,6 +93,9 @@ body .dropdown-wrapper .list li.checked {
 body .dropdown-wrapper.active .list {
   display: block;
 }
+body input.error {
+  border-bottom: 1px solid red !important;
+}
 .header {
   width: 100%;
   height: 90px;
