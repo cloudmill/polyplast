@@ -448,7 +448,7 @@ body .dropdown-wrapper.active .list {
 .header.black .right .phone {
   color: black;
 }
-.header.black .right .sity {
+.header.black .right .dropdown-wrapper .value {
   color: black;
 }
 .header.shadow {
