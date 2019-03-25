@@ -337,7 +337,7 @@ function custom(){
 
     //аккардион в каталоге
     $('.catalog .sidebar .category ul').hide()
-    $('.catalog .sidebar .category ul').eq(0).show()
+    $('.catalog .sidebar .category li.open ul').show()
     var list_opening = false;
     $('.catalog .sidebar .category > li > a').click(function(e){
         e.preventDefault();
