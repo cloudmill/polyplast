@@ -453,10 +453,19 @@ function custom(){
         $(this).addClass('checked')
         $(this).parent().parent().toggleClass('active')
     })
-
+    $(document).on('click','.header .dropdown-wrapper .list li, .footer .dropdown-wrapper .list li',function(){
+        var item = ['.header .dropdown-wrapper .list li','.footer .dropdown-wrapper .list li']
+        var index = $(this).index();
+        for(i = 0; i< item.length;i++){
+            $(item[i]).parent().parent().find('input').val($(this).text())
+            $(item[i]).parent().parent().find('input').change()
+            $(item[i]).parent().parent().find('.value').text($(this).text())
+            $(item[i]).parent().find('li').removeClass('checked')
+            $(item[i]).eq(index).addClass('checked')
+        }
+        $(this).parent().parent().removeClass('active')
+    })
     //кастомный select
-
-
 
     //слайдер на детальной странице в Уч. центре вкладка об уч. центре
     $('.training .about .methods .block_r .right img').fadeOut(0)

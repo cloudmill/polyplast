@@ -57,7 +57,6 @@ a{
     text-decoration: none;
     color: black;
 }
-::-webkit-scrollbar { width: 0; }
 body{
     margin: 0;
     padding: 0;
@@ -319,6 +318,15 @@ body{
                 transform: translate(-50%,-50%);
                 cursor: pointer;    
             }
+            form{
+                display: flex;
+                width: 100%;
+                height: 100%;
+                button{
+                    width: 45px;
+                    border-bottom: 1px solid white;
+                }
+            }
             input{
                 font: 16px @font;
                 color: white;
@@ -476,6 +484,11 @@ body{
                         opacity: 1;
                     }
                     border-bottom-color: #00a0e3;
+                }
+                form{
+                    button{
+                        border-bottom-color: #00a0e3;
+                    }
                 }
                 svg{
                     fill: #00a0e3;
@@ -2517,7 +2530,8 @@ body{
                     text-decoration: none;
                 }
                 .item{
-                    height: 140px;
+                    min-height: 140px;
+                    height: auto;
                     padding: 20px 30px;
                     border: 1px solid #f0f0f0;
                     border-left: 5px solid @c_green;
@@ -6560,6 +6574,7 @@ body{
             display: block;
             padding-top: 100px;
             margin-left: 325px;
+            min-height: 600px;
             >p{
                 font: 16px/30px @font;
                 color: @c_black;
@@ -7331,20 +7346,24 @@ body{
             height: 70px;
             margin-bottom: 30px;
             .col{
-                height: 70px;
                 flex-basis: 35%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 border-right: 1px solid #f0f0f0;
                 transition: all @time_a @cb;
                 border-bottom: 3px solid transparent;
                 cursor: pointer;
                 p{
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     font: 500 22px @font;
                     margin: 0;
                 }
                 a{
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     font: 500 22px @font;
                     margin: 0;
                 }
