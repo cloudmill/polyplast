@@ -213,10 +213,16 @@
                       </div>
                       <div class="right">
                           <label for="question">Резюме</label>
-                          <div class="file">
-                              <p>нажмите или перетащите сюда файл</p>
-                          </div>
-                          <a href="" class="connect_to"><img src="new_styles/img/gazeta.png" alt=""> прикрепить фотографию</a>
+                          <label class="file" for="resume_form">
+                              <input type="file" id="resume_form" name="resume_form" accept=".doc, .docx, .pdf">
+                              <p>нажмите чтобы загрузить файл</p>
+                              <p class="file-name"></p>
+                          </label>
+                          <label class="photo" for="photo_form">
+                              <input type="file" id="photo_form" name="photo_form" accept=".jpg, .jpeg, .png">
+                              <p class="connect_to"><img src="new_styles/img/gazeta.png" alt=""> прикрепить фотографию</p>
+                              <p class="file-name"></p>
+                          </label>
                       </div>
                   </div>
                   <div class="row button">

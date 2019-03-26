@@ -599,6 +599,11 @@ function custom(){
             $('.catalog .content .sidebar .adaptive_popup').toggleClass('active')
         }
     })
+
+    $('input[type="file"]').change(function(){
+        var value = $(this).val();
+        $(this).parent().find('p.file-name').text(value);
+    });
 }
 function maps(){
     ymaps.ready(function(){

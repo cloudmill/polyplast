@@ -8352,10 +8352,14 @@ body input.error {
   display: flex;
   align-items: center;
   cursor: pointer;
+  flex-direction: column;
   justify-content: center;
   height: 120px;
   width: 90%;
   margin-bottom: 30px;
+}
+.blackhole .popup-item .form-content form > .row .right .file input[type=file] {
+  display: none;
 }
 .blackhole .popup-item .form-content form > .row .right .file p {
   font: 12px 'Roboto';
@@ -8375,6 +8379,14 @@ body input.error {
   left: 0;
   transform-origin: center;
 }
+.blackhole .popup-item .form-content form > .row .right .file p.file-name {
+  margin: 0;
+  padding: 0;
+}
+.blackhole .popup-item .form-content form > .row .right .file p.file-name:after,
+.blackhole .popup-item .form-content form > .row .right .file p.file-name:before {
+  display: none;
+}
 .blackhole .popup-item .form-content form > .row .right .file p:after {
   content: '';
   display: block;
@@ -8387,14 +8399,30 @@ body input.error {
   transform-origin: center;
   transform: rotate(90deg);
 }
-.blackhole .popup-item .form-content form > .row .right .connect_to {
-  margin-top: 30px;
+.blackhole .popup-item .form-content form > .row .right .photo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.blackhole .popup-item .form-content form > .row .right .photo input {
+  display: none;
+}
+.blackhole .popup-item .form-content form > .row .right .photo p {
+  margin-top: 0px;
   font: 14px 'Roboto';
   color: #00a0e3;
   text-decoration: none;
 }
-.blackhole .popup-item .form-content form > .row .right .connect_to img {
+.blackhole .popup-item .form-content form > .row .right .photo p img {
   margin-right: 10px;
+}
+.blackhole .popup-item .form-content form > .row .right .photo p.file-name {
+  padding-left: 20px;
+}
+.blackhole .popup-item .form-content form > .row .right .photo p.file-name:after,
+.blackhole .popup-item .form-content form > .row .right .photo p.file-name:before {
+  display: none;
 }
 .blackhole .popup-item .form-content form > .row input,
 .blackhole .popup-item .form-content form > .row .select_item {
