@@ -7866,6 +7866,10 @@ body input.error {
 }
 .search_page .content .list {
   margin-top: 60px;
+  min-height: 400px;
+}
+.search_page .content .list h2 {
+  font: 24px 'Roboto';
 }
 .search_page .content .list .item {
   position: relative;
