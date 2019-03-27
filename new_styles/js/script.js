@@ -57,8 +57,8 @@ var height,m_left,width;
         $('#main_slider .six .content').css('width',width+'px');
         $('#main_slider .six .content').css('margin-left',m_left/2+'px');
         $('#main_slider .six .content').css('padding-left',m_left/2+'px');
-        $('#main_slider .six .content ').css('width',width+m_left+'px');
         $('#main_slider .six .content .container').css('left',m_left/2+'px');
+        $('#main_slider .six .content .container').css('width',(width+m_left)+'px');
         $('#main_slider .six .content .container .slider').css('width',width+'px');
     }
     else{
