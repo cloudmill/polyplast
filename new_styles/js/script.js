@@ -591,6 +591,23 @@ function custom(){
             $(this).addClass('active').trigger('classChange');
         }
     })
+    $(document).on('click','.show-hide .plus',function(){
+        if(!$(this).parent().parent().hasClass('active')){
+            $(this).parent().parent().removeClass('active');
+            $(this).parent().parent().addClass('active');
+        }
+        else{
+            $(this).parent().parent().removeClass('active')
+        }
+    })
+    $(document).on('click','.tabs .tab',function(){
+        if(!$(this).hasClass('active')){
+            $('.tabs .tab').removeClass('active')
+            $(this).addClass('active')
+            $(this).parent().parent().find('.tab-content > div,.tab-content > ul').removeClass('active');
+            $(this).parent().parent().find('.tab-content #'+$(this).data('tab')).addClass('active');
+        }
+    })
     $('.catalog .content .sidebar .all').click(function(){
         if($(window).width()>990){
             $('.catalog .content .sidebar .section_list').toggleClass('active')

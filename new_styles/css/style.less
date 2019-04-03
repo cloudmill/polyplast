@@ -2865,6 +2865,11 @@ body{
                         &.active{
                             border-color: #00a0e3;
                         }
+                        a{
+                            color: inherit;
+                            font: inherit;
+                            align-items: center;
+                        }
                     }
                     &.list{
                         li{
@@ -2903,6 +2908,129 @@ body{
                             &.doc{
                                 display: flex;
                             }
+                        }
+                    }
+                }
+                .tab-content{
+                    >div,>ul{
+                        display: none;
+                        &.active{
+                            display: flex;
+                        }
+                    }
+                }
+                .wherebuy{
+                    flex-direction: column;
+                    .item{
+                        border: 1px solid #e6e6e6;
+                        padding: 20px;
+                        margin-bottom: 5px;
+                        h2{
+                            color: #2c3538;
+                            font: 700 18px/41.95px @font;
+                            margin:0;
+                        }
+                        h4{
+                            color: #2c3538;
+                            font: 400 12px @font;
+                            text-transform: uppercase;
+                            margin-top: 0;
+                        }
+                        .plus{
+                            width: 27px;
+                            cursor: pointer;
+                            height: 27px;
+                            position: relative;
+                            margin-right: 15px;
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                transition: all @time_a @cb;
+                                left: 50%;
+                                width: 100%;
+                                height: 1px;
+                                transform: translate(-50%,-50%) rotate(90deg);
+                                background: #00a0e3;
+                            }
+                            &:after{
+                                content: '';
+                                transition: all @time_a @cb;
+                                position: absolute;
+                                width: 100%;
+                                background: #00a0e3;
+                                height: 1px;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                            }
+                        }
+                        .hide{
+                            opacity: 0;
+                            height: 0;
+                            transition: all @time_a @cb;
+                            margin-left: 42px;
+                            position: absolute;
+                            z-index: -1000000;
+                            a{
+                                color: #01a0e4;
+                                font: 16px/26px @font;
+                            }
+                            h5{
+                                color: #2c3538;
+                                font: 400 16px/26px @font;
+                                margin-bottom: 0;
+                                margin-top: 17px;
+                            }
+                        }
+                        .row{
+                            display: flex;
+                            align-items: center;
+                            padding-left: 0;
+                            
+                        }
+                        &.active{
+                            .hide{
+                                opacity: 1;
+                                height: auto;
+                                position: unset;
+                                p{
+                                    color: #2c3538;
+                                    font: 400 16px/26px @font;
+                                }
+                            }
+                            .plus{
+                                &:before{
+                                    transform: translate(-50%,-50%) rotate(225deg);
+                                }
+                                &:after{
+                                    transform: translate(-50%,-50%) rotate(135deg);
+                                }
+                            }
+                        }
+                    }
+                }
+                .reviews{
+                    flex-wrap: wrap;
+                    
+                    justify-content: space-between;
+                    align-items: center;
+                    .item{
+                        margin-right: 5px;
+                        margin-bottom: 5px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 20px;
+                        flex-basis: ~'calc((100% - 14px)/2 - 40px)';
+                        border: 1px solid #f0f0f0;
+                        img{
+                            margin-right: 20px;
+                        }
+                        a{
+                            color: #2a2a2a;
+                            font: 500 16px/20px @font;
+                            max-width: 200px;
                         }
                     }
                 }
